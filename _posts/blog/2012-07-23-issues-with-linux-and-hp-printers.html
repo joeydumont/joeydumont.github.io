@@ -1,0 +1,16 @@
+---
+layout: post
+title: Issues with Linux and HP printers
+date: '2012-07-23T09:31:00.000-04:00'
+author: Joey Dumont
+tags:
+- hp
+- cups
+- linux
+- printer
+modified_time: '2012-07-23T09:32:02.280-04:00'
+blogger_id: tag:blogger.com,1999:blog-3428773921792525741.post-8570592347299829758
+blogger_orig_url: http://blog.joey-dumont.ca/2012/07/issues-with-linux-and-hp-printers.html
+---
+
+<div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;But, I have found the solution!&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;</div><br /></div>

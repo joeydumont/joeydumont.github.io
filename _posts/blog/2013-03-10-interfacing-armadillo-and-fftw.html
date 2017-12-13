@@ -1,0 +1,16 @@
+---
+layout: post
+title: Interfacing Armadillo and FFTW
+date: '2013-03-10T23:31:00.000-04:00'
+author: Joey Dumont
+tags:
+- c++
+- programming
+- fftw
+- armadillo
+modified_time: '2013-04-10T08:23:04.449-04:00'
+blogger_id: tag:blogger.com,1999:blog-3428773921792525741.post-159941492213652542
+blogger_orig_url: http://blog.joey-dumont.ca/2013/03/interfacing-armadillo-and-fftw.html
+---
+
+<div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;FFTW, or the <i><a href="http://fftw.org/">Fastest Fourier Transform in the West</a></i>, is an awesome C library used to, well, perform FFTs. <a href="http://arma.sourceforce.net/">Armadillo</a>, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using <span style="font-family: Courier New, Courier, monospace;">fftw_complex*</span> arrays which memory are allocated using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>). Then, your C++ code should be something like <script src="https://gist.github.com/valandil/cc98f474360f027240f8.js"></script></div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  </div><div dir="ltr" style="text-align: justify;" trbidi="on"><b>Update:</b> Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the <span style="font-family: Courier New, Courier, monospace;">samples</span>matrix before creating the plan, your columns will be overwritten. Pay attention! </div>

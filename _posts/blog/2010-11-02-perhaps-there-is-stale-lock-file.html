@@ -1,0 +1,18 @@
+---
+layout: post
+title: Perhaps there is a stale lock file?
+date: '2010-11-02T19:47:00.002-04:00'
+author: Joey Dumont
+tags:
+- sleep
+- transmission
+- linux
+- bittorent
+- mtab
+- stale lock file
+modified_time: '2010-11-02T20:10:39.021-04:00'
+blogger_id: tag:blogger.com,1999:blog-3428773921792525741.post-3602829192752840645
+blogger_orig_url: http://blog.joey-dumont.ca/2010/11/perhaps-there-is-stale-lock-file.html
+---
+
+<div style="text-align: justify;"><div class="separator" style="clear: both; text-align: center;"><a href="http://i245.photobucket.com/albums/gg47/ubunterror/linux-penguin.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="200" src="http://i245.photobucket.com/albums/gg47/ubunterror/linux-penguin.jpg" width="181" /></a></div>&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:<br /><br /></div><blockquote><div style="text-align: justify;">Cannot link ... to /etc/mtab</div><div style="text-align: justify;">Perhaps there is a stale lock file?</div></blockquote><div style="text-align: justify;"><br />(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.<br />&nbsp;I immediatly Googled the issue<sup>[*]</sup> and eventually found a solution:<br /><br /></div><blockquote><div style="text-align: justify;">sudo rm /etc/mtab~</div></blockquote><div style="text-align: justify;"><br />This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;</div><div style="text-align: justify;"><br /></div><div class="footnote"><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><sup>[*]&nbsp;</sup>On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;</div></div>
