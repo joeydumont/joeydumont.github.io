@@ -1,7 +1,7 @@
 # Site wide configuration
 
 title: Study of Nature
-locale: en_US
+locale: en_CA
 description: >
  A personal blog rooted in my interest for physics, mathematics,
  technology and literature. Might contain content inappropriate
@@ -37,13 +37,14 @@ mathjax: true
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", ".less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules", "Gemfile", "Gemfile.lock", "LICENSE", "README.md", "vendor"]
 
+comments: true
 
 # Site owner
 owner:
   name: Joey Dumont
   avatar: bio-photo.jpg
   email: me@joey-dumont.ca
-  disqus-shortname:
+  disqus-shortname: studyofnature
   twitter: jayd_phys
   facebook: #username
   github: valandil

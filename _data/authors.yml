@@ -1,20 +1,13 @@
 # Authors
 
-billy_rick:
-  name: Billy Rick
-  web: http://thewhip.com
-  email: billy@rick.com
-  bio: "What do you want, jewels? I am a very extravagant man."
+jayd:
+  name: Joey Dumont
+  web: http://blog.joey-dumont.ca
+  email: me@joey-dumont.ca
+  bio: "whatever"
   avatar: bio-photo-2.jpg
-  twitter: extravagantman
+  twitter: jayd_phys
+  github: valandil
+  instagram: joeydumont211
   google:
-    plus: BillyRick
-
-cornelius_fiddlebone:
-  name: Cornelius Fiddlebone
-  email: cornelius@thewhip.com
-  bio: "I ordered what?"
-  avatar: bio-photo.jpg
-  twitter: rhymeswithsackit
-  google:
-    plus: CorneliusFiddlebone
+    plus:

@@ -1,27 +1,11 @@
 ---
 layout: page
-title: About the Jekyll Theme
-excerpt: "So Simple is a responsive Jekyll theme for your words and images."
-modified: 2014-08-08T19:44:38.564948-04:00
-image:
-  path: http://example.com/so-simple-sample-image-4.jpg
-  feature: so-simple-sample-image-4.jpg
-  credit: WeGraphics
-  creditlink: http://wegraphics.net/downloads/free-ultimate-blurred-background-pack/
+title: About me
+excerpt: "A somewhat intelligent person with limited social skills."
 ---
 
-Looking for a simple, responsive, theme for your Jekyll powered blog? Well look no further. Here be **So Simple Theme**, the follow up to [**Minimal Mistakes**](http://mmistakes.github.io/minimal-mistakes) --- by designer slash illustrator [Michael Rose](http://mademistakes.com).
-
-## So Simple Theme is all about:
-
-* Responsive templates. Looking good on mobile, tablet, and desktop.
-* Gracefully degrading in older browsers. Compatible with Internet Explorer 9+ and all modern browsers.
-* Minimal embellishments and subtle animations.
-* Optional large feature images for posts and pages.
-* [Custom 404 page]({{ site.url }}/404.html) to get you started.
-* [Simple site search](https://github.com/christian-fei/Simple-Jekyll-Search)
-* Support for Disqus Comments
-
-<a markdown="0" href="{{ site.url }}/theme-setup" class="btn">Install So Simple Theme</a>
-
-[^1]: Example: *domain.com/category-name/post-title*
+Hi! I'm a Ph. D. student at [INRS-ÉMT](http://www.emt.inrs.ca) ([<i class="fa fa-twitter-square"></i>](http://twitter.com/@INRS)).
+I am currently working on the modeling of strong-field quantum electrodynamics processes
+in the presence of tightly focused electromagnetic fields. I am interested in the
+development of high-performance computing scientific applications designed
+to be run on large computational clusters.
