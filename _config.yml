@@ -62,3 +62,8 @@ owner:
     ad-client:
     ad-slot:
   bing-verify:
+
+# Bibliographic data
+scholar:
+  style: "_bibliography/the-optical-society-fixed.csl"
+  bibliography: "publications.bib"
