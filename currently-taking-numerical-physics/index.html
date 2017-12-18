@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Corrrupted SVN repo and the solution">
 <meta name="twitter:description" content="&nbsp; &nbsp;I'm currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.&nbsp; &nbsp;We are mostly using MATLAB (I personally use Octave, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don't have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it's worth, is Creative Commons.)&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;in the morning, svn returned the error&nbsp;Reading one svndiff window read beyond the end of the representation.which I didn't know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge support page that gave a solution to the problem.&nbsp; &nbsp;Okay, so here's the complete solution. You log on to the Shell SourceForge provide and run the following commands:adminrepo --checkout svnsvnadmin dump -r 0:92 /svnroot/projectName/ &gt; ~/repo.dumpThe adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).&nbsp; &nbsp;Now, if you're sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.rm -rf /svnroot/projectName/svnadmin create /svnroot/projectNameadminrepo --save svnNow half the fun is done. The repo is back in the main folder (which you can't modify directly) and your DB should be un-corrupted (or whatever).&nbsp; &nbsp;If you're using the new SourceForge bashboard, you can't stop here. You have to tell the dashboard that you've made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:https://projectName.svn.sourceforge.net/svnroot/projectNameclick Import and you're done!&nbsp;Please inform me in the comments is something is unclear or just plain wrong. Thanks!">
 <meta name="twitter:site" content="@jayd_phys">
-
+<meta name="twitter:creator" content="@jayd_phys">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
@@ -122,7 +122,9 @@
       <footer class="entry-meta">
         
         
-        <span class="author vcard">By <span class="fn"></span></span>
+          <img src="https://valandil.github.io/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
         <span class="entry-date date published"><time datetime="2012-02-02T18:01:00-05:00"><i class="fa fa-calendar-o"></i> February 02, 2012</time></span>
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
@@ -174,7 +176,7 @@
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
 	

@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Printer margins issues with Samsung CLP-310N">
 <meta name="twitter:description" content="&nbsp; &nbsp;Although this is a rather specific issue concerning the Samsung CLP-310N, I thought it could be a good idea to share the solution to a longstanding problem I was having.&nbsp;&nbsp; &nbsp;For some reason, when I upgraded CUPS some time ago (I don't recall specifically when this began), printing PDFs and other documents from my Arch Linux box was difficult. The documents were not properly centered on the page (the top margin was way too low). So, I googled for something interesting. I came up with someone saying that the SPL-C driver seemed to be the cause and that switching to foo2qpdl solved the problem.&nbsp; &nbsp;I immediately tried to change my printer's driver to this one with CUPS (on my machine, I just go to http://localhost:631), but the driver was not in the list, even though the foo2qpdl XML file comes with foomatic-db, which I had installed a while back.&nbsp;&nbsp; &nbsp;Okay, the quick solution is:yaourt -S foo2zjsthen you will be able to select the Foomatic/foo2qpdl from the drop-down menu in CUPS. This is an AUR package, which seems to be well maintained.&nbsp;Anyway, hope this helps. Certainly helped me!&nbsp;">
 <meta name="twitter:site" content="@jayd_phys">
-
+<meta name="twitter:creator" content="@jayd_phys">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
@@ -122,7 +122,9 @@
       <footer class="entry-meta">
         
         
-        <span class="author vcard">By <span class="fn"></span></span>
+          <img src="https://valandil.github.io/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
         <span class="entry-date date published"><time datetime="2012-03-29T03:25:00-04:00"><i class="fa fa-calendar-o"></i> March 29, 2012</time></span>
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
@@ -174,7 +176,7 @@
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
 	

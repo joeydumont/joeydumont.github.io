@@ -14,7 +14,7 @@
 <meta name="twitter:title" content="Return user-defined sets in PostgreSQL">
 <meta name="twitter:description" content="&nbsp; &nbsp;Returning sets of data with PL/pgSQL functions can be somewhat tricky. The documentation has a line saying how to do it somewhere, but the beginner SQL user (like the author of this post) might be confused at the impressive amount of information given by this document.&nbsp;&nbsp; This post is thus intended as an example that firsts creates a small database and a function that manipulates data. Let's do this!First, let's create two tables with some data in them.CREATE TABLE foo ("IndexFoo" integer DEFAULT nextval('"sq_IndexFoo"'::regclass) NOT NULL,"FOO_IndexCol1" integer NOT NULL,"FOO_Timestamp" timestamp without time zone DEFAULT now());And a table that is pointed to by foo:CREATE TABLE foo_info ("IndexInfoFoo" integer DEFAULT nextval('"sq_IndexFooInfo"'::regclass) NOT NULL,"INF_Answer" integer DEFAULT 42);&nbsp;Now say we want to return rows from both tables. Say we want the answer, given in foo_info and the timestamp, given in foo. We just have to create a function that does justCREATE OR REPLACE FUNCTION "f_whatIsTheAnswer"(OUT answer integer, OUT "time" timestamp without time zone)RETURNS SETOF record AS $$BEGINRETURN QUERY SELECT fi."INF_Answer", f."FOO_Timestamp"FROM foo fJOIN "foo_info" fi ON f."FOO_IndexCol1" = fi."IndexInfoFoo";END;$$ LANGUAGE plpgsql;Notice how the returned columns are defined in the function's arguments. This defines the column set returned by the function. If left out, PostgreSQL will complain that the record type has not been assigned any return type.Because we use PL/pgSQL, the RETURN QUERY statement is used. Since this is a simple query with no complex data manipulation, it could have been a simple SQL request. The RETURN QUERY would have been unnecessary.Try it yourself! Here's the database dump.dump.sql">
 <meta name="twitter:site" content="@jayd_phys">
-
+<meta name="twitter:creator" content="@jayd_phys">
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
@@ -122,7 +122,9 @@
       <footer class="entry-meta">
         
         
-        <span class="author vcard">By <span class="fn"></span></span>
+          <img src="https://valandil.github.io/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
         <span class="entry-date date published"><time datetime="2011-08-18T01:03:00-04:00"><i class="fa fa-calendar-o"></i> August 18, 2011</time></span>
         
         <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
@@ -174,7 +176,7 @@
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
 	
