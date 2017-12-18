@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Corrrupted SVN repo and the solution &#8211; Study of Nature</title>
+<meta name="description" content="&nbsp; &nbsp;I'm currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.&nbsp; &nbsp;We are mostly using MATLAB (I personally use Octave, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don't have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it's worth, is Creative Commons.)&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;in the morning, svn returned the error&nbsp;Reading one svndiff window read beyond the end of the representation.which I didn't know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge support page that gave a solution to the problem.&nbsp; &nbsp;Okay, so here's the complete solution. You log on to the Shell SourceForge provide and run the following commands:adminrepo --checkout svnsvnadmin dump -r 0:92 /svnroot/projectName/ &gt; ~/repo.dumpThe adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).&nbsp; &nbsp;Now, if you're sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.rm -rf /svnroot/projectName/svnadmin create /svnroot/projectNameadminrepo --save svnNow half the fun is done. The repo is back in the main folder (which you can't modify directly) and your DB should be un-corrupted (or whatever).&nbsp; &nbsp;If you're using the new SourceForge bashboard, you can't stop here. You have to tell the dashboard that you've made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:https://projectName.svn.sourceforge.net/svnroot/projectNameclick Import and you're done!&nbsp;Please inform me in the comments is something is unclear or just plain wrong. Thanks!">
+<meta name="keywords" content="command-line, sourceforge, svn">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Corrrupted SVN repo and the solution">
+<meta name="twitter:description" content="&nbsp; &nbsp;I'm currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.&nbsp; &nbsp;We are mostly using MATLAB (I personally use Octave, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don't have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it's worth, is Creative Commons.)&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;in the morning, svn returned the error&nbsp;Reading one svndiff window read beyond the end of the representation.which I didn't know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge support page that gave a solution to the problem.&nbsp; &nbsp;Okay, so here's the complete solution. You log on to the Shell SourceForge provide and run the following commands:adminrepo --checkout svnsvnadmin dump -r 0:92 /svnroot/projectName/ &gt; ~/repo.dumpThe adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).&nbsp; &nbsp;Now, if you're sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.rm -rf /svnroot/projectName/svnadmin create /svnroot/projectNameadminrepo --save svnNow half the fun is done. The repo is back in the main folder (which you can't modify directly) and your DB should be un-corrupted (or whatever).&nbsp; &nbsp;If you're using the new SourceForge bashboard, you can't stop here. You have to tell the dashboard that you've made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:https://projectName.svn.sourceforge.net/svnroot/projectNameclick Import and you're done!&nbsp;Please inform me in the comments is something is unclear or just plain wrong. Thanks!">
+<meta name="twitter:site" content="@jayd_phys">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Corrrupted SVN repo and the solution">
+<meta property="og:description" content="&nbsp; &nbsp;I'm currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.&nbsp; &nbsp;We are mostly using MATLAB (I personally use Octave, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don't have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it's worth, is Creative Commons.)&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;in the morning, svn returned the error&nbsp;Reading one svndiff window read beyond the end of the representation.which I didn't know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge support page that gave a solution to the problem.&nbsp; &nbsp;Okay, so here's the complete solution. You log on to the Shell SourceForge provide and run the following commands:adminrepo --checkout svnsvnadmin dump -r 0:92 /svnroot/projectName/ &gt; ~/repo.dumpThe adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).&nbsp; &nbsp;Now, if you're sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.rm -rf /svnroot/projectName/svnadmin create /svnroot/projectNameadminrepo --save svnNow half the fun is done. The repo is back in the main folder (which you can't modify directly) and your DB should be un-corrupted (or whatever).&nbsp; &nbsp;If you're using the new SourceForge bashboard, you can't stop here. You have to tell the dashboard that you've made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:https://projectName.svn.sourceforge.net/svnroot/projectNameclick Import and you're done!&nbsp;Please inform me in the comments is something is unclear or just plain wrong. Thanks!">
+<meta property="og:url" content="https://valandil.github.io/currently-taking-numerical-physics/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://valandil.github.io/currently-taking-numerical-physics/">
+<link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://valandil.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://valandil.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://valandil.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://valandil.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://valandil.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://valandil.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://valandil.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://valandil.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://valandil.github.io/" rel="home" title="Study of Nature"><img src="https://valandil.github.io/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://valandil.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{}
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Corrrupted SVN repo and the solution</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://valandil.github.io/tags/#command-line" title="Pages tagged command-line">command-line</a></li><li><a href="https://valandil.github.io/tags/#sourceforge" title="Pages tagged sourceforge">sourceforge</a></li><li><a href="https://valandil.github.io/tags/#svn" title="Pages tagged svn">svn</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+        <span class="author vcard">By <span class="fn"></span></span>
+        <span class="entry-date date published"><time datetime="2012-02-02T18:01:00-05:00"><i class="fa fa-calendar-o"></i> February 02, 2012</time></span>
+        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        
+        
+      </footer>
+      <div class="entry-content">
+        <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;I'm currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;We are mostly using MATLAB (I personally use <a href="http://www.gnu.org/software/octave/" target="_blank">Octave</a>, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don't have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it's worth, is Creative Commons.)</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;<a href="http://www.noagendashow.com/" target="_blank">in the morning</a>, svn returned the error&nbsp;</span></div><blockquote class="tr_bq"><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">Reading one svndiff window read beyond the end of the representation.</span></div></blockquote><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">which I didn't know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge <a href="https://sourceforge.net/apps/trac/sourceforge/wiki/SVN%20adminrepo" target="_blank">support page</a> that gave a solution to the problem.</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;Okay, so here's the complete solution. You <a href="https://sourceforge.net/apps/trac/sourceforge/wiki/Shell%20service" target="_blank">log on</a> to the Shell SourceForge provide and run the following commands:</span></div><blockquote class="tr_bq"><br /><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">adminrepo --checkout svn</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">svnadmin dump -r 0:92 /svnroot/<b>projectName</b>/ &gt; ~/repo.dump</span></div></blockquote><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">The adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;Now, if you're sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.</span></div><blockquote class="tr_bq"><br /><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">rm -rf /svnroot/<b>projectName</b>/</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">svnadmin create /svnroot/<b>projectName</b></span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">adminrepo --save svn</span></div></blockquote><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">Now half the fun is done. The repo is back in the main folder (which you can't modify directly) and your DB should be un-corrupted (or whatever).</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">&nbsp; &nbsp;If you're using the new SourceForge bashboard, you can't stop here. You have to tell the dashboard that you've made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:</span></div><blockquote class="tr_bq" style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">https://projectName.svn.sourceforge.net/svnroot/<b>projectName</b></span></blockquote><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;"><br /></span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">click Import and you're done!&nbsp;</span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;"><br /></span></div><div style="text-align: justify;"><span style="font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;">Please inform me in the comments is something is unclear or just plain wrong. Thanks!</span></div></div>
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://valandil.github.io/contribution-to-book-of-knowledge/" class="btn" title="Contribution to the Book of Knowledge">Previous</a>
+      
+      
+        <a href="https://valandil.github.io/equations-in-blogger-part-2/" class="btn" title="Equations in Blogger (part 2)">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="https://github.com/valandil" title="Joey Dumont on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://valandil.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://valandil.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://valandil.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://valandil.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>

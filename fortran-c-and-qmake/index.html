@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Fortran, C++ and qmake &#8211; Study of Nature</title>
+<meta name="description" content="Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I'm using D.E. Amos'&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child's play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!">
+<meta name="keywords" content="c++, programming, fortran, linux, numerical_physics, physics">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Fortran, C++ and qmake">
+<meta name="twitter:description" content="Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I'm using D.E. Amos'&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child's play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!">
+<meta name="twitter:site" content="@jayd_phys">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fortran, C++ and qmake">
+<meta property="og:description" content="Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I'm using D.E. Amos'&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child's play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!">
+<meta property="og:url" content="https://valandil.github.io/fortran-c-and-qmake/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://valandil.github.io/fortran-c-and-qmake/">
+<link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://valandil.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://valandil.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://valandil.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://valandil.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://valandil.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://valandil.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://valandil.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://valandil.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://valandil.github.io/" rel="home" title="Study of Nature"><img src="https://valandil.github.io/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://valandil.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{}
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Fortran, C++ and qmake</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://valandil.github.io/tags/#c++" title="Pages tagged c++">c++</a></li><li><a href="https://valandil.github.io/tags/#programming" title="Pages tagged programming">programming</a></li><li><a href="https://valandil.github.io/tags/#fortran" title="Pages tagged fortran">fortran</a></li><li><a href="https://valandil.github.io/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://valandil.github.io/tags/#numerical_physics" title="Pages tagged numerical_physics">numerical_physics</a></li><li><a href="https://valandil.github.io/tags/#physics" title="Pages tagged physics">physics</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+        <span class="author vcard">By <span class="fn"></span></span>
+        <span class="entry-date date published"><time datetime="2012-08-24T13:20:00-04:00"><i class="fa fa-calendar-o"></i> August 24, 2012</time></span>
+        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        
+        
+      </footer>
+      <div class="entry-content">
+        <div dir="ltr" style="text-align: left;" trbidi="on"><table cellpadding="0" cellspacing="0" class="tr-caption-container" style="float: left; margin-right: 1em; text-align: left;"><tbody><tr><td style="text-align: center;"><a href="http://upload.wikimedia.org/wikipedia/ru/7/70/QtCreator.png" imageanchor="1" style="clear: left; margin-bottom: 1em; margin-left: auto; margin-right: auto;"><img alt="" border="0" height="196" src="http://upload.wikimedia.org/wikipedia/ru/7/70/QtCreator.png" title="I know, I know, using an IDE on Linux..." width="200" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">Qt Creator Logo</td></tr></tbody></table><div style="text-align: justify;">&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or <span style="font-family: Courier New, Courier, monospace;">-&gt;</span> operators, it makes the build process faster and easier to configure (sometimes), etc.</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been <a href="http://www.yolinux.com/TUTORIALS/LinuxTutorialMixingFortranAndC.html" target="_blank">done</a> <a href="http://stackoverflow.com/questions/5663083/linking-fortran-and-c-binaries-using-gcc" target="_blank">before</a>, but my research has yielded one <a href="http://nanophysics.dk/blog/2009/03/25/getting-started-with-qt-linked-with-fortran/" target="_blank">link</a> for Fortran and Qt.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;I'm using <a href="http://dl.acm.org/citation.cfm?id=214331" target="_blank">D.E. Amos'</a>&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by <a href="http://www.springerlink.com/content/n2j129r7l0532h72/" target="_blank">Temme</a>&nbsp;could be used for this, but maybe a later time.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using <span style="font-family: Courier New, Courier, monospace;">qmake</span>, this is child's play.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;"></div><ul><li>First, add the Fortran source files as sources in your .pro file.&nbsp;</li><blockquote class="tr_bq"><span style="font-family: Courier New, Courier, monospace;">SOURCES += machine.for zbesh.for</span></blockquote><br />Those are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;</ul><ul><li>Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; <br /><script src="https://gist.github.com/3452963.js"></script><br />A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The <span style="font-family: Courier New, Courier, monospace;">extern</span> keyword tells the compiler that a separately compiled <i>object</i> will be used. By defaul<span style="font-family: Courier New, Courier, monospace;">t, g++ </span> will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.<br />Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;</li><li>You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the <blockquote class="tr_bq" style="text-align: left;"><span style="font-family: Courier New, Courier, monospace;">-lgfortran</span></blockquote>when compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  </li></ul><br />Wow, that last sentence was terrible.<br /><br /><span style="text-align: justify;">&nbsp; &nbsp;Anyway, have fun programming!</span></div>
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://valandil.github.io/issues-with-linux-and-hp-printers/" class="btn" title="Issues with Linux and HP printers">Previous</a>
+      
+      
+        <a href="https://valandil.github.io/bessel-functions-of-complex-argument/" class="btn" title="Bessel functions of complex argument">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="https://github.com/valandil" title="Joey Dumont on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://valandil.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://valandil.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://valandil.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://valandil.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>

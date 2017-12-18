@@ -5,14 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Latest Posts &#8211; Study of Nature</title>
-<meta name="description" content="A simple and clean responsive Jekyll theme for words and photos.">
+<title>Search &#8211; Study of Nature</title>
+
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Latest Posts">
-<meta name="twitter:description" content="A simple and clean responsive Jekyll theme for words and photos.">
+<meta name="twitter:title" content="Search">
+
 <meta name="twitter:site" content="@jayd_phys">
 <meta name="twitter:creator" content="@jayd_phys">
 
@@ -22,16 +22,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_CA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Latest Posts">
-<meta property="og:description" content="A simple and clean responsive Jekyll theme for words and photos.">
-<meta property="og:url" content="https://valandil.github.io/">
+<meta property="og:title" content="Search">
+
+<meta property="og:url" content="https://valandil.github.io/search/">
 <meta property="og:site_name" content="Study of Nature">
 
 
 
 
 
-<link rel="canonical" href="https://valandil.github.io/">
+<link rel="canonical" href="https://valandil.github.io/search/">
 <link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -124,32 +124,29 @@
     
     <div class="entry-wrapper">
       <header class="entry-header">
-        <h1 class="entry-title">Latest Posts</h1>
+        <h1 class="entry-title">Search</h1>
       </header>
       <div class="entry-content">
-        <ul class="post-list">
+        <!-- Search form -->
+<form method="get" action="https://valandil.github.io/search/" data-search-form="" class="simple-search">
+  <label for="q">Search Study of Nature for:</label>
+  <input type="search" name="q" id="goog-wm-qt" placeholder="What are you looking for?" data-search-input="" autofocus="" />
+  <input type="submit" value="Search" id="goog-wm-sb" />
+</form>
 
-  <li><article><a href="https://valandil.github.io/have-yaourt-save-compiled-packages-to/">Have yaourt save compiled packages to /var/cache/pacman/pkg <span class="entry-date"><time datetime="2015-04-14T16:46:00-04:00">April 14, 2015</time></span></a></article></li>
+<!-- Search results placeholder -->
+<h6 data-search-found="">
+  <span data-search-found-count=""></span> result(s) found for &ldquo;<span data-search-found-term=""></span>&rdquo;.
+</h6>
+<ul class="post-list" data-search-results=""></ul>
 
-  <li><article><a href="https://valandil.github.io/google-calendar-material-design/">Google Calendar Material Design <span class="entry-date"><time datetime="2014-11-11T15:55:00-05:00">November 11, 2014</time></span></a></article></li>
+<!-- Search result template -->
+<script type="text/x-template" id="search-result">
+  <li><article>
+    <a href="##Url##">##Title## <span class="excerpt">##Excerpt##</span></a>
+  </article></li>
+</script>
 
-  <li><article><a href="https://valandil.github.io/dual-basis-and-its-applications/">Dual basis and its applications <span class="entry-date"><time datetime="2013-04-21T13:55:00-04:00">April 21, 2013</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/interfacing-armadillo-and-fftw/">Interfacing Armadillo and FFTW <span class="entry-date"><time datetime="2013-03-10T23:31:00-04:00">March 10, 2013</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/arrow-in-knee-genesis/">Arrow in the Knee: the Genesis <span class="entry-date"><time datetime="2013-01-24T01:06:00-05:00">January 24, 2013</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/literary-ramblings-about-universe/">(Literary) Ramblings about the Universe <span class="entry-date"><time datetime="2012-09-08T00:19:00-04:00">September 08, 2012</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/bessel-functions-of-complex-argument/">Bessel functions of complex argument <span class="entry-date"><time datetime="2012-09-08T00:11:00-04:00">September 08, 2012</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/fortran-c-and-qmake/">Fortran, C++ and qmake <span class="entry-date"><time datetime="2012-08-24T13:20:00-04:00">August 24, 2012</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/issues-with-linux-and-hp-printers/">Issues with Linux and HP printers <span class="entry-date"><time datetime="2012-07-23T09:31:00-04:00">July 23, 2012</time></span></a></article></li>
-
-  <li><article><a href="https://valandil.github.io/lattice-gauge-theory/">Lattice Gauge Theory <span class="entry-date"><time datetime="2012-05-17T16:40:00-04:00">May 17, 2012</time></span></a></article></li>
-
-</ul>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

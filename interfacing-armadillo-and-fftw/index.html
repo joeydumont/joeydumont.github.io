@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Interfacing Armadillo and FFTW &#8211; Study of Nature</title>
+<meta name="description" content="&nbsp;&nbsp;&nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  &nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention! ">
+<meta name="keywords" content="c++, programming, fftw, armadillo">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Interfacing Armadillo and FFTW">
+<meta name="twitter:description" content="&nbsp;&nbsp;&nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  &nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention! ">
+<meta name="twitter:site" content="@jayd_phys">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Interfacing Armadillo and FFTW">
+<meta property="og:description" content="&nbsp;&nbsp;&nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  &nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention! ">
+<meta property="og:url" content="https://valandil.github.io/interfacing-armadillo-and-fftw/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://valandil.github.io/interfacing-armadillo-and-fftw/">
+<link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://valandil.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://valandil.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://valandil.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://valandil.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://valandil.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://valandil.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://valandil.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://valandil.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://valandil.github.io/" rel="home" title="Study of Nature"><img src="https://valandil.github.io/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://valandil.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{}
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Interfacing Armadillo and FFTW</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://valandil.github.io/tags/#c++" title="Pages tagged c++">c++</a></li><li><a href="https://valandil.github.io/tags/#programming" title="Pages tagged programming">programming</a></li><li><a href="https://valandil.github.io/tags/#fftw" title="Pages tagged fftw">fftw</a></li><li><a href="https://valandil.github.io/tags/#armadillo" title="Pages tagged armadillo">armadillo</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+        <span class="author vcard">By <span class="fn"></span></span>
+        <span class="entry-date date published"><time datetime="2013-03-10T23:31:00-04:00"><i class="fa fa-calendar-o"></i> March 10, 2013</time></span>
+        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        
+        
+      </footer>
+      <div class="entry-content">
+        <div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;FFTW, or the <i><a href="http://fftw.org/">Fastest Fourier Transform in the West</a></i>, is an awesome C library used to, well, perform FFTs. <a href="http://arma.sourceforce.net/">Armadillo</a>, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using <span style="font-family: Courier New, Courier, monospace;">fftw_complex*</span> arrays which memory are allocated using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>). Then, your C++ code should be something like <script src="https://gist.github.com/valandil/cc98f474360f027240f8.js"></script></div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  </div><div dir="ltr" style="text-align: justify;" trbidi="on"><b>Update:</b> Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the <span style="font-family: Courier New, Courier, monospace;">samples</span>matrix before creating the plan, your columns will be overwritten. Pay attention! </div>
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://valandil.github.io/arrow-in-knee-genesis/" class="btn" title="Arrow in the Knee: the Genesis">Previous</a>
+      
+      
+        <a href="https://valandil.github.io/dual-basis-and-its-applications/" class="btn" title="Dual basis and its applications">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="https://github.com/valandil" title="Joey Dumont on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://valandil.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://valandil.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://valandil.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://valandil.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Issues with Linux and HP printers &#8211; Study of Nature</title>
+<meta name="description" content="&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;&nbsp; &nbsp;But, I have found the solution!&nbsp;&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;">
+<meta name="keywords" content="hp, cups, linux, printer">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Issues with Linux and HP printers">
+<meta name="twitter:description" content="&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;&nbsp; &nbsp;But, I have found the solution!&nbsp;&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;">
+<meta name="twitter:site" content="@jayd_phys">
+
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Issues with Linux and HP printers">
+<meta property="og:description" content="&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;&nbsp; &nbsp;But, I have found the solution!&nbsp;&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;">
+<meta property="og:url" content="https://valandil.github.io/issues-with-linux-and-hp-printers/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://valandil.github.io/issues-with-linux-and-hp-printers/">
+<link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://valandil.github.io/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://valandil.github.io/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://valandil.github.io/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://valandil.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://valandil.github.io/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://valandil.github.io/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://valandil.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://valandil.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://valandil.github.io/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://valandil.github.io/" rel="home" title="Study of Nature"><img src="https://valandil.github.io/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://valandil.github.io/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://valandil.github.io/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+{}
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Issues with Linux and HP printers</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://valandil.github.io/tags/#hp" title="Pages tagged hp">hp</a></li><li><a href="https://valandil.github.io/tags/#cups" title="Pages tagged cups">cups</a></li><li><a href="https://valandil.github.io/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://valandil.github.io/tags/#printer" title="Pages tagged printer">printer</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+        <span class="author vcard">By <span class="fn"></span></span>
+        <span class="entry-date date published"><time datetime="2012-07-23T09:31:00-04:00"><i class="fa fa-calendar-o"></i> July 23, 2012</time></span>
+        
+        <span class="entry-comments"><i class="fa fa-comment-o"></i> <a href="#disqus_thread">Comment</a></span>
+        
+        
+      </footer>
+      <div class="entry-content">
+        <div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: justify;">&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;But, I have found the solution!&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;</div><br /></div>
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://valandil.github.io/lattice-gauge-theory/" class="btn" title="Lattice Gauge Theory">Previous</a>
+      
+      
+        <a href="https://valandil.github.io/fortran-c-and-qmake/" class="btn" title="Fortran, C++ and qmake">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2017 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+	
+	
+	
+	
+	
+	
+	<a href="https://github.com/valandil" title="Joey Dumont on Github" target="_blank"><i class="fa fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://valandil.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://valandil.github.io';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://valandil.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://valandil.github.io/assets/js/scripts.min.js"></script>
+
+
+
+
+</body>
+</html>
