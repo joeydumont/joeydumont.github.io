@@ -17,22 +17,22 @@
 <meta name="twitter:creator" content="@jayd_phys">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://valandil.github.io/images/site-logo.png">
+<meta name="twitter:image" content="https://blog.joey-dumont.ca/images/site-logo.png">
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_CA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Perhaps there is a stale lock file?">
 <meta property="og:description" content="&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:Cannot link ... to /etc/mtabPerhaps there is a stale lock file?(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.&nbsp;I immediatly Googled the issue[*] and eventually found a solution:sudo rm /etc/mtab~This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;[*]&nbsp;On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;">
-<meta property="og:url" content="https://valandil.github.io/perhaps-there-is-stale-lock-file/">
+<meta property="og:url" content="https://blog.joey-dumont.ca/perhaps-there-is-stale-lock-file/">
 <meta property="og:site_name" content="Study of Nature">
 
 
 
 
 
-<link rel="canonical" href="https://valandil.github.io/perhaps-there-is-stale-lock-file/">
-<link href="https://valandil.github.io/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+<link rel="canonical" href="https://blog.joey-dumont.ca/perhaps-there-is-stale-lock-file/">
+<link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
 
 <!-- https://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -40,7 +40,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- For all browsers -->
-<link rel="stylesheet" href="https://valandil.github.io/assets/css/main.css">
+<link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
 <!-- Webfonts -->
 <script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
 
@@ -48,12 +48,12 @@
 
 <!-- HTML5 Shiv and Media Query Support -->
 <!--[if lt IE 9]>
-  <script src="https://valandil.github.io/assets/js/vendor/html5shiv.min.js"></script>
-  <script src="https://valandil.github.io/assets/js/vendor/respond.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/respond.min.js"></script>
 <![endif]-->
 
 <!-- Modernizr -->
-<script src="https://valandil.github.io/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+<script src="https://blog.joey-dumont.ca/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
 
 
 <!-- MathJax -->
@@ -62,17 +62,17 @@
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="https://valandil.github.io/favicon.ico">
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="https://valandil.github.io/favicon.png">
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="https://valandil.github.io/images/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="https://blog.joey-dumont.ca/images/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://valandil.github.io/images/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://blog.joey-dumont.ca/images/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://valandil.github.io/images/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://blog.joey-dumont.ca/images/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://valandil.github.io/images/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
 
 </head>
 
@@ -81,19 +81,19 @@
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated drop">
 	    <ul>
-      <li><a href="https://valandil.github.io/" rel="home" title="Study of Nature"><img src="https://valandil.github.io/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
       
 		    
-		    <li><a href="https://valandil.github.io/about/" >About</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
 		  
 		    
-		    <li><a href="https://valandil.github.io/articles/" >Academic Publications</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
 		  
 		    
-		    <li><a href="https://valandil.github.io/blog/" >Blog</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
 		  
 		    
-		    <li><a href="https://valandil.github.io/search/" >Search</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/search/" >Search</a></li>
 		  
 	    </ul>
 	</nav>
@@ -116,13 +116,13 @@
           <h1 class="entry-title">Perhaps there is a stale lock file?</h1>
         
         <ul class="entry-tags">
-          <li><a href="https://valandil.github.io/tags/#sleep" title="Pages tagged sleep">sleep</a></li><li><a href="https://valandil.github.io/tags/#transmission" title="Pages tagged transmission">transmission</a></li><li><a href="https://valandil.github.io/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://valandil.github.io/tags/#bittorent" title="Pages tagged bittorent">bittorent</a></li><li><a href="https://valandil.github.io/tags/#mtab" title="Pages tagged mtab">mtab</a></li><li><a href="https://valandil.github.io/tags/#stale lock file" title="Pages tagged stale lock file">stale lock file</a></li>
+          <li><a href="https://blog.joey-dumont.ca/tags/#sleep" title="Pages tagged sleep">sleep</a></li><li><a href="https://blog.joey-dumont.ca/tags/#transmission" title="Pages tagged transmission">transmission</a></li><li><a href="https://blog.joey-dumont.ca/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://blog.joey-dumont.ca/tags/#bittorent" title="Pages tagged bittorent">bittorent</a></li><li><a href="https://blog.joey-dumont.ca/tags/#mtab" title="Pages tagged mtab">mtab</a></li><li><a href="https://blog.joey-dumont.ca/tags/#stale lock file" title="Pages tagged stale lock file">stale lock file</a></li>
         </ul>
       </header>
       <footer class="entry-meta">
         
         
-          <img src="https://valandil.github.io/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+          <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
         
         <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
         <span class="entry-date date published"><time datetime="2010-11-02T19:47:00-04:00"><i class="fa fa-calendar-o"></i> November 02, 2010</time></span>
@@ -163,10 +163,10 @@
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="https://valandil.github.io/gcal-push-notifications-on-your-ipod/" class="btn" title="GCal push notifications on your iPod">Previous</a>
+        <a href="https://blog.joey-dumont.ca/gcal-push-notifications-on-your-ipod/" class="btn" title="GCal push notifications on your iPod">Previous</a>
       
       
-        <a href="https://valandil.github.io/equations-in-blogger/" class="btn" title="Equations in Blogger">Next</a>
+        <a href="https://blog.joey-dumont.ca/equations-in-blogger/" class="btn" title="Equations in Blogger">Next</a>
       
     </nav><!-- /.pagination -->
   </article>
@@ -189,19 +189,19 @@
 	
   
 	
-  <a href="https://valandil.github.io/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+  <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
 </div><!-- /.social-icons -->
 
   </footer>
 </div><!-- /.footer-wrapper -->
 
 <script type="text/javascript">
-  var BASE_URL = 'https://valandil.github.io';
+  var BASE_URL = 'https://blog.joey-dumont.ca';
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="https://valandil.github.io/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="https://valandil.github.io/assets/js/scripts.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
 
 
 
