@@ -1,1 +1,1 @@
-Sitemap: https://valandil.github.io/sitemap.xml
+Sitemap: //valandil.github.io/sitemap.xml
