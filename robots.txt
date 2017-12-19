@@ -1,1 +1,1 @@
-Sitemap: https://blog.joey-dumont.ca/sitemap.xml
+Sitemap: https://valandil.github.io/sitemap.xml
