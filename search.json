@@ -3,7 +3,7 @@
   
     {
       "title"			: "Have yaourt save compiled packages to /var/cache/pacman/pkg",
-      "link"			: "//valandil.github.io/have-yaourt-save-compiled-packages-to/",
+      "link"			: "https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, yaourt does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it  imperative that you be able to roll back to older packages, this is not useful default behaviour. &nbsp;&nbsp;&nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line  #EXPORT=0to   EXPORT=2That is all. Have a nice day!  "
     }
   
@@ -11,7 +11,7 @@
   
     ,{
       "title"			: "Google Calendar Material Design",
-      "link"			: "//valandil.github.io/google-calendar-material-design/",
+      "link"			: "https://blog.joey-dumont.ca/google-calendar-material-design/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;My Nexus 4 prompted me last night for permission to update Gmail and Google Calendar. I must say, while Gmail looks slightly better than it did, GCal has received a much needed revamp, especially the widget. I do not have a screenshot of the previous version, but the colour scheme was terrible and the layout was such that it was hard to determine the division between days. It was also very difficult to quickly glance at a calendar to get some information.A screenshot of the new GCal widgeton my Nexus 4.&nbsp;&nbsp;&nbsp;The new version, released yesterday, has received the &quot;Material Design&quot; treatment; the colours are a little more tame, and the division between events and dates is much clearer. Worth the (free) update.I guess I&#39;m saying I like the new designs of Google."
     }
   
@@ -19,7 +19,7 @@
   
     ,{
       "title"			: "Dual basis and its applications",
-      "link"			: "//valandil.github.io/dual-basis-and-its-applications/",
+      "link"			: "https://blog.joey-dumont.ca/dual-basis-and-its-applications/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.  &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That’s a problem. Let’s look for a solution.  &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that   To see how we can compute those vectors, consider the original eigenvalue problem   We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation   Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get   Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get   The Dirac delta makes the sum disappear as usual and we have   In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$! &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   So we find that these new “contravariant” vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by   &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions…  &lt;/div&gt;"
     }
   
@@ -27,7 +27,7 @@
   
     ,{
       "title"			: "Interfacing Armadillo and FFTW",
-      "link"			: "//valandil.github.io/interfacing-armadillo-and-fftw/",
+      "link"			: "https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  &nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &nbsp;&nbsp;&nbsp;I&#39;m by no means an expert, but this snippet works beautifully in my own code. &nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention! "
     }
   
@@ -35,7 +35,7 @@
   
     ,{
       "title"			: "Arrow in the Knee: the Genesis",
-      "link"			: "//valandil.github.io/arrow-in-knee-genesis/",
+      "link"			: "https://blog.joey-dumont.ca/arrow-in-knee-genesis/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp; So my wife was re-reading the epic fantasy pentalogy The Belgariad by David Eddings [1]. It&#39;s a fantastic coming-of-age, prophecy-fulfilling, magic-filled story. Every character is fully developed and they are all thoroughly likable.  &nbsp;&nbsp;&nbsp; But now to the important part. In the Queen of Sorcery book [2,p.222], originally published in 1982, it is revealed that Count Reldegen, an Asturian, is limping. This sparks the following conversation: &quot;What happened to your leg?&quot; Wolf asked him. &quot;An arrow in the knee.&quot; The count shrugged.Yes, that&#39;s right, an arrow in the knee!   &nbsp;&nbsp;&nbsp;Now go read The Belgariad so you know why it matters that Reldegen is an Asturian.  [1] Amateurish introductory line, I know.[2] D. Eddings. Queen of Sorcery in The Belgariad. 2002. New York: Ballantine."
     }
   
@@ -43,7 +43,7 @@
   
     ,{
       "title"			: "(Literary) Ramblings about the Universe",
-      "link"			: "//valandil.github.io/literary-ramblings-about-universe/",
+      "link"			: "https://blog.joey-dumont.ca/literary-ramblings-about-universe/",
       "excerpt"		: "&nbsp; &nbsp;While sipping away at my alcoholic drink, I had, as men usually have, philosophical matters spring to my mind. Wrought body and soul in the shadow of the night, my first instinct was to share my thoughts with the world.&nbsp; &nbsp;In Siddhartha, by Hermann Hesse, a young prodigy of his tribe leaves his home and undertakes a long journey to gain spiritual enlightenment. In the process of knowing himself and the world, he loses himself. He goes against all the teachings of the elders of his tribe and everything he has always known. However, in the end, while not returning to his home, he returns in a state resembling his old state, but with hard-gained knowledge and wisdom.&nbsp;&nbsp; &nbsp;This very idea of movie through space and time but coming back to a similar place, the notion of the cycles in life, of the cycles in Nature, is interesting to me. For a reason I can&#39;t explain, this is appealing to me. The idea that, through human history, through the succession of generations, I get to live forever. &quot;At the still point of the turning world&quot;, through the center that must hold, where everyone is one and nothing, where the lonely streams become a river, the river of life, I can identify with everything. My &quot;soul is the whole world&quot;.&nbsp;&nbsp; &nbsp;This is indeed very hard to explain. Even T.S. Eliot had problems expressing this idea:&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;That was a way of putting it - not very satisfactory:A periphrastic study in a worn-out poetical fashion,Leaving one still with the intolerable wrestleWith words and meanings. The poetry does not matter.although the idea is, verily, quite simple. In a place, where there exists no time and no space, we are one. But not really.&nbsp;&nbsp; &nbsp;This still point, being defined by the Universe, must be of&nbsp;the Universe. Imagine a rolling wheel. Its center does not move, being the center, but it must rotate as to accompany the wheel. We do not see it turning, but it must. We can relate this analogy to the conclusion of Siddhartha. Carpe Diem. Everything that is the world is beautiful; it must be appreciated and loved and such. Everything has sin and virtue in it.&nbsp; &nbsp;But this isn&#39;t true. It is true only at the still point. What shall we do? Locally, then, an ethics system must be enforced. This ethical system, built by the people inhabiting the region of space and time by the means of logic and reason, must fulfill the requirements and principles of the people.&nbsp;&nbsp; &nbsp;Globally, this is my interpretation of this. Although I do not think the world completely deterministic, I believe that the entirety of possibilities is contained in the world. At the still point, then, the singularity of the Big Bang, every possible outcome exists and is as one; the future of the Universe is written as the wavefunction fo the Universe. At that time, the river breaks into a million pieces.&nbsp; &nbsp;What did I just say? I am confused.&nbsp;&nbsp;The poetry does not matter, but its equivocacy a way to expose without explaining, a way to confuse and inform.&nbsp;&nbsp; &nbsp;This is it for now, but I shall return.&nbsp;"
     }
   
@@ -51,7 +51,7 @@
   
     ,{
       "title"			: "Bessel functions of complex argument",
-      "link"			: "//valandil.github.io/bessel-functions-of-complex-argument/",
+      "link"			: "https://blog.joey-dumont.ca/bessel-functions-of-complex-argument/",
       "excerpt"		: "&nbsp; &nbsp;Our research group, Dynamica, has openly published a shared object C++ library to compute Bessel functions of complex argument. It is available ready to compile as a tar archive or, for the initiated, as C++ and Fortran source code on Google Code.&nbsp; &nbsp;The Fortran code comes from D.E. Amos&nbsp;and his 1986 article. The article clearly details the limits, accuracy and speed of the subroutines. Being tested and proven against the test of time, we use them without modification. A C++ wrapper is defined in a header.&nbsp; &nbsp;More documentation is available on the Google Code repository. To thank you for reading this, here&#39;s a pretty picture!&quot;Proof&quot; that the algorithms work."
     }
   
@@ -59,7 +59,7 @@
   
     ,{
       "title"			: "Fortran, C++ and qmake",
-      "link"			: "//valandil.github.io/fortran-c-and-qmake/",
+      "link"			: "https://blog.joey-dumont.ca/fortran-c-and-qmake/",
       "excerpt"		: "Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I&#39;m not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn&#39;t want to make this a post about Qt Creator, so here comes the meat. I&#39;ve been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that&#39;s been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I&#39;m using D.E. Amos&#39;&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child&#39;s play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You&#39;re done! You can now use your Fortran subroutines in your C++ program! Just don&#39;t forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!"
     }
   
@@ -67,7 +67,7 @@
   
     ,{
       "title"			: "Issues with Linux and HP printers",
-      "link"			: "//valandil.github.io/issues-with-linux-and-hp-printers/",
+      "link"			: "https://blog.joey-dumont.ca/issues-with-linux-and-hp-printers/",
       "excerpt"		: "&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;&nbsp; &nbsp;But, I have found the solution!&nbsp;&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn&#39;t explicited anywhere (that I know of).&nbsp;&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;"
     }
   
@@ -75,7 +75,7 @@
   
     ,{
       "title"			: "Lattice Gauge Theory",
-      "link"			: "//valandil.github.io/lattice-gauge-theory/",
+      "link"			: "https://blog.joey-dumont.ca/lattice-gauge-theory/",
       "excerpt"		: "&nbsp; &nbsp;During the Winter 2012 semester at U. Laval, I took a Particle Physics course. I&#39;m not sure of the exact appelation in English, but it was given as directed reading (lectures dirigées). I didn&#39;t have classes: only the reference book.&nbsp; &nbsp;None of that really matters anyway. The course culminated into an exploration of Lattice Gauge Theory by us two undergrad students. The resulting text is more a collection of interesting results or, in other words, an elementary review of the basics of the theory.&nbsp;&nbsp; &nbsp;The PDF document is available on the website we made for the project. Again, French only.&nbsp;"
     }
   
@@ -83,7 +83,7 @@
   
     ,{
       "title"			: "Printer margins issues with Samsung CLP-310N",
-      "link"			: "//valandil.github.io/printer-margins-issues-with-samsung-clp/",
+      "link"			: "https://blog.joey-dumont.ca/printer-margins-issues-with-samsung-clp/",
       "excerpt"		: "&nbsp; &nbsp;Although this is a rather specific issue concerning the Samsung CLP-310N, I thought it could be a good idea to share the solution to a longstanding problem I was having.&nbsp;&nbsp; &nbsp;For some reason, when I upgraded CUPS some time ago (I don&#39;t recall specifically when this began), printing PDFs and other documents from my Arch Linux box was difficult. The documents were not properly centered on the page (the top margin was way too low). So, I googled for something interesting. I came up with someone saying that the SPL-C driver seemed to be the cause and that switching to foo2qpdl solved the problem.&nbsp; &nbsp;I immediately tried to change my printer&#39;s driver to this one with CUPS (on my machine, I just go to http://localhost:631), but the driver was not in the list, even though the foo2qpdl XML file comes with foomatic-db, which I had installed a while back.&nbsp;&nbsp; &nbsp;Okay, the quick solution is:yaourt -S foo2zjsthen you will be able to select the Foomatic/foo2qpdl from the drop-down menu in CUPS. This is an AUR package, which seems to be well maintained.&nbsp;Anyway, hope this helps. Certainly helped me!&nbsp;"
     }
   
@@ -91,7 +91,7 @@
   
     ,{
       "title"			: "Equations in Blogger (part 2)",
-      "link"			: "//valandil.github.io/equations-in-blogger-part-2/",
+      "link"			: "https://blog.joey-dumont.ca/equations-in-blogger-part-2/",
       "excerpt"		: "&nbsp;&nbsp;A while ago, I fumbled into a method to typeset equations on any web page. However, the JavaScript needed to do the work suddently disappeared (I didn&#39;t research that) and anyhow, the equations stopped displaying properly.&nbsp;Now I just found out that MathJax&nbsp;is available as CDN service. This makes my life way easier. You have to add a HTML/JavaScript gadget to Blogger and paste some code. The simple procedure is explained in their good documentation.&nbsp;So... want a taste of it? Let $\rho(\mathbb{x})$ be the probability density function of $n$ statistically independant variables distributed according to some distribution function. The normalization condition is: \int\cdots\int_{-\infty}^{\infty} \rho(\mathbb{x})d^n\mathbb{x} = 1. Oh hell, I like this too much! Another one! \mathcal{H} = \frac{1}{2}\frac{p_{\theta}^2}{mL^2}-mgL\cos\theta."
     }
   
@@ -99,7 +99,7 @@
   
     ,{
       "title"			: "Corrrupted SVN repo and the solution",
-      "link"			: "//valandil.github.io/currently-taking-numerical-physics/",
+      "link"			: "https://blog.joey-dumont.ca/currently-taking-numerical-physics/",
       "excerpt"		: "&nbsp; &nbsp;I&#39;m currently taking a Numerical Physics course at U. Laval. So far, it has been a really enjoyable experience. However, I would like to share some technical know-how I acquired while working on one of the projects.&nbsp; &nbsp;We are mostly using MATLAB (I personally use Octave, which is the open-source counterpart) to do the projects. As of the fourth project, I am working with a partner, which immediately lead to the classic problem: how do we share the code?&nbsp; &nbsp; Of course, this problem has been solved in thousands of ways. I chose to create an account on SourceForge (I don&#39;t have my own server, so it was the easiest way) and start a project where I could dump the all the code in an SVN repository. (By the way, all the code we write, for what it&#39;s worth, is Creative Commons.)&nbsp; &nbsp;Everything went well; up till yesterday. For some obscure reason, when I tried to svn up&nbsp;in the morning, svn returned the error&nbsp;Reading one svndiff window read beyond the end of the representation.which I didn&#39;t know about. Some Googling informed me that the repository was corrupted. &nbsp;Some more Googling revealed a SourceForge support page that gave a solution to the problem.&nbsp; &nbsp;Okay, so here&#39;s the complete solution. You log on to the Shell SourceForge provide and run the following commands:adminrepo --checkout svnsvnadmin dump -r 0:92 /svnroot/projectName/ &gt; ~/repo.dumpThe adminrepo checks out the SVN repo of your project in a folder that you can modify. You then dump the repo (I used -r 0:92 because I knew the repo was sane at rev 92 and because I had manually merged the diffs of -r 93:95 in my working directory).&nbsp; &nbsp;Now, if you&#39;re sure you have a good backup, you can delete the repo. We will then create a new one and load the dump file into this new repo.rm -rf /svnroot/projectName/svnadmin create /svnroot/projectNameadminrepo --save svnNow half the fun is done. The repo is back in the main folder (which you can&#39;t modify directly) and your DB should be un-corrupted (or whatever).&nbsp; &nbsp;If you&#39;re using the new SourceForge bashboard, you can&#39;t stop here. You have to tell the dashboard that you&#39;ve made some drastic changes to the repo. In the SourceForge web interface, navigate to Admin → Tools. Under the SVN tool, click on Import Repo. Enter the following URL:https://projectName.svn.sourceforge.net/svnroot/projectNameclick Import and you&#39;re done!&nbsp;Please inform me in the comments is something is unclear or just plain wrong. Thanks!"
     }
   
@@ -107,7 +107,7 @@
   
     ,{
       "title"			: "Contribution to the Book of Knowledge",
-      "link"			: "//valandil.github.io/contribution-to-book-of-knowledge/",
+      "link"			: "https://blog.joey-dumont.ca/contribution-to-book-of-knowledge/",
       "excerpt"		: "The old&nbsp;version of Wikipedia. Yes, this is a joke.&nbsp;&nbsp; &nbsp; &nbsp;I just made my first contribution to Wikipedia. Considering that it is the first place when I need to check something quickly, or to get references for specific subjects since it launched (yes, I was 11 years old at the time), it was about time I made a contribution!&nbsp; &nbsp;Go ahead, do the same! You&#39;ll feel better!&nbsp;"
     }
   
@@ -115,7 +115,7 @@
   
     ,{
       "title"			: "How-to make LaTeX footnotes stick to the bottom of the page",
-      "link"			: "//valandil.github.io/how-to-make-latex-footnotes-stick-to/",
+      "link"			: "https://blog.joey-dumont.ca/how-to-make-latex-footnotes-stick-to/",
       "excerpt"		: "&nbsp; &nbsp;Disclaimer. The credit goes all to&nbsp;Nikos Skalkotos, on whose blog I found this. I couldn&#39;t help but repost it here.&nbsp; &nbsp; Sometimes, when you write something in LaTeX which has a number of figures, some pages have a lot of whitespace. If you also have a footnote on this page, the footnote won&#39;t be typeset at the bottom of the page, but directly below the text .&nbsp; &nbsp; I find this utterly annoying. So, after a little Googling, I found the package footmisc. It can be used to typeset the footnotes at the bottom of the page, even if there&#39;s a boatload of whitespace before. Just use the following command in the preamble:\usepackage[bottom]{footmisc}and tada!&nbsp;&nbsp; &nbsp; Happy TeXing!"
     }
   
@@ -123,7 +123,7 @@
   
     ,{
       "title"			: "Return user-defined sets in PostgreSQL",
-      "link"			: "//valandil.github.io/return-user-defined-sets-in-postgresql/",
+      "link"			: "https://blog.joey-dumont.ca/return-user-defined-sets-in-postgresql/",
       "excerpt"		: "&nbsp; &nbsp;Returning sets of data with PL/pgSQL functions can be somewhat tricky. The documentation has a line saying how to do it somewhere, but the beginner SQL user (like the author of this post) might be confused at the impressive amount of information given by this document.&nbsp;&nbsp; This post is thus intended as an example that firsts creates a small database and a function that manipulates data. Let&#39;s do this!First, let&#39;s create two tables with some data in them.CREATE TABLE foo (&quot;IndexFoo&quot; integer DEFAULT nextval(&#39;&quot;sq_IndexFoo&quot;&#39;::regclass) NOT NULL,&quot;FOO_IndexCol1&quot; integer NOT NULL,&quot;FOO_Timestamp&quot; timestamp without time zone DEFAULT now());And a table that is pointed to by foo:CREATE TABLE foo_info (&quot;IndexInfoFoo&quot; integer DEFAULT nextval(&#39;&quot;sq_IndexFooInfo&quot;&#39;::regclass) NOT NULL,&quot;INF_Answer&quot; integer DEFAULT 42);&nbsp;Now say we want to return rows from both tables. Say we want the answer, given in foo_info and the timestamp, given in foo. We just have to create a function that does justCREATE OR REPLACE FUNCTION &quot;f_whatIsTheAnswer&quot;(OUT answer integer, OUT &quot;time&quot; timestamp without time zone)RETURNS SETOF record AS $$BEGINRETURN QUERY SELECT fi.&quot;INF_Answer&quot;, f.&quot;FOO_Timestamp&quot;FROM foo fJOIN &quot;foo_info&quot; fi ON f.&quot;FOO_IndexCol1&quot; = fi.&quot;IndexInfoFoo&quot;;END;$$ LANGUAGE plpgsql;Notice how the returned columns are defined in the function&#39;s arguments. This defines the column set returned by the function. If left out, PostgreSQL will complain that the record type has not been assigned any return type.Because we use PL/pgSQL, the RETURN QUERY statement is used. Since this is a simple query with no complex data manipulation, it could have been a simple SQL request. The RETURN QUERY would have been unnecessary.Try it yourself! Here&#39;s the database dump.dump.sql"
     }
   
@@ -131,7 +131,7 @@
   
     ,{
       "title"			: "Removing files from working directory not under version control",
-      "link"			: "//valandil.github.io/removing-files-from-working-directory/",
+      "link"			: "https://blog.joey-dumont.ca/removing-files-from-working-directory/",
       "excerpt"		: "&nbsp; &nbsp;I&#39;ve been using SVN since the beginning of summer and I&#39;m liking it so far. However, I stumbled across a little problem this week.&nbsp; &nbsp; I use SVN to write a LaTeX document which spans multiple files. Being textual, the contents of the .tex files are diff-able and all the features of SVN can be used. However, when I compile the document to have a nice PDF file, a plethora of files are simultaneously created. I don&#39;t want to put these files under version control. I hear you say: &quot;Well, do not add them to your repository, then!&quot;. Fair enough, here&#39;s the result of a svn st:Cluttered up svn st. I hate cluttered&nbsp;I hate cluttered things! Now, the easy solution is to remove all files you do want to put under version control, marked by a &#39;?&#39;. You always the manual way, i.e. rm file1 file2 file3 ... fileX but that&#39;s cumbersome. Let&#39;s use some of our bash knowledge to solve this problem.&nbsp;WARNING.&nbsp;The following command will remove all files marked with a &#39;?&#39;. Be careful with it!rm `svn st | grep ?`Simple enough, huh?&nbsp;"
     }
   
@@ -139,7 +139,7 @@
   
     ,{
       "title"			: "Programming is fun!",
-      "link"			: "//valandil.github.io/programming-is-fun/",
+      "link"			: "https://blog.joey-dumont.ca/programming-is-fun/",
       "excerpt"		: "A look at my coding environment&nbsp; &nbsp;I&#39;ve started programming about a month ago. I pretty much learned by myself by reading a book or two about C++. Oh, and I skimmed some parts of C++ GUI Programming with Qt 4, by Jasmin Blanchette and Mark Summerfield. So far, I&#39;m liking it.&nbsp; &nbsp;I use the Qt Creator IDE, which provides graphical tools to edit UI files and pretty much helps at every level of application development.&nbsp; &nbsp;In short, I&#39;m doing an interface to a PostgreSQL database. I may post screenshots of it when I&#39;m at a more advanced stage. For now, the interface does not do a lot of things."
     }
   
@@ -147,7 +147,7 @@
   
     ,{
       "title"			: "IBM turns 100!",
-      "link"			: "//valandil.github.io/ibm-has-just-turned-100/",
+      "link"			: "https://blog.joey-dumont.ca/ibm-has-just-turned-100/",
       "excerpt"		: "&lt;/embed&gt;&nbsp; &nbsp; IBM has just turned 100. To celebrate this stellar achievement, the company has produced a video that summarizes its century of existence in a rather poignant way.&nbsp;Enjoy![Video Link]&nbsp;IBM Centennial Film&nbsp;&nbsp;&nbsp;"
     }
   
@@ -155,7 +155,7 @@
   
     ,{
       "title"			: "Integrability and Chaos in Hamiltonian Systems",
-      "link"			: "//valandil.github.io/integrability-and-chaos-in-hamiltonian/",
+      "link"			: "https://blog.joey-dumont.ca/integrability-and-chaos-in-hamiltonian/",
       "excerpt"		: "&nbsp; &nbsp;This last semester, I took a course intitled Nonlinear Dynamics and Chaos&nbsp;(in &nbsp;French). It was quite a novelty, as undergraduates in physics mostly deal with linear problems (they are much easier to solve analytically. Most nonlinear systems do not possess such solutions and they do, the&nbsp;analytic&nbsp;expression is so complex that it offers no qualitative understanding of the subject.&nbsp;&nbsp;&nbsp; A dynamicist must make use of a completely different set of tools, mostly numeric, to try to grasp the inner workings of a particular system. Phase space, which shows the relationship between a variable and its nth order derivatives (where n is the dynamical order of the system, if I can use this vocabulary), is an important example of these tools.&nbsp; &nbsp;In the special context of Hamiltonian mechanics, where momenta and position are related through what is called a symplectic symmetry, the topology of the phase space trajectories are significantly restricted; they are N-tori. That is, as long as the system is integrable (has a closed form solution).&nbsp; &nbsp;As soon as a perturbation is added that renders the system non-integrable, then the phase space qualitatively evolves as described by what is called the KAM Theorem.This last theorem was the main topic of a mini research project that was conducted by Raphaël Dubé-Demers and myself&nbsp;throughout&nbsp;the second half of the semester. Following these last few words are the text produced during this research and the Beamer presentation used to introduce the subject to our peers.Happy reading![Presentation]&nbsp;&nbsp;(in French)[Text]&nbsp; (in French)To anyone that will ask nicely, I could translate it in English. Asked very nicely!UPDATE: I made a flipbook out of it. It looks pretty cool, but that&#39;s pretty much it!UPDATE 2: Here&#39;s the link to the complete thing.To view this flipping book you need to have Flash Player 9 or newer installed and JavaScript enabled. Flipsnack is a &amp;amp;amp;amp;amp;amp;amp;lt;a href=&quot;http://www.flipsnack.com/&quot; title=&quot;Page flip software&quot;&amp;amp;amp;amp;amp;amp;amp;gt;flash video player&amp;amp;amp;amp;amp;amp;amp;lt;/a&amp;amp;amp;amp;amp;amp;amp;gt; that allows you to create stylish flipping books out of your PDF document."
     }
   
@@ -163,7 +163,7 @@
   
     ,{
       "title"			: "iPod touch Gets a Taste of What It Is to be an iPad",
-      "link"			: "//valandil.github.io/ipod-touch-gets-taste-of-what-it-is-to/",
+      "link"			: "https://blog.joey-dumont.ca/ipod-touch-gets-taste-of-what-it-is-to/",
       "excerpt"		: " [iOS 4.x] If you’re the owner of a jailbroken iPod touch and wanted your screen to rotate just like the iPad can, SBRotator 4.x does just that. The application, available through Cydia, has launched today. &lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;SBRotator in Cydia App Store&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;It rotates your SpringBoard in any orientation you want. The icons are tightly packed together, but the UI remains highly usable.&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;Packed together icons&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;It is a rather small tweak, but it’s neat to have the option. Just seeing the long list of applications you have running is helpful.&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;Multitasking&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;It seems to be available as a commercial package, even though I downloaded it free of charge. For more information, see the package on Cydia or ModMyi.&lt;/div&gt;"
     }
   
@@ -171,7 +171,7 @@
   
     ,{
       "title"			: "Equations in Blogger",
-      "link"			: "//valandil.github.io/equations-in-blogger/",
+      "link"			: "https://blog.joey-dumont.ca/equations-in-blogger/",
       "excerpt"		: "   Sweet! I can use equations in Blogger! I mean, LaTeX equations. This site has designed a script that allows LaTeX code to be used in Blogger. So I can present Gauss’ Law for gravity in a very clear manner, as I now have the tool to do it. So, there you go:[ \oint_{\partial\mathcal{V}} \mathbf{g}\cdot d\mathbf{A}= -4\pi GM]where $\mathbf{g}$ is the gravitational field, $d\mathbf{A}$ is a differential, oriented piece of area, $G$ is the gravitational constant and $M$ is the mass comprised by the volume described by the surface $\partial V$.This is going to be so cool!"
     }
   
@@ -179,7 +179,7 @@
   
     ,{
       "title"			: "Perhaps there is a stale lock file?",
-      "link"			: "//valandil.github.io/perhaps-there-is-stale-lock-file/",
+      "link"			: "https://blog.joey-dumont.ca/perhaps-there-is-stale-lock-file/",
       "excerpt"		: "&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I&#39;ve been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn&#39;t not mount the local file systems, saying something along these lines:Cannot link ... to /etc/mtabPerhaps there is a stale lock file?(I don&#39;t remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.&nbsp;I immediatly Googled the issue[*] and eventually found a solution:sudo rm /etc/mtab~This seemed to correct the issue without any consequence to the rest of the system. Of course, don&#39;t delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;Anyhow, in the hope that that helps someone. Oh, by the way, I&#39;m using Arch Linux 64-bit.&nbsp;[*]&nbsp;On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;"
     }
   
@@ -187,7 +187,7 @@
   
     ,{
       "title"			: "GCal push notifications on your iPod",
-      "link"			: "//valandil.github.io/gcal-push-notifications-on-your-ipod/",
+      "link"			: "https://blog.joey-dumont.ca/gcal-push-notifications-on-your-ipod/",
       "excerpt"		: " Recently, Google updated its Google Mobile app for the iPhone/iPod touch. Lifehacker almost instantly pushed out the information to the geeks. However, they failed to mention one small detail.I tried this when it went out the first time. For some reason, I received notifications in the form of badges for my Gmail e-mail, but nothing for Google Calendar. The answer to that problem is, in fact, very simple.I switched the calendar feed from Exchange to Gmail itself, which solved the problem. I did that to get colour sync from Google Calendar and the Calendar app on the iPod Touch  and I suddenly began receiving push notifications from GCal!Yay!"
     }
   
@@ -195,7 +195,7 @@
   
     ,{
       "title"			: "A Little History",
-      "link"			: "//valandil.github.io/little-history/",
+      "link"			: "https://blog.joey-dumont.ca/little-history/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;I&#39;ve been doing a little research on the origins of Q.E.D., the latin expression that is usually used to conclude mathematical proofs. Turns out it was Euclid that started it all about 2300 years ago. The original Greek expression is ὅπερ ἔδει δεῖξαι and means &quot;precisely what was to be proved&quot;.&nbsp;&nbsp;&nbsp;Basically, Euclid&#39;s way of concluding proofs has been preserved throughout the centuries to end up in our modern world approximately unchanged. It has only been translated from Greek to Latin as &quot;quod erat demonstrandum&quot;, which means &quot;which that was to be proved&quot;.&nbsp;&nbsp;&nbsp;I will include two documents that contain much of the information I have obtained from different websites and books. The history of it is pretty interesting.QED -- A&nbsp;short documentQED -- A Beamer presentation"
     }
   
@@ -203,7 +203,7 @@
   
     ,{
       "title"			: "Finally, a new home",
-      "link"			: "//valandil.github.io/finally-new-home/",
+      "link"			: "https://blog.joey-dumont.ca/finally-new-home/",
       "excerpt"		: " Good news! The blog has a now a new URL: blog.joey-dumont.ca. I have consolidated my other projects (such as Groupe de Travail, for physics students) and my writing projects to my main site.&lt;div&gt;&lt;/div&gt;&lt;div&gt;I will shortly have a portal that summarizes all my projects in one page. It will live on joey-dumont.ca. That’ll give my name a bigger visibility on the Net! &lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;div&gt;Until then, see you!&lt;/div&gt;"
     }
   
@@ -211,7 +211,7 @@
   
     ,{
       "title"			: "Project",
-      "link"			: "//valandil.github.io/project/",
+      "link"			: "https://blog.joey-dumont.ca/project/",
       "excerpt"		: "I am in want of a project. Groupe de travail won&#39;t take all my timethis summer although the house could. Maybe compiling notes onmathematics and physics or something like that.&lt;p&gt;I&#39;ll meditate on that and talk to you later."
     }
   
@@ -219,7 +219,7 @@
   
     ,{
       "title"			: "Sent from iPod touch.",
-      "link"			: "//valandil.github.io/sent-from-ipod-touch/",
+      "link"			: "https://blog.joey-dumont.ca/sent-from-ipod-touch/",
       "excerpt"		: "This post was published to Blogger using my iPod touch. That&#39;s really cool!"
     }
   
@@ -237,7 +237,7 @@
   
     ,{
       "title"			: "About me",
-      "link"			: "//valandil.github.io/about/",
+      "link"			: "https://blog.joey-dumont.ca/about/",
       "excerpt"		: "A somewhat intelligent person with limited social skills."
     }
   
@@ -247,7 +247,7 @@
   
     ,{
       "title"			: "Academic Publications",
-      "link"			: "//valandil.github.io/articles/",
+      "link"			: "https://blog.joey-dumont.ca/articles/",
       "excerpt"		: "An archive of articles sorted by date."
     }
   
