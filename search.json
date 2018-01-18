@@ -2,6 +2,14 @@
 
   
     {
+      "title"			: "vnc through SSH: how to control your desktop remotely",
+      "link"			: "https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/",
+      "excerpt"		: "I won’t go into too much detail in this post, as there are multiple guidesthat go above and beyond in explaining the behind-the-scenes of tunnellingVNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserverto control the remote X server. Simply use vncserver if you want to controla different X server."
+    }
+  
+
+  
+    ,{
       "title"			: "Have yaourt save compiled packages to /var/cache/pacman/pkg",
       "link"			: "https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/",
       "excerpt"		: "&nbsp;&nbsp;&nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, yaourt does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it  imperative that you be able to roll back to older packages, this is not useful default behaviour. &nbsp;&nbsp;&nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line  #EXPORT=0to   EXPORT=2That is all. Have a nice day!  "
