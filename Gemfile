@@ -20,6 +20,7 @@ group :jekyll_plugins do
   gem "jekyll-gist"
   gem "jekyll-sitemap"
   gem "jekyll-scholar"
+  gem "jekyll-compose"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
