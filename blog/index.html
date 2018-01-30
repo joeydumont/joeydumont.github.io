@@ -230,20 +230,14 @@ to use tags to salvage a little organization out of this.</p>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
 
 
-<!-- Asynchronous Google Analytics snippet -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
 <script>
-  var _gaq = _gaq || [];
-  var pluginUrl =
- 'https://www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-15417184-4']);
-  _gaq.push(['_trackPageview']);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = 'https://stats.g.doubleclick.net/dc.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+  gtag('config', 'UA-15417184-4');
 </script>
 
 
