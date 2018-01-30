@@ -4,6 +4,18 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
 <meta charset="utf-8">
 <title>Removing files from working directory not under version control &#8211; Study of Nature</title>
 <meta name="description" content="&nbsp; &nbsp;I've been using SVN since the beginning of summer and I'm liking it so far. However, I stumbled across a little problem this week.&nbsp; &nbsp; I use SVN to write a LaTeX document which spans multiple files. Being textual, the contents of the .tex files are diff-able and all the features of SVN can be used. However, when I compile the document to have a nice PDF file, a plethora of files are simultaneously created. I don't want to put these files under version control. I hear you say: "Well, do not add them to your repository, then!". Fair enough, here's the result of a svn st:Cluttered up svn st. I hate cluttered&nbsp;I hate cluttered things! Now, the easy solution is to remove all files you do want to put under version control, marked by a '?'. You always the manual way, i.e. rm file1 file2 file3 ... fileX but that's cumbersome. Let's use some of our bash knowledge to solve this problem.&nbsp;WARNING.&nbsp;The following command will remove all files marked with a '?'. Be careful with it!rm `svn st | grep ?`Simple enough, huh?&nbsp;">
@@ -202,18 +214,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-15417184-4');
-</script>
-
 
 
 </body>

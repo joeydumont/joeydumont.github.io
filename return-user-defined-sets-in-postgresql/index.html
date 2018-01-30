@@ -4,6 +4,18 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
 <meta charset="utf-8">
 <title>Return user-defined sets in PostgreSQL &#8211; Study of Nature</title>
 <meta name="description" content="&nbsp; &nbsp;Returning sets of data with PL/pgSQL functions can be somewhat tricky. The documentation has a line saying how to do it somewhere, but the beginner SQL user (like the author of this post) might be confused at the impressive amount of information given by this document.&nbsp;&nbsp; This post is thus intended as an example that firsts creates a small database and a function that manipulates data. Let's do this!First, let's create two tables with some data in them.CREATE TABLE foo ("IndexFoo" integer DEFAULT nextval('"sq_IndexFoo"'::regclass) NOT NULL,"FOO_IndexCol1" integer NOT NULL,"FOO_Timestamp" timestamp without time zone DEFAULT now());And a table that is pointed to by foo:CREATE TABLE foo_info ("IndexInfoFoo" integer DEFAULT nextval('"sq_IndexFooInfo"'::regclass) NOT NULL,"INF_Answer" integer DEFAULT 42);&nbsp;Now say we want to return rows from both tables. Say we want the answer, given in foo_info and the timestamp, given in foo. We just have to create a function that does justCREATE OR REPLACE FUNCTION "f_whatIsTheAnswer"(OUT answer integer, OUT "time" timestamp without time zone)RETURNS SETOF record AS $$BEGINRETURN QUERY SELECT fi."INF_Answer", f."FOO_Timestamp"FROM foo fJOIN "foo_info" fi ON f."FOO_IndexCol1" = fi."IndexInfoFoo";END;$$ LANGUAGE plpgsql;Notice how the returned columns are defined in the function's arguments. This defines the column set returned by the function. If left out, PostgreSQL will complain that the record type has not been assigned any return type.Because we use PL/pgSQL, the RETURN QUERY statement is used. Since this is a simple query with no complex data manipulation, it could have been a simple SQL request. The RETURN QUERY would have been unnecessary.Try it yourself! Here's the database dump.dump.sql">
@@ -202,18 +214,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-15417184-4');
-</script>
-
 
 
 </body>

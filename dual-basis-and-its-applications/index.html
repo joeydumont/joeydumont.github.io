@@ -4,6 +4,18 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
 <meta charset="utf-8">
 <title>Dual basis and its applications &#8211; Study of Nature</title>
 <meta name="description" content="&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.   &nbsp;&nbsp;&nbsp;This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That's a problem. Let's look for a solution.   &nbsp;&nbsp;&nbsp;Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that  $$ \langle f^i|e_j\rangle = \delta^i_j.$$ To see how we can compute those vectors, consider the original eigenvalue problem  $$ \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle .$$ We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation  $$ \sum_i |e_i\rangle\langle f^i| = 1.$$ Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get  $$ \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|.$$ Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get  $$ \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. $$ The Dirac delta makes the sum disappear as usual and we have  $$ \langle f^j| A = \lambda_j \langle f^j|. $$ In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$!  &nbsp;&nbsp;&nbsp;So we find that these new "contravariant" vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by  $$ |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle .$$  &nbsp;&nbsp;&nbsp;This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions...  ">
@@ -202,18 +214,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-15417184-4');
-</script>
-
 
 
 </body>

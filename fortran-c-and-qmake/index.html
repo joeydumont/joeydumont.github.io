@@ -4,6 +4,18 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
 <meta charset="utf-8">
 <title>Fortran, C++ and qmake &#8211; Study of Nature</title>
 <meta name="description" content="Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I'm using D.E. Amos'&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child's play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!">
@@ -202,18 +214,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-15417184-4');
-</script>
-
 
 
 </body>

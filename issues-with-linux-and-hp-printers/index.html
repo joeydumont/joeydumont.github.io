@@ -4,6 +4,18 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
 <meta charset="utf-8">
 <title>Issues with Linux and HP printers &#8211; Study of Nature</title>
 <meta name="description" content="&nbsp; &nbsp;Since I have access to a new printer, I (of course) had issues with it. As I tried different kinds of connection with CUPS (ipp://, ipps://, http://, socket://) and different drivers (hpijs, hpcups), the page would sometimes render blank lines as black strips of ink or print with some weird margins.&nbsp;&nbsp; &nbsp;But, I have found the solution!&nbsp;&nbsp; &nbsp;It turns out that the hplip package comes with a command called hp-setup, which can be used to configure your network printer. The tool setup the printer with the hpijs driver, but with an hp:// connection. The hp:// connection string I could not have guessed. It seems to be a combination of the printer model and other things, but it isn't explicited anywhere (that I know of).&nbsp;&nbsp; &nbsp;Anyhow, now everything works fine. I hope this short post helps you.&nbsp;">
@@ -202,18 +214,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
-
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-15417184-4');
-</script>
-
 
 
 </body>
