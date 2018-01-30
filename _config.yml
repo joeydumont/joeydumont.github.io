@@ -70,3 +70,4 @@ scholar:
 
 # Keep some files in the destination when deploying to production.
 keep_files: [CNAME, .git]
+exclude: [deploy.sh]
