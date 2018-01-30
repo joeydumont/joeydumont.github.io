@@ -48,8 +48,8 @@ owner:
   twitter: jayd_phys
   facebook: #username
   github: valandil
-  stackexchange: #http://stackoverflow.com/users/123456/username
-  linkedin: #username
+  stackexchange: https://stackexchange.com/users/1514592/joey-dumont
+  linkedin: joeydumont
   instagram: #username
   flickr: #username
   tumblr: #username
@@ -57,7 +57,7 @@ owner:
   weibo: #userid
   google:
     plus: #username
-    analytics:
+    analytics: UA-15417184-4
     verify:
     ad-client:
     ad-slot:
@@ -67,3 +67,6 @@ owner:
 scholar:
   style: "_bibliography/the-optical-society-fixed.csl"
   bibliography: "publications.bib"
+
+# Keep some files in the destination when deploying to production.
+keep_files: [CNAME, .git]
