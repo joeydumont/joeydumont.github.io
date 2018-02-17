@@ -1,17 +1,23 @@
 # Site wide configuration
 
 title: Study of Nature
-locale: en_CA
+locale: en-CA
 description: >
  A personal blog rooted in my interest for physics, mathematics,
  technology and literature. Might contain content inappropriate
  for the non-initiated.
-logo: site-logo.png
+logo: images/site-logo.png
 search: true
 url: https://blog.joey-dumont.ca
+theme: jekyll-theme-so-simple
+google_fonts:
+  - name: "Source Sans Pro"
+    weights: "400,400i,700,700i"
+  - name: "Lora"
+    weights: "400,400i,700,700i"
+tag_archive_path: "/tags/#"
 
 # Jekyll configuration
-
 permalink:   /:categories/:title/
 markdown:    kramdown
 highlighter: rouge
@@ -40,11 +46,10 @@ exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.
 comments: true
 
 # Site owner
-owner:
+author:
   name: Joey Dumont
-  avatar: bio-photo.jpg
+  picture: images/bio-photo.jpg
   email: me@joey-dumont.ca
-  disqus-shortname: studyofnature
   twitter: jayd_phys
   facebook: #username
   github: valandil
@@ -55,13 +60,12 @@ owner:
   tumblr: #username
   pinterest: #username
   weibo: #userid
-  google:
-    plus: #username
-    analytics: UA-15417184-4
-    verify:
-    ad-client:
-    ad-slot:
-  bing-verify:
+
+google:
+  analytics: UA-15417184-4
+
+disqus:
+  shortname: studyofnature
 
 # Bibliographic data
 scholar:
