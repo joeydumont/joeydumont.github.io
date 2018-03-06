@@ -14,8 +14,9 @@ page for an exhaustive list. You can also peruse my
 Contents:
 1. [Peer-Reviewed Articles](#peer-reviewed-articles)
 2. [Conference Proceedings](#conference-proceedings)
-3. [Oral Presentations](#oral-presentations)
-4. [Posters](#posters)
+3. [Theses](#theses)
+4. [Oral Presentations](#oral-presentations)
+5. [Posters](#posters)
 
 ## Peer-Reviewed Articles
 
@@ -50,16 +51,16 @@ Contents:
   <i class="ai ai-arxiv-square ai-lg"></i> [1606.05663](https://arxiv.org/abs/1606.05663)
   | <i class="ai ai-doi-square ai-lg"></i> [10.1103/PhysRevB.93.205415](https://doi.org/10.1103/PhysRevB.93.205415)
 
-- Constructive feedback for the growth of laser-induced periodic surface     \\
-    structures,
-  J.-L. Déziel, **J. Dumont**, D. Gagnon, L.J. Dubé, S.H. Messaddeq and      \\
+- Constructive feedback for the growth of laser-induced periodic surface
+    structures,                                                              \\
+  J.-L. Déziel, **J. Dumont**, D. Gagnon, L.J. Dubé, S.H. Messaddeq and
   	Y. Messaddeq,                                                            \\
   Phys. Status Solidi C **13**, 121--124 (2016).                             \\
   <i class="ai ai-arxiv-square ai-lg"></i> [1507.02490](https://arxiv.org/abs/1507.02490)
   | <i class="ai ai-doi-square ai-lg"></i> [10.1002/pssc.201510146](https://doi.org/10.1002/pssc.201510146)
 
 - Toward the formation of crossed laser-induced periodic surface structures, \\
-  J.-L. Déziel, **J. Dumont**, D. Gagnon, L.J. Dubé, S.H. Messaddeq and      \\
+  J.-L. Déziel, **J. Dumont**, D. Gagnon, L.J. Dubé, S.H. Messaddeq and
   	Y. Messaddeq,                                                            \\
   J. Opt. **17**, 075405 (2015).                                             \\
   <i class="ai ai-arxiv-square ai-lg"></i> [1410.0583](https://arxiv.org/abs/1410.0583)
@@ -91,19 +92,19 @@ Contents:
 
 ## Conference Proceedings
 
-- Adding SALT to Coupled Microcavities: the making of active photonic        \\
+- Adding SALT to Coupled Microcavities: the making of active photonic
     molecule lasers,                                                         \\
   D. Gagnon, **J. Dumont**, J.-L. Déziel and L.J. Dubé,                      \\
-  in IEEE Proceedings of the 16th International Conference on Transparent    \\
+  in IEEE Proceedings of the 16th International Conference on Transparent
     optical Networks (ICTON 2014).                                           \\
   <i class="ai ai-arxiv-square ai-lg"></i> [1405.0168](https://arxiv.org/abs/1405.0168)
   | <i class="ai ai-doi-square ai-lg"></i> [10.1109/ICTON.2014.6876299](https://doi.org/10.1109/10.1109/ICTON.2014.6876299)
 
-- S and Q Matrices Reloaded: applications to open, inhomogeneous, and complex\\
+- S and Q Matrices Reloaded: applications to open, inhomogeneous, and complex
     cavities,                                                                \\
   G. Painchaud-April, **J. Dumont**, D. Gagnon and L.J. Dubé,                \\
-  in IEEE Proceedings of the 15th International Conference on Transparent    \\
-    Optical Networks (ICTON 2013).
+  in IEEE Proceedings of the 15th International Conference on Transparent
+    Optical Networks (ICTON 2013).                                           \\
   <i class="ai ai-arxiv-square ai-lg"></i> [1305.0473](https://arxiv.org/abs/1305.0473)
   | <i class="ai ai-doi-square ai-lg"></i> [10.1109/ICTON.2013.6602811](https://doi.org/10.1109/ICTON.2013.6602811)
 
@@ -119,16 +120,23 @@ Contents:
   in Bull. Am. Phys. Soc. **58**, 2013.                                      \\
   <i class="fa fa-external-link-alt"></i> [BAPS.2013.DAMOP.D1.14](http://meetings.aps.org/link/BAPS.2013.DAMOP.D1.14)
 
+## Theses
+
+- On the Modelization of Optical Devices: From Dielectric Cavities to
+    Radiating Structures,                                                    \\
+  M. Sc. thesis, Université Laval (2014).                                    \\
+  <i class="ai ai-open-access ai-lg"></i> [Full-text](http://theses.ulaval.ca/archimede/meta/31131)
+
 
 ## Oral Presentations
 
 - Vacuum processes in tightly focused electromagnetic fields,                \\
-  **J. Dumont**, F. Fillion-Gourdeau, D. Gagnon, C. Lefebvre, C. Murphy and  \\
+  **J. Dumont**, F. Fillion-Gourdeau, D. Gagnon, C. Lefebvre, C. Murphy and
     S. MacLean.                                                              \\
-  2nd Conference on Extremely High Intensty Laser Physics (ExHILP 2017),   \\
+  2nd Conference on Extremely High Intensty Laser Physics (ExHILP 2017),     \\
   Lisbon, Portugal.
 
-- S and Q Matrices Reloaded: applications to open, inhomogeneous, and complex\\
+- S and Q Matrices Reloaded: applications to open, inhomogeneous, and complex
     cavities,                                                                \\
   G. Painchaud-April, **J. Dumont**, D. Gagnon and L.J. Dubé,                \\
   15th International Conference on Trasparent Optical Networks (ICTON 2013), \\
@@ -136,7 +144,7 @@ Contents:
 
 ## Posters
 
-- Le CIP (calcul informatique de pointe) et l'électrodynamique quantique en  \\
+- Le CIP (calcul informatique de pointe) et l'électrodynamique quantique en
     champ fort,                                                              \\
   **J. Dumont**, F. Filion-Gourdeau, C. Lefebvre, D. Gagnon and S. MacLean,  \\
   85ème Congrès de l'ACFAS, 2017.                                            \\
@@ -147,7 +155,7 @@ Contents:
   4th Extreme Light Infrastructure Summer School (ELISS 2016),               \\
   Dolní Břežany, Czech Republic.
 
-- Modelling Tightly Focused Electromagnetic Fields: Stratton-Chu Formulation \\
+- Modelling Tightly Focused Electromagnetic Fields: Stratton-Chu Formulation
     of Maxwell's Equations,                                                  \\
   **J. Dumont**, F. Fillion-Gourdeau, C. Lefebvre, D. Gagnon and S. MacLean, \\
   6th International High Performance Computing Summer School (IHPCSS 2015),  \\
