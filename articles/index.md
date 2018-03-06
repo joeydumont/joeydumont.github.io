@@ -124,8 +124,8 @@ Contents:
 
 - On the Modelization of Optical Devices: From Dielectric Cavities to
     Radiating Structures,                                                    \\
-  M. Sc. thesis, Université Laval (2014).                                    \\
-  <i class="ai ai-open-access ai-lg"></i> [Full-text](http://theses.ulaval.ca/archimede/meta/31131)
+  **J. Dumont**, M. Sc. thesis, Université Laval (2014).                     \\
+  <i class="ai ai-open-access-square ai-lg"></i> [Full-text](http://theses.ulaval.ca/archimede/meta/31131)
 
 
 ## Oral Presentations
@@ -133,13 +133,15 @@ Contents:
 - Vacuum processes in tightly focused electromagnetic fields,                \\
   **J. Dumont**, F. Fillion-Gourdeau, D. Gagnon, C. Lefebvre, C. Murphy and
     S. MacLean.                                                              \\
-  2nd Conference on Extremely High Intensty Laser Physics (ExHILP 2017),     \\
+  2nd Conference on Extremely High Intensty Laser Physics
+  ([ExHILP 2017](http://exhilp.wimpzilla.tecnico.ulisboa.pt/)),              \\
   Lisbon, Portugal.
 
 - S and Q Matrices Reloaded: applications to open, inhomogeneous, and complex
     cavities,                                                                \\
   G. Painchaud-April, **J. Dumont**, D. Gagnon and L.J. Dubé,                \\
-  15th International Conference on Trasparent Optical Networks (ICTON 2013), \\
+  15th International Conference on Trasparent Optical Networks
+  ([ICTON 2013](http://girtel.upct.es/conf/icton2013/), \\
   Cartagena, Spain.
 
 ## Posters
