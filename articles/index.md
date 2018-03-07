@@ -141,7 +141,7 @@ Contents:
     cavities,                                                                \\
   G. Painchaud-April, **J. Dumont**, D. Gagnon and L.J. Dubé,                \\
   15th International Conference on Trasparent Optical Networks
-  ([ICTON 2013](http://girtel.upct.es/conf/icton2013/), \\
+  ([ICTON 2013](http://girtel.upct.es/conf/icton2013/)), \\
   Cartagena, Spain.
 
 ## Posters
