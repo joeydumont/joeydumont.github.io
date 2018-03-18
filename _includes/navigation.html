@@ -16,7 +16,7 @@
 
 {% include browser-upgrade.html %}
 
-{% if page.layout == 'post' %}
+{% if page.layout == 'post' or page.layout == 'minimal' %}
 {% else %}
 {% if page.image.feature %}<header class="masthead">
 	{% if site.logo != null %}
