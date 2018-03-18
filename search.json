@@ -243,12 +243,20 @@
   
 
   
-
-  
     ,{
       "title"			: "About me",
       "link"			: "https://blog.joey-dumont.ca/about/",
       "excerpt"		: "A somewhat intelligent person with limited social skills."
+    }
+  
+
+  
+
+  
+    ,{
+      "title"			: "FRESH POOOOTS",
+      "link"			: "https://blog.joey-dumont.ca/freshpot/",
+      "excerpt"		: "FRESH POTS"
     }
   
 
