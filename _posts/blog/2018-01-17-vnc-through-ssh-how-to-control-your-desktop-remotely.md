@@ -24,7 +24,7 @@ SSH into your remote machine with
 
 and then,
 
-<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwdfile
+<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
 </code></pre>
 
 Now, in the second terminal on your local machine, you can simply type
@@ -44,10 +44,11 @@ it to `x0vncserver` on the `passwordfile` flag. Here we choose the default.
 The same method with generic ports would read
 
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
-<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 -passwordfile ~/.vnc/passwdfile
+<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 \
+                                         -passwordfile ~/.vnc/passwd
 </code></pre>
 
-and
+<div style="text-indent: 0">and</div>
 
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
 </code></pre>

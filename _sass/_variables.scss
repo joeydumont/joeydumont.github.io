@@ -15,8 +15,17 @@ $border-radius            : 3px;
 body {
   margin-top: 0px + $doc-line-height;
   font-size: 0px + $doc-font-size;
-}
 
+  // User additions. Justified text, and other nice legibility options.
+  // Ideas from Butterick's Practical Typography.
+  // https://practicaltypography.com/summary-of-key-rules.html
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern";
+  hyphens: auto;
+}
 
 // COLORS =====================================================
 $body-color               : #fff;

@@ -11,11 +11,27 @@ excerpt: FRESH POTS
 <audio id="fp5" src="{{ site.url }}/assets/sounds/freshpots5.ogg" preload="auto"></audio>
 <audio id="fp6" src="{{ site.url }}/assets/sounds/freshpots6.ogg" preload="auto"></audio>
 <audio id="fp7" src="{{ site.url }}/assets/sounds/freshpots7.ogg" preload="auto"></audio>
-<p style="text-align: center;"><button class="btn" onclick="play_random_sound();">JUSTIN, FRESH POT!!!</button></p>
 
+<div id="freshpot" onclick="play_random_sound();" style="text-align: center;">
+<img onmouseup="unpressed_button(this)" onmousedown="pressed_button(this)" width="50%" height="50%" src="{{ site.url }}/images/freshpot/button_unpressed.png" title="JUSTIN, FRESH POT!!!">
+</div>
+---
+{::comment}
+<p style="text-align: center;"><button class="btn" onclick="play_random_sound();">JUSTIN, FRESH POT!!!</button></p>
+{:/comment}
 <iframe width="560" height="315" src="http://www.youtube.com/embed/fhdCslFcKFU" frameborder="0"> </iframe>
 
 <script>
+  function pressed_button(x)
+  {
+    x.src = "{{ site.url }}/images/freshpot/button_pressed.png"
+  }
+
+  function unpressed_button(x)
+  {
+    x.src = "{{ site.url }}/images/freshpot/button_unpressed.png"
+  }
+
   function play_random_sound()
   {
     var textArray = [

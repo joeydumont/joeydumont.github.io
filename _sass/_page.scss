@@ -190,8 +190,15 @@ span + .entry-title {
 .entry-content {
 	@include span-columns(12);
 
+    /* No space between paragraphs, but text-indent on all but the first paragraph */
 	p:first-child {
 		margin-top: 0;
+		text-indent: 0;
+	}
+
+	p {
+		margin: 0;
+		text-indent: 1em;
 	}
 
 	@include media($large) {
