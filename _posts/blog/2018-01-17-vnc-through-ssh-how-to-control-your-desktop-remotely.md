@@ -32,6 +32,8 @@ Now, in the second terminal on your local machine, you can simply type
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:5900
 </code></pre>
 
+<p></p>
+
 The `-L` flag in the SSH connection sets up port forwarding from the local machine
 to the remote machine. In short, all unbound traffic that goes through the specified
 port on the local machine is forward to the other port on the remote machine. Here we

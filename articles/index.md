@@ -141,8 +141,9 @@ Contents:
     cavities,                                                                \\
   G. Painchaud-April, **J. Dumont**, D. Gagnon and L.J. Dubé,                \\
   15th International Conference on Trasparent Optical Networks
-  ([ICTON 2013](http://girtel.upct.es/conf/icton2013/)), \\
-  Cartagena, Spain.
+  ([ICTON 2013](http://girtel.upct.es/conf/icton2013/)),                     \\
+  Cartagena, Spain.                                                          \\
+  <i class="ai ai-open-access-square ai-lg"></i> [Full-text]({{ site.url}}/articles/assets/icton2013_jayd_talk.pdf)
 
 ## Posters
 
@@ -150,15 +151,18 @@ Contents:
     champ fort,                                                              \\
   **J. Dumont**, F. Filion-Gourdeau, C. Lefebvre, D. Gagnon and S. MacLean,  \\
   85ème Congrès de l'ACFAS, 2017.                                            \\
-  Montréal, Canada.
+  Montréal, Canada.                                                          \\
+  <i class="ai ai-open-access-square ai-lg"></i> [Full-text]({{ site.url}}/articles/assets/acfas2017_jayd_poster_v2.pdf)
 
 - Strong-field QED with tightly focused femtosecond pulses,                  \\
   **J. Dumont**, F. Fillion-Gourdeau, C. Lefebvre, D. Gagnon and S. MacLean, \\
   4th Extreme Light Infrastructure Summer School (ELISS 2016),               \\
-  Dolní Břežany, Czech Republic.
+  Dolní Břežany, Czech Republic.                                             \\
+  <i class="ai ai-open-access-square ai-lg"></i> [Full-text]({{ site.url}}/articles/assets/ELISS2016_poster_JayD_v2.pdf)
 
 - Modelling Tightly Focused Electromagnetic Fields: Stratton-Chu Formulation
     of Maxwell's Equations,                                                  \\
   **J. Dumont**, F. Fillion-Gourdeau, C. Lefebvre, D. Gagnon and S. MacLean, \\
   6th International High Performance Computing Summer School (IHPCSS 2015),  \\
-  Toronto, Canada.
+  Toronto, Canada.                                                           \\
+  <i class="ai ai-open-access-square ai-lg"></i> [Full-text]({{ site.url}}/articles/assets/StrattonChuFieldModelization-IHPCSS-2015.pdf)

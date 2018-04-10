@@ -198,7 +198,15 @@ span + .entry-title {
 
 	p {
 		margin: 0;
-		text-indent: 1em;
+		text-indent: 1.5em;
+	}
+
+	pre + p {
+		text-indent: 0;
+	}
+
+	code + p {
+		text-indent: 0;
 	}
 
 	@include media($large) {
@@ -206,7 +214,7 @@ span + .entry-title {
 	}
 
 	/* nice link underlines */
-  p > a,
+    p > a,
 	li > a {
 		border-bottom: 1px dotted lighten($link-color, 50);
 
