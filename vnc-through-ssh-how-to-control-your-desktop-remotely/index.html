@@ -189,13 +189,15 @@ SSH into your remote machine with</p>
 
 <p>and then,</p>
 
-<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwdfile
+<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
 </code></pre>
 
 <p>Now, in the second terminal on your local machine, you can simply type</p>
 
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:5900
 </code></pre>
+
+<p></p>
 
 <p>The <code class="highlighter-rouge">-L</code> flag in the SSH connection sets up port forwarding from the local machine
 to the remote machine. In short, all unbound traffic that goes through the specified
@@ -209,10 +211,11 @@ it to <code class="highlighter-rouge">x0vncserver</code> on the <code class="hig
 <p>The same method with generic ports would read</p>
 
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
-<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 -passwordfile ~/.vnc/passwdfile
+<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 \
+                                         -passwordfile ~/.vnc/passwd
 </code></pre>
 
-<p>and</p>
+<div style="text-indent: 0">and</div>
 
 <pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
 </code></pre>
