@@ -15,7 +15,7 @@ GEM
       namae (~> 1.0)
     csl-styles (1.0.1.8)
       csl (~> 1.0)
-    faraday (0.15.0)
+    faraday (0.15.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.23)
     ffi (1.9.23-java)
@@ -62,7 +62,7 @@ GEM
     mercenary (0.3.6)
     multipart-post (2.0.0)
     namae (1.0.1)
-    octokit (4.8.0)
+    octokit (4.9.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
@@ -85,7 +85,7 @@ GEM
     thread_safe (0.3.6-java)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2018.4)
+    tzinfo-data (1.2018.5)
       tzinfo (>= 1.0.0)
 
 PLATFORMS
@@ -106,4 +106,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
