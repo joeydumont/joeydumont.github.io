@@ -7,7 +7,7 @@ search_omit: true
 
 Here you will find ramblings on technology, science, math and pretty much anything
 that comes to mind. The only saving grace for this chaotic mess is that I tend
-to use tags to salvage a little organization out of this.
+to use [tags]({{ site.baseurl }}/tags) to salvage a little organization out of this.
 
 ---
 
