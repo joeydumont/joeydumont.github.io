@@ -201,13 +201,17 @@ span + .entry-title {
 		text-indent: 1.5em;
 	}
 
-	pre + p {
+	p + pre + p {
 		text-indent: 0;
 	}
 
-	code + p {
+	p + code + p {
 		text-indent: 0;
 	}
+
+  p+  div + p {
+    text-indent: 0;
+  }
 
 	@include media($large) {
 		@include span-columns(9.5);

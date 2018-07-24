@@ -1,10 +1,12 @@
 ---
 layout: post
-title: Loading complex numbers from text files to numpy arrays
+title: Loading complex numbers in the C++ format from text files into NumPy
 author: jayd
 tags:
  - complex numbers
  - numpy
+ - C++
+ - genfromtxt
 ---
 
 In my workflow, I typically use C++ for production code and Python for data
@@ -25,8 +27,8 @@ x = np.genfromtxt("file", dtype=complex)
 ```
 yields `NaN`s for the real part and `0`s for the imaginary part. To get Python
 to understand the format, an easy solution is to first parse the elements of the
-array as strings, then use a lambda function to effectively cast the string
-as a complex number. Let's show the code and work from there.
+array as strings, then use a lambda function to effectively cast the strings
+as complex numbers. Here's the code.
 
 
 ### The Code
@@ -42,7 +44,14 @@ def LoadComplexData(file,**genfromtext_args):
 ```
 
 First, we load the array of complex numbers as an array of strings in Python.
-Then, we use `np.vectorize` to define a callable that takes each of the
-array and applies the `complex(*eval(x))` to it. `eval()` takes a string
-and evaluates to a tuple. The `*` unpacks the tuple such that we are calling
-`complex(a,b)`, which returns a complex number in Python format.
+Then, we use `np.vectorize` to define a callable that takes each of the array
+and applies the `complex(*eval(x))` to it. `eval()` takes the string and evaluates
+it to a tuple of floats. The `*` operator unpacks the tuple such that we are calling
+`complex(a,b)` properly. This returns a complex number in Python format.
+
+A solution based on a `genfromtxt` converter could be more elegant, but I wasn't
+able to find a way to apply a converter to every column of the input file
+instead of a specific column.
+
+You can try it for yourself with these
+[files]({{ "assets/posts/read-c-format-complex-numbers-with-numpy/complex_data_example.tar.gz" | absolute_url }}). This was tested with Numpy v1.14.5.
