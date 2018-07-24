@@ -2,6 +2,14 @@
 
   
     {
+      "title"			: "Loading complex numbers in the C++ format from text files into NumPy",
+      "link"			: "https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/",
+      "excerpt"		: "In my workflow, I typically use C++ for production code and Python for datapost-processing and data analysis. A major annoyance is that NumPy’sgenfromtxt does not recognize the C++ complex number format."
+    }
+  
+
+  
+    ,{
       "title"			: "vnc through SSH: how to control your desktop remotely",
       "link"			: "https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/",
       "excerpt"		: "I won’t go into too much detail in this post, as there are multiple guidesthat go above and beyond in explaining the behind-the-scenes of tunnellingVNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserverto control the remote X server. Simply use vncserver if you want to controla different X server."
@@ -241,16 +249,6 @@
   
 
   
-    ,{
-      "title"			: "FRESH POOOOTS",
-      "link"			: "https://blog.joey-dumont.ca/freshpot/",
-      "excerpt"		: "FRESH POTS"
-    }
-  
-
-  
-
-  
 
   
     ,{
@@ -261,11 +259,25 @@
   
 
   
+
+  
+    ,{
+      "title"			: "FRESH POOOOTS",
+      "link"			: "https://blog.joey-dumont.ca/freshpot/",
+      "excerpt"		: "FRESH POTS"
+    }
+  
+
+  
     ,{
       "title"			: "Academic Publications",
       "link"			: "https://blog.joey-dumont.ca/articles/",
       "excerpt"		: "An archive of articles sorted by date."
     }
+  
+
+  
+
   
 
   

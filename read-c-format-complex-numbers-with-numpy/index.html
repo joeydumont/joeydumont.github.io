@@ -17,24 +17,20 @@
 
 
 <meta charset="utf-8">
-<title>vnc through SSH: how to control your desktop remotely &#8211; Study of Nature</title>
-<meta name="description" content="I won’t go into too much detail in this post, as there are multiple guides
-that go above and beyond in explaining the behind-the-scenes of tunnelling
-VNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserver
-to control the remote X server. Simply use vncserver if you want to control
-a different X server.
+<title>Loading complex numbers in the C++ format from text files into NumPy &#8211; Study of Nature</title>
+<meta name="description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
 
 ">
-<meta name="keywords" content="vnc, ssh, remote desktop, linux">
+<meta name="keywords" content="complex numbers, numpy, C++, genfromtxt">
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="vnc through SSH: how to control your desktop remotely">
-<meta name="twitter:description" content="I won’t go into too much detail in this post, as there are multiple guides
-that go above and beyond in explaining the behind-the-scenes of tunnelling
-VNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserver
-to control the remote X server. Simply use vncserver if you want to control
-a different X server.
+<meta name="twitter:title" content="Loading complex numbers in the C++ format from text files into NumPy">
+<meta name="twitter:description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
 
 ">
 <meta name="twitter:site" content="@jayd_phys">
@@ -46,22 +42,20 @@ a different X server.
 <!-- Open Graph -->
 <meta property="og:locale" content="en_CA">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vnc through SSH: how to control your desktop remotely">
-<meta property="og:description" content="I won’t go into too much detail in this post, as there are multiple guides
-that go above and beyond in explaining the behind-the-scenes of tunnelling
-VNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserver
-to control the remote X server. Simply use vncserver if you want to control
-a different X server.
+<meta property="og:title" content="Loading complex numbers in the C++ format from text files into NumPy">
+<meta property="og:description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
 
 ">
-<meta property="og:url" content="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/">
+<meta property="og:url" content="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/">
 <meta property="og:site_name" content="Study of Nature">
 
 
 
 
 
-<link rel="canonical" href="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/">
+<link rel="canonical" href="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/">
 <link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
 
 <!-- https://t.co/dKP3o1e -->
@@ -147,10 +141,10 @@ a different X server.
     <div class="entry-wrapper">
       <header class="entry-header">
         
-          <h1 class="entry-title">vnc through SSH: how to control your desktop remotely</h1>
+          <h1 class="entry-title">Loading complex numbers in the C++ format from text files into NumPy</h1>
         
         <ul class="entry-tags">
-          <li><a href="https://blog.joey-dumont.ca/tags/#vnc" title="Pages tagged vnc">vnc</a></li><li><a href="https://blog.joey-dumont.ca/tags/#ssh" title="Pages tagged ssh">ssh</a></li><li><a href="https://blog.joey-dumont.ca/tags/#remote desktop" title="Pages tagged remote desktop">remote desktop</a></li><li><a href="https://blog.joey-dumont.ca/tags/#linux" title="Pages tagged linux">linux</a></li>
+          <li><a href="https://blog.joey-dumont.ca/tags/#complex numbers" title="Pages tagged complex numbers">complex numbers</a></li><li><a href="https://blog.joey-dumont.ca/tags/#numpy" title="Pages tagged numpy">numpy</a></li><li><a href="https://blog.joey-dumont.ca/tags/#C++" title="Pages tagged C++">C++</a></li><li><a href="https://blog.joey-dumont.ca/tags/#genfromtxt" title="Pages tagged genfromtxt">genfromtxt</a></li>
         </ul>
       </header>
       <footer class="entry-meta">
@@ -159,69 +153,58 @@ a different X server.
           <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
         
         <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
-        <span class="entry-date date published"><time datetime="2018-01-17T00:00:00-05:00"><i class="far fa-calendar"></i> January 17, 2018</time></span>
+        <span class="entry-date date published"><time datetime="2018-07-24T00:00:00-04:00"><i class="far fa-calendar"></i> July 24, 2018</time></span>
         
         <span class="entry-comments"><i class="far fa-comment"></i> <a href="#disqus_thread">Comment</a></span>
-        <span class="social-share-twitter">
-  <a href="https://twitter.com/intent/tweet?hashtags=vnc,ssh,remotedesktop,linux&amp;text=vnc%20through%20SSH:%20how%20to%20control%20your%20desktop%20remotely&amp;url=https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/&amp;via=jayd_phys" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
-</span>
-<span class="social-share-facebook">
-  <a href="https://www.facebook.com/sharer/sharer.php?u=https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
-</span>
-<span class="social-share-googleplus">
-  <a href="https://plus.google.com/share?url=https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
-</span>
-<!-- /.social-share -->
+        
         
       </footer>
       <div class="entry-content">
-        <p>I won’t go into too much detail in this post, as there are <a href="http://www.cl.cam.ac.uk/research/dtg/attarchive/vnc/sshvnc.html">multiple</a> <a href="https://www.cyberciti.biz/tips/tunneling-vnc-connections-over-ssh-howto.html">guides</a>
-that go above and beyond in explaining the behind-the-scenes of tunnelling
-VNC connections through SSH. Note that this solution uses TigerVNC’s <code class="highlighter-rouge">x0vncserver</code>
-to control the remote X server. Simply use <code class="highlighter-rouge">vncserver</code> if you want to control
-a different X server.</p>
+        <p>In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+<code class="highlighter-rouge">genfromtxt</code> does not recognize the C++ complex number format.</p>
 
-<p>The setup is quite simple, but requires two terminal windows. In the first terminal,
-SSH into your remote machine with</p>
+<p>Of course, one could write their own I/O for their C++ production codes, but
+most libraries have built-in I/O functions and it’s just a pain. It’s much
+easier to get Python to read the C++ format!</p>
 
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L 5900:localhost:5900
+<h3 id="the-issue">The Issue</h3>
+
+<p>C++ represents a given complex number <script type="math/tex">z=a+ib</script> as <code class="highlighter-rouge">(a,b)</code>. When using
+<code class="highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
 </code></pre>
+</div>
+<p>yields <code class="highlighter-rouge">NaN</code>s for the real part and <code class="highlighter-rouge">0</code>s for the imaginary part. To get Python
+to understand the format, an easy solution is to first parse the elements of the
+array as strings, then use a lambda function to effectively cast the strings
+as complex numbers. Here’s the code.</p>
 
-<p>and then,</p>
+<h3 id="the-code">The Code</h3>
 
-<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
+    <span class="s">"""
+    Load complex data in the C++ format in numpy.
+    """</span>
+    <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
+    <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">complex</span><span class="p">(</span><span class="o">*</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">complex_parser</span><span class="p">(</span><span class="n">array_as_strings</span><span class="p">)</span>
 </code></pre>
+</div>
 
-<p>Now, in the second terminal on your local machine, you can simply type</p>
+<p>First, we load the array of complex numbers as an array of strings in Python.
+Then, we use <code class="highlighter-rouge">np.vectorize</code> to define a callable that takes each of the array
+and applies the <code class="highlighter-rouge">complex(*eval(x))</code> to it. <code class="highlighter-rouge">eval()</code> takes the string and evaluates
+it to a tuple of floats. The <code class="highlighter-rouge">*</code> operator unpacks the tuple such that we are calling
+<code class="highlighter-rouge">complex(a,b)</code> properly. This returns a complex number in Python format.</p>
 
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:5900
-</code></pre>
+<p>A solution based on a <code class="highlighter-rouge">genfromtxt</code> converter could be more elegant, but I wasn’t
+able to find a way to apply a converter to every column of the input file
+instead of a specific column.</p>
 
-<p></p>
-
-<p>The <code class="highlighter-rouge">-L</code> flag in the SSH connection sets up port forwarding from the local machine
-to the remote machine. In short, all unbound traffic that goes through the specified
-port on the local machine is forward to the other port on the remote machine. Here we
-choose port 5900 on both machines as it is the default port for <code class="highlighter-rouge">x0vncserver</code>,
-but both can be changed freely.</p>
-
-<p>Make sure to generate a password file for VNC by using <code class="highlighter-rouge">vncpasswd</code> and pass
-it to <code class="highlighter-rouge">x0vncserver</code> on the <code class="highlighter-rouge">passwordfile</code> flag. Here we choose the default.</p>
-
-<p>The same method with generic ports would read</p>
-
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
-<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 \
-                                         -passwordfile ~/.vnc/passwd
-</code></pre>
-
-<div style="text-indent: 0">and</div>
-
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
-</code></pre>
-
-<p>Until next time, cheers!</p>
-
+<p>You can try it for yourself with these
+<a href="https://blog.joey-dumont.ca/assets/posts/read-c-format-complex-numbers-with-numpy/complex_data_example.tar.gz">files</a>. This was tested with Numpy v1.14.5.</p>
 
         
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
@@ -253,10 +236,8 @@ it to <code class="highlighter-rouge">x0vncserver</code> on the <code class="hig
     </div><!-- /.entry-wrapper -->
     <nav class="pagination" role="navigation">
       
-        <a href="https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/" class="btn" title="Have yaourt save compiled packages to /var/cache/pacman/pkg">Previous</a>
+        <a href="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/" class="btn" title="vnc through SSH: how to control your desktop remotely">Previous</a>
       
-      
-        <a href="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/" class="btn" title="Loading complex numbers in the C++ format from text files into NumPy">Next</a>
       
     </nav><!-- /.pagination -->
   </article>
