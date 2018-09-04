@@ -62,11 +62,11 @@ GEM
     mercenary (0.3.6)
     multipart-post (2.0.0)
     namae (1.0.1)
-    octokit (4.9.0)
+    octokit (4.11.0)
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
-    public_suffix (3.0.2)
+    public_suffix (3.0.3)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -106,4 +106,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   1.16.3
+   1.16.4
