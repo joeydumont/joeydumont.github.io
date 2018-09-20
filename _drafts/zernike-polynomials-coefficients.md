@@ -78,12 +78,39 @@ values of $$m$$ and even indices to positive values of $$m$$.
 
 To determine the value of $$n$$ from the linear index $$j$$, we need to
 identity the smallest triangular number larger than $j$. Its index will
-directly correspond to $$n$$. Fortunately, this can be easily determined
+correspond to $$n-1$$. Fortunately, this can be easily determined
 by the [formula](https://math.stackexchange.com/questions/1417579/largest-triangular-number-less-than-a-given-natural-number)
 
 $$
 k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.
 $$
+
+The $$m$$ can be computed from the remainder of $$T_k-j$$. The latter can serve
+as an index into the list `m = [k  for k in range(-n,n+2,2)]`. Algorithmically, this
+is rather tedious to achieve. A simpler way is to create a list that generates all the possible
+values of $$|m|$$. For $$n=3$$, that list would be `[1,1,3,3]`. The sign is then decided by
+the parity of $$j$$ directly, as stated in the Noll rules.
+
+Here's the Python code that implements this:
+
+```python
+import numpy as np
+def NollToQuantum(j):
+    """
+    triangualr_numbers_idx = np.array(np.ceil((1+np.sqrt(1+8*j))/2),dtype=int)-1
+    triangular_numbers     = np.array(indices*(indices+1)/2).astype(int)
+    n = indices - 1
+
+    r     = j - triangular_numbers
+    rpn   = r+n
+    
+    m = (-1)**j * ((n % 2) + 2 * int(r + ((n+1)%2))/2.0))
+
+    return n,m
+```
+
+Let's work through an example value. 
+For instance, suppose that we have $$j=8$$, then the formula above $$k=4$$ and thus $$n=3$$. 
 
 
 ### Phasics Indices
@@ -94,6 +121,7 @@ $$m$$ to lower linear indices, regardless of parity.
 
 From these characteristics, we see that Noll and Phasics only differ
 on rows where $T_n$ is even. 
+
 ### Sources
 
 Largest triangular number: 
