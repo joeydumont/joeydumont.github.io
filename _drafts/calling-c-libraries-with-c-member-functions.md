@@ -17,5 +17,5 @@ Example to work through: class that computes the value of pi with Cuba.
  - Unless it's static, the state needs to be passed to the member function
    pointer.
  - Explicit use of `this` in call to Cuba routines (could be better with
-   serialziation, maybe?)
+   serialization, maybe?)
 

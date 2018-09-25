@@ -23,6 +23,7 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-redirect-from
+  - jekyll-scholar
 
 
 kramdown:
@@ -48,7 +49,7 @@ owner:
   disqus-shortname: studyofnature
   twitter: jayd_phys
   facebook: #username
-  github: valandil
+  github: joeydumont
   stackexchange: https://stackexchange.com/users/1514592/joey-dumont
   linkedin: joeydumont
   instagram: #username

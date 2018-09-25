@@ -13,7 +13,7 @@ The Zernike polynomials are a very popular basis to describe aberrations to the
 wavefront of optical beams. They are used in ophthalmology, microscopy, and
 laser metrology, among others. Because they are orthogonal on the unit disk,
 they are most suitable to describe deviations from a flat phase front in a
-single transverse plane of the beam's path.
+single transverse plane of the beam's path {% cite DUM2017 %}.
 
 They are given by
 
@@ -209,6 +209,8 @@ at the end of the loop.
 
 
 ### Sources
+
+{% bibliography --file zernike --cited_in_order %}
 
 Noll indices: https://oeis.org/A176988
 
