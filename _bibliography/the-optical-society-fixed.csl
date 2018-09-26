@@ -120,7 +120,6 @@
   <!--********************************************************************-->
   <bibliography entry-spacing="0" second-field-align="flush">
     <layout suffix=".">
-      <text variable="citation-number" prefix="[" suffix="]"/>
       <text macro="author" suffix=", "/>
       <choose>
         <if type="bill book graphic legal_case legislation motion_picture report song" match="any">
@@ -205,7 +204,8 @@
         </else-if>
         <else-if type="webpage">
           <text variable="title" prefix="&quot;" suffix=",&quot; "/>
-          <text variable="URL"/>
+          <text variable="URL" suffix=", "/>
+          <text variable="note"/>
         </else-if>
         <else-if type="personal_communication">
           <text macro="personal-communication"/>

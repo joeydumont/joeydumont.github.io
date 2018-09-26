@@ -201,6 +201,7 @@ span + .entry-title {
 		text-indent: 1.5em;
 	}
 
+    /* Make sure text after code blocks is not indented. */
 	p + pre + p {
 		text-indent: 0;
 	}
@@ -213,6 +214,7 @@ span + .entry-title {
         text-indent: 0;
     }
 
+    /* Intended to remove indentation after math blocks, but doesn't seem to work. */
     p + script + p {
         text-indent: 0;
     }
@@ -230,6 +232,23 @@ span + .entry-title {
 			border-bottom-style: solid;
 		}
 	}
+}
+
+/*
+   Bibliography
+   ========================================================================== */
+
+/* This should work eventually, as it's experimental in CSS3. */
+@counter-style squared-numbers {
+    system: numeric;
+    symbols: decimal;
+    prefix: "[";
+    suffix: "]";
+}
+
+ol.bibliography {
+    padding-left: (.5 * $gutter);
+    list-style-type: squared-numbers;
 }
 
 /*
