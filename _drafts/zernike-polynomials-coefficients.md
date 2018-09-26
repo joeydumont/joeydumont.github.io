@@ -67,14 +67,16 @@ $$
 
 For index systems that are monotonic in $$n$$, i.e. most of them,  we can
 directly relate the quantum number $$n$$ to the index of the smallest triangular
-number larger than $$j$$.
+number larger than $$j$$. Fortunately, the index can easily be determined via
+the formula {% cite DAurizio2015 --file zernike %}
 
-{::comment}
-|            |            |            | $$(0,0)$$ |           |           |            |
-|            |            | $$(1,-1)$$ |           | $$(1,1)$$ |           |            |
-|            | $$(2,-2)$$ |            | $$(2,0)$$ |           | $$(2,2)$$ |            |
-| $$(3,-3)$$ |            | $$(3,-1)$$ |           | $$(3,1)$$ |           | $$(3,3)$$  |
-{:/comment}
+$$
+k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.
+$$
+
+The remainder $$r=j-T_k+n$$ can then be used to determine what column corresponds
+to that particular $$j$$ value. 
+
 
 ### Noll Indices
 
@@ -84,15 +86,8 @@ values of $$m$$ and even indices to positive values of $$m$$. The correspondence
 between the Noll indices and the quantum pairs is the subject of OEIS sequence
 A176988 {% cite A176988 --file zernike %}.
 
-To determine the value of $$n$$ from the linear index $$j$$, we need to identity
-the smallest triangular number larger than $$j$$. Its index will correspond to
-$$n-1$$, as $$j$$ starts from 1 and $$n$$ from 0. Fortunately, this can be
-easily determined by the
-[formula](https://math.stackexchange.com/questions/1417579/largest-triangular-number-less-than-a-given-natural-number)
-
-$$
-k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.
-$$
+Since the Noll indices start at 1, the first quantum number can be written
+as one less than the triangular number index, $$n=k-1$$.
 
 The $$m$$ value can be computed from the remainder $$r=j-T_k+n$$. The latter can
 serve as an index into the list `m = [k  for k in range(-n,n+2,2)]`, as it
@@ -145,7 +140,7 @@ And indeed, $$(j=8)\mapsto(3,1)$$.
 
 The Phasics index system is monotonic in $$n$$, as Noll's is, and also monotonic
 in $$|m|$$. However, this system elects to always assign positive values of
-$$m$$ to lower linear indices, regardless of parity, as per the SID4 6.4
+$$m$$ to lower linear indices, regardless of parity, as stated in the SID4 6.4
 User Handbook, Chapter 6.
 
 From these characteristics, we see that Noll and Phasics only differ
