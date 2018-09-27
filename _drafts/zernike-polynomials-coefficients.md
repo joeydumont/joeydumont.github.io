@@ -38,7 +38,8 @@ To simplify the enumeration of Zernike polynomials, various linear index schemes
 have been devised. In short, each possible pair of $$(n,m)$$ is assigned to a
 monotonically increasing index that we will denote $$j$$. In this post, we'll go
 over some index schemes and write Python scripts that will allow us to map form
-the linear index $$j$$ to the quantum pair $$(n,m)$$.
+the linear index $$j$$ to the quantum pair $$(n,m)$$. First, however, it will be
+useful to investigate the structure of the pairs.
 
 {:toc}
 
@@ -75,7 +76,8 @@ k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.
 $$
 
 The remainder $$r=j-T_k+n$$ can then be used to determine what column corresponds
-to that particular $$j$$ value. 
+to that particular $$j$$ value. The various linear schemes use different rules
+to assign a column to the remainder.
 
 
 ### Noll Indices
@@ -143,9 +145,9 @@ in $$|m|$$. However, this system elects to always assign positive values of
 $$m$$ to lower linear indices, regardless of parity, as stated in the SID4 6.4
 User Handbook, Chapter 6.
 
-From these characteristics, we see that Noll and Phasics only differ
-on rows where $T_n$ is even. We can thus use the same basic function above,
-but add the single-line
+From these characteristics, we see that Noll and Phasics only differ on rows
+where $$T_n$$ is even, as  We can thus use the same basic function above, but
+add the single-line
 ```python
 m[i] *= (-1)**(triangular_numbers[i]%2+1)
 ```
