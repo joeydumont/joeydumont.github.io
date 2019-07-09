@@ -18,4 +18,3 @@ Example to work through: class that computes the value of pi with Cuba.
    pointer.
  - Explicit use of `this` in call to Cuba routines (could be better with
    serialization, maybe?)
-
