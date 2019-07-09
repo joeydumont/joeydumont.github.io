@@ -1,0 +1,346 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-15417184-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-15417184-4');
+</script>
+
+
+<meta charset="utf-8">
+<title>Building a multilib MIPS toolchain: my journey through gcc's build system &#8211; Study of Nature</title>
+<meta name="description" content="This article assumes that you know to compile a cross-compiler from scratch. If
+not, I recommend this succinct
+guide, or this
+longer guide
+if you want to have some context.
+
+">
+<meta name="keywords" content="gcc, multilib, multi ABI, mips64-elf, mips64, mips, toolchains">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Building a multilib MIPS toolchain: my journey through gcc's build system">
+<meta name="twitter:description" content="This article assumes that you know to compile a cross-compiler from scratch. If
+not, I recommend this succinct
+guide, or this
+longer guide
+if you want to have some context.
+
+">
+<meta name="twitter:site" content="@jayd_phys">
+<meta name="twitter:creator" content="@jayd_phys">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.joey-dumont.ca/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building a multilib MIPS toolchain: my journey through gcc's build system">
+<meta property="og:description" content="This article assumes that you know to compile a cross-compiler from scratch. If
+not, I recommend this succinct
+guide, or this
+longer guide
+if you want to have some context.
+
+">
+<meta property="og:url" content="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/">
+<link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
+<!-- Webfonts -->
+<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+<!-- Academicons -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://blog.joey-dumont.ca/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://blog.joey-dumont.ca/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://blog.joey-dumont.ca/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://blog.joey-dumont.ca/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
+
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/search/" >Search</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Building a multilib MIPS toolchain: my journey through gcc's build system</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://blog.joey-dumont.ca/tags/#gcc" title="Pages tagged gcc">gcc</a></li><li><a href="https://blog.joey-dumont.ca/tags/#multilib" title="Pages tagged multilib">multilib</a></li><li><a href="https://blog.joey-dumont.ca/tags/#multi ABI" title="Pages tagged multi ABI">multi ABI</a></li><li><a href="https://blog.joey-dumont.ca/tags/#mips64-elf" title="Pages tagged mips64-elf">mips64-elf</a></li><li><a href="https://blog.joey-dumont.ca/tags/#mips64" title="Pages tagged mips64">mips64</a></li><li><a href="https://blog.joey-dumont.ca/tags/#mips" title="Pages tagged mips">mips</a></li><li><a href="https://blog.joey-dumont.ca/tags/#toolchains" title="Pages tagged toolchains">toolchains</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
+        <span class="entry-date date published"><time datetime="2019-07-09T00:00:00-04:00"><i class="far fa-calendar"></i> July 09, 2019</time></span>
+        
+        <span class="entry-comments"><i class="far fa-comment"></i> <a href="#disqus_thread">Comment</a></span>
+        
+        
+      </footer>
+      <div class="entry-content">
+        <p>This article assumes that you know to compile a cross-compiler from scratch. If
+not, I recommend this <a href="http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil">succinct
+guide</a>, or this
+<a href="https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler/">longer guide</a>
+if you want to have some context.</p>
+
+<p>On x86_64 architectures, building gcc such that it can generate both 32- and 64-bit code is
+easy: just use the <code class="highlighter-rouge">--enable-multilib</code> flag at configuration time, and
+everything will follow smoothly (see Arch Linux’s PKGBUILD for
+<a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc">gcc</a>,
+the packaging is a bit more complicated, but the build itself is simple).</p>
+
+<p>It is not as easy when targeting the MIPS architecture, specifically
+<code class="highlighter-rouge">mips64-elf</code>. By default, the 32-bit ABIs are not part of the multilib setup.
+gcc exposes the multilib setup that was used to compile a toolchain via the
+<code class="highlighter-rouge">-print-multi-lib</code> option. On your own x86_64 system, you should see something
+similar to this (assuming you have <code class="highlighter-rouge">gcc-multilib</code> on your system)</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>gcc -print-multi-lib
+.;
+32;@m32
+</code></pre>
+</div>
+<p>where the second line shows the use of <code class="highlighter-rouge">-m32</code> in the build options for the gcc
+toolchain itself, and the libraries are stored in the <code class="highlighter-rouge">32/</code> directory. This
+toolchain is thus comprised of two sets of GCC libraries, one compiled with
+default options, and one with <code class="highlighter-rouge">-m32</code>.</p>
+
+<p>If you had installed a mips64-elf toolchain with <code class="highlighter-rouge">--enable-multilib</code>, by default
+you would get the following output</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>mips64-elf-gcc -print-multi-lib
+.;
+soft-float;@msoft-float
+el;@EL
+soft-float/el;@msoft-float@EL
+</code></pre>
+</div>
+
+<p>In order to enable other ABIs, specify other build options for the GCC libraries
+in general, you need to know about <em><a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Target-Fragment.html">Target makefile
+fragments</a></em>.</p>
+
+<p>In short, target Makefile fragments are the <code class="highlighter-rouge">gcc/config/&lt;target&gt;/t*</code> files in
+gcc’s source tree. When you specify a target at the <code class="highlighter-rouge">configure</code> step, it looks
+for those in order to generate the Makefile that will actually build the gcc
+libraries <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>. For a <code class="highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
+the <code class="highlighter-rouge">gcc/config/mips/t-elf</code> file. By default, it sets three Makefile variables</p>
+
+<div class="language-make highlighter-rouge"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> msoft-float EL/EB
+<span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> soft-float el eb
+<span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
+</code></pre>
+</div>
+
+<p>which instructs the gcc build system to generate libraries for combinations of
+these three build flags. Flags that are separated by a space are combined, while
+incompatible flag are separated with a slash. It is this fragment that generated
+the <code class="highlighter-rouge">mips64-elf-gcc -print-multi-lib</code> output that we saw above.</p>
+
+<p>So, if you want to generate libraries for other ABIs, you simply edit (or create
+a new one!) that file to what you need. In my case, I wanted to have libraries
+compiled with <code class="highlighter-rouge">-mabi=32</code>, at it is the ABI used by most N64 games. So, I edited
+my <code class="highlighter-rouge">t-elf</code> fragment to be</p>
+
+<div class="language-make highlighter-rouge"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> <span class="nv">mabi</span><span class="o">=</span>32 msoft-float EL/EB
+<span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> 32 soft-float el eb
+<span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
+</code></pre>
+</div>
+
+<p>If you were to compile this toolchain, you would get the following
+<code class="highlighter-rouge">-print-multib-lib</code> output:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>.;
+32;@mabi<span class="o">=</span>32
+soft-float;@msoft-float
+el;@EL
+soft-float/el;@msoft-float@EL
+32/soft-float;@mabi<span class="o">=</span>32@msoft-float
+32/el;@mabi<span class="o">=</span>32@EL
+32/soft-float/el;@mabi<span class="o">=</span>32@msoft-float@EL
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">MULTILIB_DIRNAMES</code> controls the name of the folder in which the libraries
+reside. Note that this corresponds to the information before the semi-colon in
+the <code class="highlighter-rouge">-print-multilib-output</code>, while the string after describes the build
+options, preppended with <code class="highlighter-rouge">@</code>. and <code class="highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
+some build options.</p>
+
+<p>There are other options than those discussed here. Feel free to read the
+<a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Fragments.html#Fragments">Makefile
+Fragment</a>
+of the gcc docs to have the whole story, or look at an example of custom target
+in <a href="https://github.com/glankk">glank</a>’s <a href="https://github.com/glankk/n64/">n64
+repo</a>, under config (as of July 9th, this is
+only in the n64-ultra branch).</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>At least, that is how I think it works. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+          
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/" class="btn" title="Converting between different Zernike polynomial index systems">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2019 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
+	
+	
+	<a href="https://linkedin.com/in/joeydumont" title="Joey Dumont on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+	<a href="https://stackexchange.com/users/1514592/joey-dumont" title="Joey Dumont on StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-2x"></i></a>
+	
+	
+	<a href="https://github.com/joeydumont" title="Joey Dumont on Github" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+	
+  
+	
+  <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://blog.joey-dumont.ca';
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
+
+
+</body>
+</html>

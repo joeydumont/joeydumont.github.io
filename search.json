@@ -2,6 +2,14 @@
 
   
     {
+      "title"			: "Building a multilib MIPS toolchain: my journey through gcc's build system",
+      "link"			: "https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/",
+      "excerpt"		: "This article assumes that you know to compile a cross-compiler from scratch. Ifnot, I recommend this succinctguide, or thislonger guideif you want to have some context."
+    }
+  
+
+  
+    ,{
       "title"			: "Converting between different Zernike polynomial index systems",
       "link"			: "https://blog.joey-dumont.ca/zernike-polynomials-coefficients/",
       "excerpt"		: "The Zernike polynomials are a very popular basis to describe aberrations in thewavefront of optical beams. They are used in ophthalmology  [1], microscopy, and laser metrology, among others  [2]. Because they are orthogonal on the unit disk, they are mostsuitable to describe deviations from a flat phase front in a single transverseplane of the beam."
@@ -257,22 +265,22 @@
   
 
   
-    ,{
-      "title"			: "FRESH POOOOTS",
-      "link"			: "https://blog.joey-dumont.ca/freshpot/",
-      "excerpt"		: "FRESH POTS"
-    }
-  
-
-  
-
-  
 
   
     ,{
       "title"			: "About me",
       "link"			: "https://blog.joey-dumont.ca/about/",
       "excerpt"		: "A somewhat intelligent person with limited social skills."
+    }
+  
+
+  
+
+  
+    ,{
+      "title"			: "FRESH POOOOTS",
+      "link"			: "https://blog.joey-dumont.ca/freshpot/",
+      "excerpt"		: "FRESH POTS"
     }
   
 
