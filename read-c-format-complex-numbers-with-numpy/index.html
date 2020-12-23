@@ -21,7 +21,6 @@
 <meta name="description" content="In my workflow, I typically use C++ for production code and Python for data
 post-processing and data analysis. A major annoyance is that NumPy’s
 genfromtxt does not recognize the C++ complex number format.
-
 ">
 <meta name="keywords" content="complex numbers, numpy, C++, genfromtxt">
 
@@ -31,7 +30,6 @@ genfromtxt does not recognize the C++ complex number format.
 <meta name="twitter:description" content="In my workflow, I typically use C++ for production code and Python for data
 post-processing and data analysis. A major annoyance is that NumPy’s
 genfromtxt does not recognize the C++ complex number format.
-
 ">
 <meta name="twitter:site" content="@jayd_phys">
 <meta name="twitter:creator" content="@jayd_phys">
@@ -46,7 +44,6 @@ genfromtxt does not recognize the C++ complex number format.
 <meta property="og:description" content="In my workflow, I typically use C++ for production code and Python for data
 post-processing and data analysis. A major annoyance is that NumPy’s
 genfromtxt does not recognize the C++ complex number format.
-
 ">
 <meta property="og:url" content="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/">
 <meta property="og:site_name" content="Study of Nature">
@@ -162,7 +159,7 @@ genfromtxt does not recognize the C++ complex number format.
       <div class="entry-content">
         <p>In my workflow, I typically use C++ for production code and Python for data
 post-processing and data analysis. A major annoyance is that NumPy’s
-<code class="highlighter-rouge">genfromtxt</code> does not recognize the C++ complex number format.</p>
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> does not recognize the C++ complex number format.</p>
 
 <p>Of course, one could write their own I/O for their C++ production codes, but
 most libraries have built-in I/O functions and it’s just a pain. It’s much
@@ -170,36 +167,34 @@ easier to get Python to read the C++ format!</p>
 
 <h3 id="the-issue">The Issue</h3>
 
-<p>C++ represents a given complex number <script type="math/tex">z=a+ib</script> as <code class="highlighter-rouge">(a,b)</code>. When using
-<code class="highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
-</code></pre>
-</div>
-<p>yields <code class="highlighter-rouge">NaN</code>s for the real part and <code class="highlighter-rouge">0</code>s for the imaginary part. To get Python
+<p>C++ represents a given complex number \(z=a+ib\) as <code class="language-plaintext highlighter-rouge">(a,b)</code>. When using
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</code></pre></div></div>
+<p>yields <code class="language-plaintext highlighter-rouge">NaN</code>s for the real part and <code class="language-plaintext highlighter-rouge">0</code>s for the imaginary part. To get Python
 to understand the format, an easy solution is to first parse the elements of the
 array as strings, then use a lambda function to effectively cast the strings
 as complex numbers. Here’s the code.</p>
 
 <h3 id="the-code">The Code</h3>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
     <span class="s">"""
     Load complex data in the C++ format in numpy.
     """</span>
-    <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
-    <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">complex</span><span class="p">(</span><span class="o">*</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
+    <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">complex</span><span class="p">(</span><span class="o">*</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
     <span class="k">return</span> <span class="n">complex_parser</span><span class="p">(</span><span class="n">array_as_strings</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>First, we load the array of complex numbers as an array of strings in Python.
-Then, we use <code class="highlighter-rouge">np.vectorize</code> to define a callable that takes each of the array
-and applies the <code class="highlighter-rouge">complex(*eval(x))</code> to it. <code class="highlighter-rouge">eval()</code> takes the string and evaluates
-it to a tuple of floats. The <code class="highlighter-rouge">*</code> operator unpacks the tuple such that we are calling
-<code class="highlighter-rouge">complex(a,b)</code> properly. This returns a complex number in Python format.</p>
+Then, we use <code class="language-plaintext highlighter-rouge">np.vectorize</code> to define a callable that takes each of the array
+and applies the <code class="language-plaintext highlighter-rouge">complex(*eval(x))</code> to it. <code class="language-plaintext highlighter-rouge">eval()</code> takes the string and evaluates
+it to a tuple of floats. The <code class="language-plaintext highlighter-rouge">*</code> operator unpacks the tuple such that we are calling
+<code class="language-plaintext highlighter-rouge">complex(a,b)</code> properly. This returns a complex number in Python format.</p>
 
-<p>A solution based on a <code class="highlighter-rouge">genfromtxt</code> converter could be more elegant, but I wasn’t
+<p>A solution based on a <code class="language-plaintext highlighter-rouge">genfromtxt</code> converter could be more elegant, but I wasn’t
 able to find a way to apply a converter to every column of the input file
 instead of a specific column.</p>
 
@@ -249,7 +244,7 @@ instead of a specific column.</p>
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2019 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2020 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
 	

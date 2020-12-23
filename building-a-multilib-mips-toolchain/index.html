@@ -19,10 +19,8 @@
 <meta charset="utf-8">
 <title>Building a multilib MIPS toolchain: my journey through gcc's build system &#8211; Study of Nature</title>
 <meta name="description" content="This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this succinct
-guide, or this
-longer guide
-if you want to have some context.
+not, I recommend this succinct guide, or this longer guide if you want
+to have some context.
 
 ">
 <meta name="keywords" content="gcc, multilib, multi ABI, mips64-elf, mips64, mips, toolchains">
@@ -31,10 +29,8 @@ if you want to have some context.
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Building a multilib MIPS toolchain: my journey through gcc's build system">
 <meta name="twitter:description" content="This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this succinct
-guide, or this
-longer guide
-if you want to have some context.
+not, I recommend this succinct guide, or this longer guide if you want
+to have some context.
 
 ">
 <meta name="twitter:site" content="@jayd_phys">
@@ -48,10 +44,8 @@ if you want to have some context.
 <meta property="og:type" content="article">
 <meta property="og:title" content="Building a multilib MIPS toolchain: my journey through gcc's build system">
 <meta property="og:description" content="This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this succinct
-guide, or this
-longer guide
-if you want to have some context.
+not, I recommend this succinct guide, or this longer guide if you want
+to have some context.
 
 ">
 <meta property="og:url" content="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/">
@@ -167,108 +161,100 @@ if you want to have some context.
       </footer>
       <div class="entry-content">
         <p>This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this <a href="http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil">succinct
-guide</a>, or this
-<a href="https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler/">longer guide</a>
-if you want to have some context.</p>
+not, I recommend this <a href="http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil">succinct guide</a>, or this <a href="https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler">longer guide</a> if you want
+to have some context.</p>
 
-<p>On x86_64 architectures, building gcc such that it can generate both 32- and 64-bit code is
-easy: just use the <code class="highlighter-rouge">--enable-multilib</code> flag at configuration time, and
-everything will follow smoothly (see Arch Linux’s PKGBUILD for
-<a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc">gcc</a>,
-the packaging is a bit more complicated, but the build itself is simple).</p>
+<p>On x86_64 architectures, building gcc such that it can generate both 32- and
+64-bit code is easy: just use the <code class="language-plaintext highlighter-rouge">--enable-multilib</code> flag at configuration
+time, and everything will follow smoothly (see Arch Linux’s PKGBUILD for
+<a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc">gcc</a>, the packaging is a bit more complicated, but the build itself is
+simple).</p>
 
 <p>It is not as easy when targeting the MIPS architecture, specifically
-<code class="highlighter-rouge">mips64-elf</code>. By default, the 32-bit ABIs are not part of the multilib setup.
+<code class="language-plaintext highlighter-rouge">mips64-elf</code>. By default, the 32-bit ABIs are not part of the multilib setup.
 gcc exposes the multilib setup that was used to compile a toolchain via the
-<code class="highlighter-rouge">-print-multi-lib</code> option. On your own x86_64 system, you should see something
-similar to this (assuming you have <code class="highlighter-rouge">gcc-multilib</code> on your system)</p>
+<code class="language-plaintext highlighter-rouge">-print-multi-lib</code> option. On your own x86_64 system, you should see something
+similar to this (assuming you have <code class="language-plaintext highlighter-rouge">gcc-multilib</code> on your system)</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>gcc -print-multi-lib
-.;
-32;@m32
-</code></pre>
-</div>
-<p>where the second line shows the use of <code class="highlighter-rouge">-m32</code> in the build options for the gcc
-toolchain itself, and the libraries are stored in the <code class="highlighter-rouge">32/</code> directory. This
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>gcc <span class="nt">-print-multi-lib</span>
+.<span class="p">;</span>
+32<span class="p">;</span>@m32
+</code></pre></div></div>
+<p>where the second line shows the use of <code class="language-plaintext highlighter-rouge">-m32</code> in the build options for the gcc
+toolchain itself, and the libraries are stored in the <code class="language-plaintext highlighter-rouge">32/</code> directory. This
 toolchain is thus comprised of two sets of GCC libraries, one compiled with
-default options, and one with <code class="highlighter-rouge">-m32</code>.</p>
+default options, and one with <code class="language-plaintext highlighter-rouge">-m32</code>.</p>
 
-<p>If you had installed a mips64-elf toolchain with <code class="highlighter-rouge">--enable-multilib</code>, by default
+<p>If you had installed a mips64-elf toolchain with <code class="language-plaintext highlighter-rouge">--enable-multilib</code>, by default
 you would get the following output</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>mips64-elf-gcc -print-multi-lib
-.;
-soft-float;@msoft-float
-el;@EL
-soft-float/el;@msoft-float@EL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>mips64-elf-gcc <span class="nt">-print-multi-lib</span>
+.<span class="p">;</span>
+soft-float<span class="p">;</span>@msoft-float
+el<span class="p">;</span>@EL
+soft-float/el<span class="p">;</span>@msoft-float@EL
+</code></pre></div></div>
 
 <p>In order to enable other ABIs, specify other build options for the GCC libraries
 in general, you need to know about <em><a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Target-Fragment.html">Target makefile
 fragments</a></em>.</p>
 
-<p>In short, target Makefile fragments are the <code class="highlighter-rouge">gcc/config/&lt;target&gt;/t*</code> files in
-gcc’s source tree. When you specify a target at the <code class="highlighter-rouge">configure</code> step, it looks
+<p>In short, target Makefile fragments are the <code class="language-plaintext highlighter-rouge">gcc/config/&lt;target&gt;/t*</code> files in
+gcc’s source tree. When you specify a target at the <code class="language-plaintext highlighter-rouge">configure</code> step, it looks
 for those in order to generate the Makefile that will actually build the gcc
-libraries <sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>. For a <code class="highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
-the <code class="highlighter-rouge">gcc/config/mips/t-elf</code> file. By default, it sets three Makefile variables</p>
+libraries <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>. For a <code class="language-plaintext highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
+the <code class="language-plaintext highlighter-rouge">gcc/config/mips/t-elf</code> file. By default, it sets three Makefile variables</p>
 
-<div class="language-make highlighter-rouge"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> msoft-float EL/EB
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> msoft-float EL/EB
 <span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> soft-float el eb
 <span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>which instructs the gcc build system to generate libraries for combinations of
 these three build flags. Flags that are separated by a space are combined, while
 incompatible flag are separated with a slash. It is this fragment that generated
-the <code class="highlighter-rouge">mips64-elf-gcc -print-multi-lib</code> output that we saw above.</p>
+the <code class="language-plaintext highlighter-rouge">mips64-elf-gcc -print-multi-lib</code> output that we saw above.</p>
 
 <p>So, if you want to generate libraries for other ABIs, you simply edit (or create
 a new one!) that file to what you need. In my case, I wanted to have libraries
-compiled with <code class="highlighter-rouge">-mabi=32</code>, at it is the ABI used by most N64 games. So, I edited
-my <code class="highlighter-rouge">t-elf</code> fragment to be</p>
+compiled with <code class="language-plaintext highlighter-rouge">-mabi=32</code>, at it is the ABI used by most N64 games. So, I edited
+my <code class="language-plaintext highlighter-rouge">t-elf</code> fragment to be</p>
 
-<div class="language-make highlighter-rouge"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> <span class="nv">mabi</span><span class="o">=</span>32 msoft-float EL/EB
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> <span class="nv">mabi</span><span class="o">=</span>32 msoft-float EL/EB
 <span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> 32 soft-float el eb
 <span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>If you were to compile this toolchain, you would get the following
-<code class="highlighter-rouge">-print-multib-lib</code> output:</p>
+<code class="language-plaintext highlighter-rouge">-print-multib-lib</code> output:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>.;
-32;@mabi<span class="o">=</span>32
-soft-float;@msoft-float
-el;@EL
-soft-float/el;@msoft-float@EL
-32/soft-float;@mabi<span class="o">=</span>32@msoft-float
-32/el;@mabi<span class="o">=</span>32@EL
-32/soft-float/el;@mabi<span class="o">=</span>32@msoft-float@EL
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.<span class="p">;</span>
+32<span class="p">;</span>@mabi<span class="o">=</span>32
+soft-float<span class="p">;</span>@msoft-float
+el<span class="p">;</span>@EL
+soft-float/el<span class="p">;</span>@msoft-float@EL
+32/soft-float<span class="p">;</span>@mabi<span class="o">=</span>32@msoft-float
+32/el<span class="p">;</span>@mabi<span class="o">=</span>32@EL
+32/soft-float/el<span class="p">;</span>@mabi<span class="o">=</span>32@msoft-float@EL
+</code></pre></div></div>
 
-<p><code class="highlighter-rouge">MULTILIB_DIRNAMES</code> controls the name of the folder in which the libraries
+<p><code class="language-plaintext highlighter-rouge">MULTILIB_DIRNAMES</code> controls the name of the folder in which the libraries
 reside. Note that this corresponds to the information before the semi-colon in
-the <code class="highlighter-rouge">-print-multilib-output</code>, while the string after describes the build
-options, preppended with <code class="highlighter-rouge">@</code>. and <code class="highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
+the <code class="language-plaintext highlighter-rouge">-print-multilib-output</code>, while the string after describes the build
+options, preppended with <code class="language-plaintext highlighter-rouge">@</code>. and <code class="language-plaintext highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
 some build options.</p>
 
 <p>There are other options than those discussed here. Feel free to read the
 <a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Fragments.html#Fragments">Makefile
 Fragment</a>
 of the gcc docs to have the whole story, or look at an example of custom target
-in <a href="https://github.com/glankk">glank</a>’s <a href="https://github.com/glankk/n64/">n64
-repo</a>, under config (as of July 9th, this is
-only in the n64-ultra branch).</p>
+in <a href="https://github.com/glankk">glank</a>’s <a href="https://github.com/glankk/n64/">n64 repo</a>, under config (as of July 9th, this is only in the
+n64-ultra branch).</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:1">
-      <p>At least, that is how I think it works. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:1" role="doc-endnote">
+      <p>At least, that is how I think it works. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -314,7 +300,7 @@ only in the n64-ultra branch).</p>
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2019 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2020 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
 	

@@ -4,7 +4,7 @@
     {
       "title"			: "Building a multilib MIPS toolchain: my journey through gcc's build system",
       "link"			: "https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/",
-      "excerpt"		: "This article assumes that you know to compile a cross-compiler from scratch. Ifnot, I recommend this succinctguide, or thislonger guideif you want to have some context."
+      "excerpt"		: "This article assumes that you know to compile a cross-compiler from scratch. Ifnot, I recommend this succinct guide, or this longer guide if you wantto have some context."
     }
   
 
@@ -12,7 +12,7 @@
     ,{
       "title"			: "Converting between different Zernike polynomial index systems",
       "link"			: "https://blog.joey-dumont.ca/zernike-polynomials-coefficients/",
-      "excerpt"		: "The Zernike polynomials are a very popular basis to describe aberrations in thewavefront of optical beams. They are used in ophthalmology  [1], microscopy, and laser metrology, among others  [2]. Because they are orthogonal on the unit disk, they are mostsuitable to describe deviations from a flat phase front in a single transverseplane of the beam."
+      "excerpt"		: "The Zernike polynomials are a very popular basis to describe aberrations in thewavefront of optical beams. They are used in ophthalmology  [4], microscopy, and laser metrology, among others  [4]. Because they are orthogonal on the unit disk, they are mostsuitable to describe deviations from a flat phase front in a single transverseplane of the beam."
     }
   
 
@@ -52,7 +52,7 @@
     ,{
       "title"			: "Dual basis and its applications",
       "link"			: "https://blog.joey-dumont.ca/dual-basis-and-its-applications/",
-      "excerpt"		: "&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.  &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That’s a problem. Let’s look for a solution.  &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that   To see how we can compute those vectors, consider the original eigenvalue problem   We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation   Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get   Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get   The Dirac delta makes the sum disappear as usual and we have   In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$! &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   So we find that these new “contravariant” vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by   &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions…  &lt;/div&gt;"
+      "excerpt"		: "&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.  &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That’s a problem. Let’s look for a solution.  &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that  \langle f^i|e_j\rangle = \delta^i_j. To see how we can compute those vectors, consider the original eigenvalue problem  \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle . We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation  \sum_i |e_i\rangle\langle f^i| = 1. Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get  \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|. Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get  \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. The Dirac delta makes the sum disappear as usual and we have  \langle f^j| A = \lambda_j \langle f^j|. In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$! &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   So we find that these new “contravariant” vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by  |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle . &lt;/div&gt; &lt;div dir=”ltr”, style=”text-align: justify;” trbidy=”on”&gt;   This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions…  &lt;/div&gt;"
     }
   
 
@@ -275,6 +275,14 @@
   
 
   
+    ,{
+      "title"			: "Travel Map",
+      "link"			: "https://blog.joey-dumont.ca/travel/",
+      "excerpt"		: "Travel Map"
+    }
+  
+
+  
 
   
     ,{
@@ -290,6 +298,8 @@
       "link"			: "https://blog.joey-dumont.ca/articles/",
       "excerpt"		: "An archive of articles sorted by date."
     }
+  
+
   
 
   
