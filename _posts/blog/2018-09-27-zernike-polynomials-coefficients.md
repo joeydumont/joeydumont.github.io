@@ -106,7 +106,7 @@ as part of my
 [Zernike](https://github.com/joeydumont/zernike/blob/9eff81ebec7f0ef579ff01bfaabe23ff7ce8291c/src/zernike_indices.cpp#L41)
 library)
 
-```python
+{% highlight python linedivs %}
 import numpy as np
 def NollToQuantum(j):
     triangular_numbers_idx = np.array(np.ceil((1+np.sqrt(1+8*j))/2),dtype=int)-1
@@ -123,7 +123,8 @@ def NollToQuantum(j):
         m[i]  = (-1)**(j[i]%2)*m_vec[rpn[i]]
 
     return n, m
-```
+{% endhighlight}
+
 $$m$$ could be computed directly via the one-liner
 ```python
 m = (-1)**j * ((n % 2) + 2 * np.array((r + ((n+1)%2))/2).astype(int))

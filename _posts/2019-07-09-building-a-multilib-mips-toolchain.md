@@ -13,16 +13,14 @@ tags:
 ---
 
 This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this [succinct
-guide](http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil), or this
-[longer guide](https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler/)
-if you want to have some context.
+not, I recommend this [succinct guide][1], or this [longer guide][2] if you want
+to have some context.
 
-On x86_64 architectures, building gcc such that it can generate both 32- and 64-bit code is
-easy: just use the `--enable-multilib` flag at configuration time, and
-everything will follow smoothly (see Arch Linux's PKGBUILD for
-[gcc](https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc),
-the packaging is a bit more complicated, but the build itself is simple).
+On x86_64 architectures, building gcc such that it can generate both 32- and
+64-bit code is easy: just use the `--enable-multilib` flag at configuration
+time, and everything will follow smoothly (see Arch Linux's PKGBUILD for
+[gcc][3], the packaging is a bit more complicated, but the build itself is
+simple).
 
 It is not as easy when targeting the MIPS architecture, specifically
 `mips64-elf`. By default, the 32-bit ABIs are not part of the multilib setup.
@@ -107,9 +105,12 @@ There are other options than those discussed here. Feel free to read the
 [Makefile
 Fragment](https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Fragments.html#Fragments)
 of the gcc docs to have the whole story, or look at an example of custom target
-in [glank](https://github.com/glankk)'s [n64
-repo](https://github.com/glankk/n64/), under config (as of July 9th, this is
-only in the n64-ultra branch).
+in [glank][4]'s [n64 repo][5], under config (as of July 9th, this is only in the
+n64-ultra branch).
 
 [^1]: At least, that is how I think it works.
-
+[1]: http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil
+[2]: https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler
+[3]: https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc
+[4]: https://github.com/glankk
+[5]: https://github.com/glankk/n64/

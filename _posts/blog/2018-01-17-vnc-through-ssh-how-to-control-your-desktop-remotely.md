@@ -19,13 +19,13 @@ a different X server.
 The setup is quite simple, but requires two terminal windows. In the first terminal,
 SSH into your remote machine with
 
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L 5900:localhost:5900
-</code></pre>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L 5900:localhost:5900
+</code></pre></div>
 
 and then,
 
-<pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
-</code></pre>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
+</code></pre></div>
 
 Now, in the second terminal on your local machine, you can simply type
 
@@ -45,15 +45,15 @@ it to `x0vncserver` on the `passwordfile` flag. Here we choose the default.
 
 The same method with generic ports would read
 
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
 <b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 \
                                          -passwordfile ~/.vnc/passwd
-</code></pre>
+</code></pre></div>
 
 <div style="text-indent: 0">and</div>
 
-<pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
-</code></pre>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
+</code></pre></div>
 
 Until next time, cheers!
 

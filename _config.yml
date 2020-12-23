@@ -25,7 +25,6 @@ plugins:
   - jekyll-redirect-from
   - jekyll-scholar
 
-
 kramdown:
   input: GFM
   auto_ids: true
