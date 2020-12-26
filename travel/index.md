@@ -8,6 +8,8 @@ This page contains a zoomable map of the places we have visited. Rather than mar
 
 <embed type="image/svg+xml" src="{{ site.url }}/assets/images/travel-map.svg" id="travel-map-2"/>
 
+<script src="{{ site.url }}/assets/js/svg-pan-zoom.js"></script>
+
 <script>
 document.getElementById('travel-map-2').addEventListener('load', function(){
   // Will get called after embed element was loaded
