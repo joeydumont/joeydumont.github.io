@@ -133,14 +133,16 @@
       <div class="entry-content">
         <p>This page contains a zoomable map of the places we have visited. Rather than marking countries visited, I have used the world map of all first-level administrative divisions. In Canada, that would be provinces and territories, and states in the US.</p>
 
-<embed type="image/svg+xml" src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" id="travel-map-2" />
+<p><img src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" alt="no-alignment" width="1200px" id="travel-map-1" /></p>
+
+<!-- <embed type="image/svg+xml" src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" id="travel-map-2"/> -->
 
 <script src="https://blog.joey-dumont.ca/assets/js/svg-pan-zoom.js"></script>
 
 <script>
-document.getElementById('travel-map-2').addEventListener('load', function(){
+document.getElementById('travel-map-1').addEventListener('load', function(){
   // Will get called after embed element was loaded
-  svgPanZoom(document.getElementById('travel-map-2'), {
+  svgPanZoom(document.getElementById('travel-map-1'), {
     zoomEnabled: true,
     controlIconsEnabled: true
   });
