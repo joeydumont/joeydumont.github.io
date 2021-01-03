@@ -133,22 +133,22 @@
       <div class="entry-content">
         <p>This page contains a zoomable map of the places we have visited. Rather than marking countries visited, I have used the world map of all first-level administrative divisions. In Canada, that would be provinces and territories, and states in the US.</p>
 
-<p><img src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" alt="no-alignment" width="1200px" id="travel-map-1" /></p>
+<div style="width: 1200px; padding: 0; margin: 0px -300px auto;">
+<embed type="image/svg+xml" src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" id="travel-map" />
 
-<!-- <embed type="image/svg+xml" src="https://blog.joey-dumont.ca/assets/images/travel-map.svg" id="travel-map-2"/> -->
 
 <script src="https://blog.joey-dumont.ca/assets/js/svg-pan-zoom.js"></script>
 
 <script>
-document.getElementById('travel-map-1').addEventListener('load', function(){
+document.getElementById('travel-map').addEventListener('load', function(){
   // Will get called after embed element was loaded
-  svgPanZoom(document.getElementById('travel-map-1'), {
+  svgPanZoom(document.getElementById('travel-map'), {
     zoomEnabled: true,
     controlIconsEnabled: true
   });
   })
 </script>
-
+</div>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
@@ -159,7 +159,7 @@ document.getElementById('travel-map-1').addEventListener('load', function(){
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2020 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2021 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
 	
