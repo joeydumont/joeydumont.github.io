@@ -72,7 +72,7 @@ number larger than $$j$$. Fortunately, the index can easily be determined via
 the formula {% cite DAurizio2015 --file zernike %}
 
 $$
-k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.
+k = \left\lceil \frac{1+\sqrt{1+8j}}{2} \right\rceil - 1.
 $$
 
 The remainder $$r=j-T_k+n$$ can then be used to determine what column corresponds
@@ -110,8 +110,8 @@ library)
 import numpy as np
 def NollToQuantum(j):
     triangular_numbers_idx = np.array(np.ceil((1+np.sqrt(1+8*j))/2),dtype=int)-1
-    triangular_numbers     = np.array(indices*(indices+1)/2).astype(int)
-    n = indices - 1
+    triangular_numbers     = np.array(triangular_numbers_idx*(triangular_numbers_idx+1)/2).astype(int)
+    n = triangular_numbers_idx - 1
 
     r     = j - triangular_numbers
     rpn   = r+n
