@@ -210,7 +210,7 @@ directly relate the quantum number \(n\) to the index of the smallest triangular
 number larger than \(j\). Fortunately, the index can easily be determined via
 the formula <a class="citation" href="#DAurizio2015"> [3]</a></p>
 
-\[k = \left\lceil \frac{1+\sqrt{1+8n}}{2} \right\rceil - 1.\]
+\[k = \left\lceil \frac{1+\sqrt{1+8j}}{2} \right\rceil - 1.\]
 
 <p>The remainder \(r=j-T_k+n\) can then be used to determine what column corresponds
 to that particular \(j\) value. The various linear schemes use different rules
@@ -245,8 +245,8 @@ library)</p>
 <figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
 <span class="k">def</span> <span class="nf">NollToQuantum</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
     <span class="n">triangular_numbers_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
-    <span class="n">triangular_numbers</span>     <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">indices</span><span class="o">*</span><span class="p">(</span><span class="n">indices</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">indices</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="n">triangular_numbers</span>     <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">triangular_numbers_idx</span><span class="o">*</span><span class="p">(</span><span class="n">triangular_numbers_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">triangular_numbers_idx</span> <span class="o">-</span> <span class="mi">1</span>
 
     <span class="n">r</span>     <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">triangular_numbers</span>
     <span class="n">rpn</span>   <span class="o">=</span> <span class="n">r</span><span class="o">+</span><span class="n">n</span>
