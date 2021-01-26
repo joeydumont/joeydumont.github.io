@@ -123,7 +123,7 @@ def NollToQuantum(j):
         m[i]  = (-1)**(j[i]%2)*m_vec[rpn[i]]
 
     return n, m
-{% endhighlight}
+{% endhighlight %}
 
 $$m$$ could be computed directly via the one-liner
 ```python
@@ -137,7 +137,6 @@ For instance, suppose that we have $$j=8$$, then the formula above $$k=4$$ and t
 The remainder is $$r=8-10+3=1$$. From our list above, we have that $$|m|=1$$.
 Since $$j$$ is even, $$m$$ is positive, and we have $$m=1$$.
 And indeed, $$(j=8)\mapsto(3,1)$$.
-
 
 ### Phasics Indices
 
