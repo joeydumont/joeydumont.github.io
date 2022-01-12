@@ -98,7 +98,7 @@ soft-float/el;@msoft-float@EL
 `MULTILIB_DIRNAMES` controls the name of the folder in which the libraries
 reside. Note that this corresponds to the information before the semi-colon in
 the `-print-multilib-output`, while the string after describes the build
-options, preppended with `@`. and `MULTILIB_MATCHES` provides the synonyms of
+options, prepended with `@`. and `MULTILIB_MATCHES` provides the synonyms of
 some build options.
 
 There are other options than those discussed here. Feel free to read the
