@@ -1,236 +1,444 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.joey-dumont.ca/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.joey-dumont.ca/" rel="alternate" type="text/html" /><updated>2021-01-26T06:54:08-05:00</updated><id>https://blog.joey-dumont.ca/feed.xml</id><title type="html">Study of Nature</title><subtitle>A personal blog rooted in my interest for physics, mathematics, technology and literature. Might contain content inappropriate for the non-initiated.
-</subtitle><entry><title type="html">Building a multilib MIPS toolchain: my journey through gcc’s build system</title><link href="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/" rel="alternate" type="text/html" title="Building a multilib MIPS toolchain: my journey through gcc’s build system" /><published>2019-07-09T00:00:00-04:00</published><updated>2019-07-09T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain</id><content type="html" xml:base="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/">&lt;p&gt;This article assumes that you know to compile a cross-compiler from scratch. If
-not, I recommend this &lt;a href=&quot;http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil&quot;&gt;succinct guide&lt;/a&gt;, or this &lt;a href=&quot;https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler&quot;&gt;longer guide&lt;/a&gt; if you want
-to have some context.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="https://blog.joey-dumont.ca/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.joey-dumont.ca/" rel="alternate" type="text/html" /><updated>2022-01-11T22:12:46-05:00</updated><id>https://blog.joey-dumont.ca/feed.xml</id><title type="html">Study of Nature</title><subtitle>A personal blog rooted in my interest for physics, mathematics, technology and literature.
+</subtitle><entry><title type="html">2021 in Music</title><link href="https://blog.joey-dumont.ca/2021-in-music/" rel="alternate" type="text/html" title="2021 in Music" /><published>2022-01-11T22:08:00-05:00</published><updated>2022-01-11T22:08:00-05:00</updated><id>https://blog.joey-dumont.ca/2021-in-music</id><content type="html" xml:base="https://blog.joey-dumont.ca/2021-in-music/"><![CDATA[<p>I’ve been meaning to write a brief retrospective of the all the albums I’ve listened to in the past year for a couple years now, but I usually either forget to take note of albums I really enjoyed, or lost track of all the releases. This year’s listicle is brought to you by the great work of the <a href="https://www.reddit.com/r/progmetal">r/ProgMetal folks</a> and their very handy <a href="https://docs.google.com/spreadsheets/d/1fQFg52uaojpRCz29EzSHVpsX5SYVJ2VN8IuKs9XA5W8/edit#gid=1933120972">spreadsheet</a>.</p>
 
-&lt;p&gt;On x86_64 architectures, building gcc such that it can generate both 32- and
-64-bit code is easy: just use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enable-multilib&lt;/code&gt; flag at configuration
+<p>So, in no particular order, and not even my going by <a href="https://www.last.fm/user/valandil211/library/albums?from=2021-01-01&amp;rangetype=year">my most listened albums</a> this year, here are some thoughts about the albums which left good impressions on me in 2021.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/future-bites-cover.png" width="300" /></td>
+      <td><em>The Future Bites</em> <br />  Steven Wilson <br />Released January 29th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_n_ok4onUCwulUJwm7Nsc6BdObe_r8YEsU&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/76hVw7WdMkDylaMlW0X8Ol?si=y5IbqD5yQ9eujWLeH5ns2g">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Wilson, who brought us, in my opinion, the definitive versions of Deliverance &amp; Damnation, has been productive in his solo musical career as well. The overall effort that is <em>The Futures Bites</em> definitely rivals <em>Hand. Cannot. Erase.</em>, and the insane banger <em>Personal Shopper</em> is definitely the song of the year. It is instantly catchy, yet interesting enough to be worth a second, third, or <a href="https://www.last.fm/user/valandil211/library/music/Steven+Wilson/The+Future+Bites?from=2021-01-01&amp;rangetype=year">50th</a> listen.</p>
+
+<p><em>The Future Bites</em> sees Wilson embrace his love for electronic music in his solo albums (he’s definitely explored this in other projects). While he had previously explored mixing progressive and electronic elements within a single song, <em>Personal Shopper</em> is a fully electronic banger.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/vertiges-cover.jpeg" width="300" /></td>
+      <td><em>Vertiges</em> <br /> Gaspard <br />Released January 29th, 2021 <br /> <a href="https://gaspardrockfantastique.bandcamp.com/album/vertiges">Bandcamp</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>I might show some slight local bias here, but Gaspard is one my favourite discoveries of the year. The band describes themselves as being driven by the musical exploration of musical landscapes, and this album (as well as their previous one) delivers on this premise. The sometimes atmospheric and sometimes quite heavy riffs of the album are well balanced, and play off each other very well.</p>
+
+<p>I also recommend their first release: <em>La Forêt de Gaspard</em>, of which Vestiges is pretty much an evolution. It is a study in textures and atmosphere.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/thestuffoflegends-cover.jpg" width="300" /></td>
+      <td><em>The Stuff of Legends</em> <br /> Challenger Deep <br />Released October 29th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_mV6OzW07Is2O0WdZB1m4hCOciEYPdbYIA&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/4nNaSJqbcguQ7WnLcB27tx?si=eX2U0YFnTc-8V59fCDfQ6A">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>While the previous entry on this list is a slow exploration of a supernatural landscape, <em>The Stuff of Legends</em> is compact and energetic half-hour of satisfying math rock riffs with some great solos. This fast-paced album captures your attention for its entirety.</p>
+
+<p>Their <a href="https://www.youtube.com/watch?v=in8jgULPzjg">music video for The Great Calamity</a> is also pretty fun.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/Diablo-swing-orchestra-swagger-and-stroll-down-the-rabbit-hole.jpeg" width="300" /></td>
+      <td><em>Swagger &amp; Stroll Down the Rabbit Hole</em> <br /> Diablo Swing Orchestra <br />Released November 2nd, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_nJQEkbrpN22vshXv-3BMZ8anmitS2TINA&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/73YgGTPKJux9DVDr3Jv7k7?si=dWar2-rdRb2UOS5zOssZnw">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>I hadn’t yet followed Alice down the hole of avant-garde metal, but this album by Diablo Swing Orchestra made me fall hard. The eclectic mix of prog, heavy metal, folk, and other genres, could make for a disjointed listen, but it is so well done that is actually just refreshing, and keeps you on your toes the whole album. <em>Speed Dating an Arsonist</em> is my favourite track of the album for its catchy bits, funny lyrics, and satisfying finish, but the entire album is worth a listen.</p>
+
+<p>This is my first DSO album, and I definitely plan on going through their earlier work in 2022.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/home-brewed-universe-fear-of-an-obtuse-earth-Cover-Art.jpg" width="300" /></td>
+      <td><em>Fear of an Obtuse Earth</em> <br /> Home Brewed Universe <br />Released January 25th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_k1yZ6RL9_dtC-GNDkiyC4OxyN-zoNfrlU&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/0Ij3WGNTr1oowBJXCwv7Ii?si=tz-7ufATSOugKrvZCq0jSQ">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Home Brewed Universe is the one-man band backed by Arka Sengupta from Hyderabad, India.
+Fear of an Obtuse Earth was an early coup de coeur for me. It came out on January 25th, just before Vertiges. I was immediately enthralled by the rough metal sound, and the interesting
+prog melodies.</p>
+
+<p>It suffers from a bit of repetition towards the end though. Home Brewed Universe also release Tranquil Taboo Time this year, which feels a bit more of the same, and suffers from the same repetition issue.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/teramaze-sorella-minore-Cover-Art.jpg" width="300" /></td>
+      <td><em>Sorella Minore</em> <br /> Teramaze <br />Released May 11th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_lq8fNCkPJQ1gk12kC6P4DWRd720ePV1yw&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/6dPB37yhV2vYVr4khTCmxV?si=xo6EbkwyRp-yYfArDvgDqA">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Like the entry above, Australian band Teramaze released two full-length albums this year. While Sorella Minore unfortunately suffers from the 2112 syndrome, it also has its redeeming quality in that the the bombastic first track is makes it an excellent album. At once both easily digested and surviving more attentive listens, the 25-minute epic manages to make you forget its length by carefully layering complex compositions as time goes on.</p>
+
+<p>This album is a continuation of the story set forth in <em>Her Halo</em>, but I must admit I haven’t paid too much attention to the lyrics. Even skipping the story element, the four vocalists put on an amazing performance.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/days-before-the-world-wept.jpg" width="300" /></td>
+      <td><em>Days Before the World Wept</em> <br /> The Agonist <br />Released October 15th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_khwjZpMJwsU1bbMQkGFk6Z3S52R2HIAIQ&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/29uEQ1RoGjYPBXrZCUb6Ms?si=duSeQXRsQp2NMoYP9sN03g">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>It is always good to discover a band with a female vocalist who can do both clean and harsh vocals, especially when it is a local band! Vicky Psarakis, who’s been with the band for their last 4 releases now, is heavily showcased through the album, and to the benefit of the album.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/dark-horse-white-horse.webp" width="300" /></td>
+      <td><em>Dark Horse White Horse</em> <br /> Dark Horse White Horse <br />Released April 16th, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_nI9WxZAPPDC4Kyuaa2Musi3scCLahDx1s&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/5VxB8YOYYypzt4EZjCRoKs?si=XNqiNYVsRSG58Ie7pkNkDg">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>Dark Horse White Horse is a collaboration between Marcela Bovio, Ruben Wijga, and Jord Otto, the last two both ex-ReVamp. This heavy album is a 22-minute compact EP that showcases each member’s talent. Mixed by Joost van den Broek, this record is definitely heavier than what I’m used to hearing from Bovio, who I have mostly heard through the lens of Arjen Lucassen’s rock operatic universe, and it works quite well with her vocal style.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/Hannes-Grossmann-To-Where-the-Light-Retreats-01.jpg" width="300" /></td>
+      <td><em>To Where the Light Retreats</em> <br /> Hannes Grossman <br />Released June 1st, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_kA91vydhwdeQuJCZmD6j-1nZlIdrn-EHM&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/4Vv2AV5fDsjzOume79vXqK?si=flbiP4n0Qd2Ebfl9j0MzQQ">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>A very good album to scratch that Alkaloid itch. <em>The Great Designer</em>, the album’s opening song, could be a continuation of <em>Rise of the Cephalopods</em>, as they somewhat similar in composition and theme. I pretty much like anything Hannes Grossman produces, so any negative comment should be taken as being relative to his other work. While I found Alkaloid’s albums to be stonger overall, I very much enjoyed <em>To Where the Light Retreats</em>. It has the characteristic heaviness and technical prowess of his other work, but manages to be distinct while not feeling too incremental.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/senjutsu.jpeg" width="300" /></td>
+      <td><em>Senjustsu</em> <br /> Iron Maiden <br />Released September 3rd, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_n5wLiLlYlXlhL8IZ3cNUHKkgiNg1UlIKc&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/3TymcPWXqsCRA5oSL0TkPU?si=OTWHscprQzacwbtXSSYF4g">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>It is impressive how Iron Maiden has consistently put out high quality records throughout their entire career (bar a few exceptions). While the titular opener is strong, my favourite part of the album is definitely the three closers: <em>Death of the Celts</em>, <em>The Parchment</em>, <em>Hell on Earth</em>. It seems that Maiden recently started liking longer songs again (all three songs have runtime upwards of 10 minutes), and I can only approve.</p>
+
+<p><br /></p>
+
+<table>
+  <tbody>
+    <tr>
+      <td><img src="https://blog.joey-dumont.ca/assets/posts/2021-in-music/Dream_Theater_-_A_View_from_the_Top_of_the_World.jpg" width="300" /></td>
+      <td><em>A View from the Top of the World</em> <br /> Dream Theater <br />Released October 22nd, 2021 <br /> <a href="https://music.youtube.com/playlist?list=OLAK5uy_kSk0bm4F-dVVXdVfkaOROC85i3XfRc9s0&amp;feature=share">YouTube Music</a> | <a href="https://open.spotify.com/album/5eukDoHISjksEavVxVKcXn?si=hqmkRoUzSQCvY6KZTVEk2A">Spotify</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p><br /></p>
+
+<p>DT’s outings in the last couple years have been hit-and-miss for me, but <em>A View from the Top of the World</em> sees them returning to their more traditional formula, and it is a definitive success.
+Like Maiden’s Senjutsu, this record boasts of a stronger opener and an amazing closing trio. The titular song, which is a 20-minute epic, doesn’t have the same impact as my nostalgia-coloured memory believes, say, <em>Octavarium</em>, to have, it is definitely a masterpiece of the genre. John Petrucci seems to have finally reached the speed that <a href="https://youtu.be/JT5VUcRYNAg">Mikael Åkerfeldt reckons he has</a>.</p>
+
+<h3 id="honourable-mentions">Honourable Mentions</h3>
+
+<ul>
+  <li>
+    <p><strong><a href="https://duplicaterecords.bandcamp.com/album/the-hollow-man">Void – The Hollow Man</a></strong> Based on the T.S. Eliot poem of the same name. I love their interpretation of the poems, even if black metal is not my favourite genre.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://mftj.bandcamp.com/album/my-moms-getting-a-horse">MFTJ – My Mom’s Getting a Horse</a></strong> Zappa-esque rhythms, quite quirky. The guitarist, Mike Keneally, was involved in the Zappa 1988 tour and is quite accomplished. Scott Schorr, the other half of the two-man band, has been involved in the prog scene as a producer for decades.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://acrylazea.bandcamp.com/album/a-cavalcade-of-cosmic-calamity">Acrylazea – A Cavalcade of Cosmic Calamity</a></strong> An interesting blend of genres, with Unexpect influences. Similar to DSO. (Another avant-garde metal? I apparently have a new favourite genre.)</p>
+  </li>
+  <li>
+    <p><strong><a href="https://keor.bandcamp.com/album/tearoom">Keor – Tearoom</a></strong> Clean riffs, and good musicianship. A good all-around album. It bills itself as emotionally explosive, and I think Keor delivers this with Tearoom. <em>LEARNING GOD</em> especially.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://i-voidhangerrecords.bandcamp.com/album/solar-drone-ceremony">Neptunian Maximalism – Solar Drone Ceremony</a></strong> Definitely something that needs to be listened to multiple times to be digested, studied, and understood. I found it a little too over the top to make the list. <a href="https://www.angrymetalguy.com/neptunian-maximalism-solar-drone-ceremony-review/">Angry Metal Guy</a> recommends their earlier <em>Éons</em> however, so I’ll probably take some time to look into Neptunian Maximalism.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://othersbynoone.bandcamp.com/album/book-ii-where-stories-come-from">Others By No One – Book II: Where Stories Come From</a></strong> Not sure if genius or insane.</p>
+  </li>
+  <li>
+    <p><strong><a href="https://prospectorsnl.bandcamp.com/album/proven-lands">Prospectors – Proven Lands</a></strong> Another avant-garde album, definitely my favourite genre of the year. Or maybe I just enjoy experimentation and exploration in music. This debut album has an interesting mix of aggressive parts, but also slower build-ups leading to cathartic releases that I’ve come up to expect of prog-rock albums.</p>
+  </li>
+</ul>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="year review" /><category term="music" /><category term="prog rock" /><category term="prog metal" /><summary type="html"><![CDATA[I’ve been meaning to write a brief retrospective of the all the albums I’ve listened to in the past year for a couple years now, but I usually either forget to take note of albums I really enjoyed, or lost track of all the releases. This year’s listicle is brought to you by the great work of the r/ProgMetal folks and their very handy spreadsheet.]]></summary></entry><entry><title type="html">Building a multilib MIPS toolchain: my journey through gcc’s build system</title><link href="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/" rel="alternate" type="text/html" title="Building a multilib MIPS toolchain: my journey through gcc’s build system" /><published>2019-07-09T00:00:00-04:00</published><updated>2019-07-09T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain</id><content type="html" xml:base="https://blog.joey-dumont.ca/building-a-multilib-mips-toolchain/"><![CDATA[<p>This article assumes that you know to compile a cross-compiler from scratch. If
+not, I recommend this <a href="http://www.ifp.illinois.edu/~nakazato/tips/xgcc.html#binutil">succinct guide</a>, or this <a href="https://preshing.com/20141119/how-to-build-a-gcc-cross-compiler">longer guide</a> if you want
+to have some context.</p>
+
+<p>On x86_64 architectures, building gcc such that it can generate both 32- and
+64-bit code is easy: just use the <code class="language-plaintext highlighter-rouge">--enable-multilib</code> flag at configuration
 time, and everything will follow smoothly (see Arch Linux’s PKGBUILD for
-&lt;a href=&quot;https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc&quot;&gt;gcc&lt;/a&gt;, the packaging is a bit more complicated, but the build itself is
-simple).&lt;/p&gt;
+<a href="https://git.archlinux.org/svntogit/packages.git/tree/trunk/PKGBUILD?h=packages/gcc">gcc</a>, the packaging is a bit more complicated, but the build itself is
+simple).</p>
 
-&lt;p&gt;It is not as easy when targeting the MIPS architecture, specifically
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mips64-elf&lt;/code&gt;. By default, the 32-bit ABIs are not part of the multilib setup.
+<p>It is not as easy when targeting the MIPS architecture, specifically
+<code class="language-plaintext highlighter-rouge">mips64-elf</code>. By default, the 32-bit ABIs are not part of the multilib setup.
 gcc exposes the multilib setup that was used to compile a toolchain via the
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-print-multi-lib&lt;/code&gt; option. On your own x86_64 system, you should see something
-similar to this (assuming you have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcc-multilib&lt;/code&gt; on your system)&lt;/p&gt;
+<code class="language-plaintext highlighter-rouge">-print-multi-lib</code> option. On your own x86_64 system, you should see something
+similar to this (assuming you have <code class="language-plaintext highlighter-rouge">gcc-multilib</code> on your system)</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;valandil ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;gcc &lt;span class=&quot;nt&quot;&gt;-print-multi-lib&lt;/span&gt;
-.&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-32&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@m32
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;where the second line shows the use of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-m32&lt;/code&gt; in the build options for the gcc
-toolchain itself, and the libraries are stored in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;32/&lt;/code&gt; directory. This
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>gcc <span class="nt">-print-multi-lib</span>
+.<span class="p">;</span>
+32<span class="p">;</span>@m32
+</code></pre></div></div>
+<p>where the second line shows the use of <code class="language-plaintext highlighter-rouge">-m32</code> in the build options for the gcc
+toolchain itself, and the libraries are stored in the <code class="language-plaintext highlighter-rouge">32/</code> directory. This
 toolchain is thus comprised of two sets of GCC libraries, one compiled with
-default options, and one with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-m32&lt;/code&gt;.&lt;/p&gt;
+default options, and one with <code class="language-plaintext highlighter-rouge">-m32</code>.</p>
 
-&lt;p&gt;If you had installed a mips64-elf toolchain with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enable-multilib&lt;/code&gt;, by default
-you would get the following output&lt;/p&gt;
+<p>If you had installed a mips64-elf toolchain with <code class="language-plaintext highlighter-rouge">--enable-multilib</code>, by default
+you would get the following output</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;valandil ~ &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;mips64-elf-gcc &lt;span class=&quot;nt&quot;&gt;-print-multi-lib&lt;/span&gt;
-.&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-soft-float&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@msoft-float
-el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@EL
-soft-float/el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@msoft-float@EL
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>valandil ~ <span class="nv">$ </span>mips64-elf-gcc <span class="nt">-print-multi-lib</span>
+.<span class="p">;</span>
+soft-float<span class="p">;</span>@msoft-float
+el<span class="p">;</span>@EL
+soft-float/el<span class="p">;</span>@msoft-float@EL
+</code></pre></div></div>
 
-&lt;p&gt;In order to enable other ABIs, specify other build options for the GCC libraries
-in general, you need to know about &lt;em&gt;&lt;a href=&quot;https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Target-Fragment.html&quot;&gt;Target makefile
-fragments&lt;/a&gt;&lt;/em&gt;.&lt;/p&gt;
+<p>In order to enable other ABIs, specify other build options for the GCC libraries
+in general, you need to know about <em><a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Target-Fragment.html">Target makefile
+fragments</a></em>.</p>
 
-&lt;p&gt;In short, target Makefile fragments are the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcc/config/&amp;lt;target&amp;gt;/t*&lt;/code&gt; files in
-gcc’s source tree. When you specify a target at the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;configure&lt;/code&gt; step, it looks
+<p>In short, target Makefile fragments are the <code class="language-plaintext highlighter-rouge">gcc/config/&lt;target&gt;/t*</code> files in
+gcc’s source tree. When you specify a target at the <code class="language-plaintext highlighter-rouge">configure</code> step, it looks
 for those in order to generate the Makefile that will actually build the gcc
-libraries &lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. For a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mips64-elf&lt;/code&gt; target, the file that is of interest to us is
-the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gcc/config/mips/t-elf&lt;/code&gt; file. By default, it sets three Makefile variables&lt;/p&gt;
+libraries <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. For a <code class="language-plaintext highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
+the <code class="language-plaintext highlighter-rouge">gcc/config/mips/t-elf</code> file. By default, it sets three Makefile variables</p>
 
-&lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;MULTILIB_OPTIONS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; msoft-float EL/EB
-&lt;span class=&quot;nv&quot;&gt;MULTILIB_DIRNAMES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; soft-float el eb
-&lt;span class=&quot;nv&quot;&gt;MULTILIB_MATCHES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;EL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mel &lt;span class=&quot;nv&quot;&gt;EB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;meb msingle-float&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m4650
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> msoft-float EL/EB
+<span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> soft-float el eb
+<span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
+</code></pre></div></div>
 
-&lt;p&gt;which instructs the gcc build system to generate libraries for combinations of
+<p>which instructs the gcc build system to generate libraries for combinations of
 these three build flags. Flags that are separated by a space are combined, while
 incompatible flag are separated with a slash. It is this fragment that generated
-the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mips64-elf-gcc -print-multi-lib&lt;/code&gt; output that we saw above.&lt;/p&gt;
+the <code class="language-plaintext highlighter-rouge">mips64-elf-gcc -print-multi-lib</code> output that we saw above.</p>
 
-&lt;p&gt;So, if you want to generate libraries for other ABIs, you simply edit (or create
+<p>So, if you want to generate libraries for other ABIs, you simply edit (or create
 a new one!) that file to what you need. In my case, I wanted to have libraries
-compiled with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-mabi=32&lt;/code&gt;, at it is the ABI used by most N64 games. So, I edited
-my &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;t-elf&lt;/code&gt; fragment to be&lt;/p&gt;
+compiled with <code class="language-plaintext highlighter-rouge">-mabi=32</code>, at it is the ABI used by most N64 games. So, I edited
+my <code class="language-plaintext highlighter-rouge">t-elf</code> fragment to be</p>
 
-&lt;div class=&quot;language-make highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;MULTILIB_OPTIONS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;mabi&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32 msoft-float EL/EB
-&lt;span class=&quot;nv&quot;&gt;MULTILIB_DIRNAMES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; 32 soft-float el eb
-&lt;span class=&quot;nv&quot;&gt;MULTILIB_MATCHES&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;EL&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;mel &lt;span class=&quot;nv&quot;&gt;EB&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;meb msingle-float&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;m4650
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> <span class="nv">mabi</span><span class="o">=</span>32 msoft-float EL/EB
+<span class="nv">MULTILIB_DIRNAMES</span> <span class="o">=</span> 32 soft-float el eb
+<span class="nv">MULTILIB_MATCHES</span> <span class="o">=</span> <span class="nv">EL</span><span class="o">=</span>mel <span class="nv">EB</span><span class="o">=</span>meb msingle-float<span class="o">=</span>m4650
+</code></pre></div></div>
 
-&lt;p&gt;If you were to compile this toolchain, you would get the following
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-print-multib-lib&lt;/code&gt; output:&lt;/p&gt;
+<p>If you were to compile this toolchain, you would get the following
+<code class="language-plaintext highlighter-rouge">-print-multib-lib</code> output:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;.&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-32&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@mabi&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32
-soft-float&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@msoft-float
-el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@EL
-soft-float/el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@msoft-float@EL
-32/soft-float&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@mabi&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32@msoft-float
-32/el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@mabi&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32@EL
-32/soft-float/el&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;@mabi&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;32@msoft-float@EL
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.<span class="p">;</span>
+32<span class="p">;</span>@mabi<span class="o">=</span>32
+soft-float<span class="p">;</span>@msoft-float
+el<span class="p">;</span>@EL
+soft-float/el<span class="p">;</span>@msoft-float@EL
+32/soft-float<span class="p">;</span>@mabi<span class="o">=</span>32@msoft-float
+32/el<span class="p">;</span>@mabi<span class="o">=</span>32@EL
+32/soft-float/el<span class="p">;</span>@mabi<span class="o">=</span>32@msoft-float@EL
+</code></pre></div></div>
 
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MULTILIB_DIRNAMES&lt;/code&gt; controls the name of the folder in which the libraries
+<p><code class="language-plaintext highlighter-rouge">MULTILIB_DIRNAMES</code> controls the name of the folder in which the libraries
 reside. Note that this corresponds to the information before the semi-colon in
-the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-print-multilib-output&lt;/code&gt;, while the string after describes the build
-options, preppended with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;@&lt;/code&gt;. and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MULTILIB_MATCHES&lt;/code&gt; provides the synonyms of
-some build options.&lt;/p&gt;
+the <code class="language-plaintext highlighter-rouge">-print-multilib-output</code>, while the string after describes the build
+options, prepended with <code class="language-plaintext highlighter-rouge">@</code>. and <code class="language-plaintext highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
+some build options.</p>
 
-&lt;p&gt;There are other options than those discussed here. Feel free to read the
-&lt;a href=&quot;https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Fragments.html#Fragments&quot;&gt;Makefile
-Fragment&lt;/a&gt;
+<p>There are other options than those discussed here. Feel free to read the
+<a href="https://gcc.gnu.org/onlinedocs//gcc-3.4.5/gccint/Fragments.html#Fragments">Makefile
+Fragment</a>
 of the gcc docs to have the whole story, or look at an example of custom target
-in &lt;a href=&quot;https://github.com/glankk&quot;&gt;glank&lt;/a&gt;’s &lt;a href=&quot;https://github.com/glankk/n64/&quot;&gt;n64 repo&lt;/a&gt;, under config (as of July 9th, this is only in the
-n64-ultra branch).&lt;/p&gt;
+in <a href="https://github.com/glankk">glank</a>’s <a href="https://github.com/glankk/n64/">n64 repo</a>, under config (as of July 9th, this is only in the
+n64-ultra branch).</p>
 
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;At least, that is how I think it works. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="gcc" /><category term="multilib" /><category term="multi ABI" /><category term="mips64-elf" /><category term="mips64" /><category term="mips" /><category term="toolchains" /><summary type="html">This article assumes that you know to compile a cross-compiler from scratch. If not, I recommend this succinct guide, or this longer guide if you want to have some context.</summary></entry><entry><title type="html">Converting between different Zernike polynomial index systems</title><link href="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/" rel="alternate" type="text/html" title="Converting between different Zernike polynomial index systems" /><published>2018-09-27T00:00:00-04:00</published><updated>2018-09-27T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/zernike-polynomials-coefficients</id><content type="html" xml:base="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/">&lt;p&gt;The Zernike polynomials are a very popular basis to describe aberrations in the
-wavefront of optical beams. They are used in ophthalmology &lt;a class=&quot;citation&quot; href=&quot;#Thibos2000&quot;&gt; [1]&lt;/a&gt;, microscopy, and laser metrology, among others &lt;a class=&quot;citation&quot; href=&quot;#Wyant1992&quot;&gt; [2]&lt;/a&gt;. Because they are orthogonal on the unit disk, they are most
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>At least, that is how I think it works. <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="gcc" /><category term="multilib" /><category term="multi ABI" /><category term="mips64-elf" /><category term="mips64" /><category term="mips" /><category term="toolchains" /><summary type="html"><![CDATA[This article assumes that you know to compile a cross-compiler from scratch. If not, I recommend this succinct guide, or this longer guide if you want to have some context.]]></summary></entry><entry><title type="html">Converting between different Zernike polynomial index systems</title><link href="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/" rel="alternate" type="text/html" title="Converting between different Zernike polynomial index systems" /><published>2018-09-27T00:00:00-04:00</published><updated>2018-09-27T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/zernike-polynomials-coefficients</id><content type="html" xml:base="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/"><![CDATA[<p>The Zernike polynomials are a very popular basis to describe aberrations in the
+wavefront of optical beams. They are used in ophthalmology <a class="citation" href="#Thibos2000"> [1]</a>, microscopy, and laser metrology, among others <a class="citation" href="#Wyant1992"> [2]</a>. Because they are orthogonal on the unit disk, they are most
 suitable to describe deviations from a flat phase front in a single transverse
-plane of the beam.&lt;/p&gt;
+plane of the beam.</p>
 
-&lt;p&gt;They are given by&lt;/p&gt;
+<p>They are given by</p>
 
 \[\begin{align}
-    Z_{n}^{m}(\rho,\phi) &amp;amp;=  R_{n}^{m}(\rho)\cos(m\phi)      &amp;amp; (m\geq0) \\
-    Z_{n}^{m}(\rho,\phi) &amp;amp;=  R_{n}^{|m|}(\rho)\sin(|m|\phi)  &amp;amp; (m&amp;lt;0)
+    Z_{n}^{m}(\rho,\phi) &amp;=  R_{n}^{m}(\rho)\cos(m\phi)      &amp; (m\geq0) \\
+    Z_{n}^{m}(\rho,\phi) &amp;=  R_{n}^{|m|}(\rho)\sin(|m|\phi)  &amp; (m&lt;0)
 \end{align}\]
 
-&lt;p&gt;where we can verify that they are indeed orthogonal on the unit disk:&lt;/p&gt;
+<p>where we can verify that they are indeed orthogonal on the unit disk:</p>
 
 \[\int_0^1\int_0^{2\pi} Z_{n}^{m}Z_{n'}^{m'}\rho d\rho d\phi
     = \frac{(1+\delta_{m,0})\pi}{2n+2}\delta_{n,n'}\delta_{m,m'}.\]
 
-&lt;p&gt;For a given value of \(n\in\{\{0\}\cup\mathbb{N}\}=\mathbb{N}_0\), the possible
+<p>For a given value of \(n\in\{\{0\}\cup\mathbb{N}\}=\mathbb{N}_0\), the possible
 \(m\) values are in the range \(m\in\{-n,n\}\) and increase in increments of 2.
 To simplify the enumeration of Zernike polynomials, various linear index schemes
 have been devised. In short, each possible pair of \((n,m)\) is assigned to a
 monotonically increasing index that we will denote \(j\). In this post, we’ll go
 over some index schemes and write Python scripts that will allow us to map form
 the linear index \(j\) to the quantum pair \((n,m)\). First, however, it will be
-useful to investigate the structure of the pairs.&lt;/p&gt;
+useful to investigate the structure of the pairs.</p>
 
-&lt;h3 id=&quot;the-triangular-structure-of-the-quantum-pairs&quot;&gt;The Triangular Structure of the Quantum Pairs&lt;/h3&gt;
+<h3 id="the-triangular-structure-of-the-quantum-pairs">The Triangular Structure of the Quantum Pairs</h3>
 
-&lt;p&gt;By simply enumerating the quantum pairs and arranging them on a grid where
+<p>By simply enumerating the quantum pairs and arranging them on a grid where
 rows indicate the value of \(n\) and columns the value of \(m\), their triangular
-structure becomes readily apparent.&lt;/p&gt;
+structure becomes readily apparent.</p>
 
 \[\begin{matrix}
-             &amp;amp;            &amp;amp;            &amp;amp;  (0,0)   &amp;amp;           &amp;amp;           &amp;amp;            \\
-             &amp;amp;            &amp;amp;   (1,-1)   &amp;amp;          &amp;amp;   (1,1)   &amp;amp;           &amp;amp;            \\
-             &amp;amp;   (2,-2)   &amp;amp;            &amp;amp;  (2,0)   &amp;amp;           &amp;amp;   (2,2)   &amp;amp;            \\
-   (3,-3)    &amp;amp;            &amp;amp;   (3,-1)   &amp;amp;          &amp;amp;   (3,1)   &amp;amp;           &amp;amp; (3,3)
+             &amp;            &amp;            &amp;  (0,0)   &amp;           &amp;           &amp;            \\
+             &amp;            &amp;   (1,-1)   &amp;          &amp;   (1,1)   &amp;           &amp;            \\
+             &amp;   (2,-2)   &amp;            &amp;  (2,0)   &amp;           &amp;   (2,2)   &amp;            \\
+   (3,-3)    &amp;            &amp;   (3,-1)   &amp;          &amp;   (3,1)   &amp;           &amp; (3,3)
 \end{matrix}\]
 
-&lt;p&gt;Since each row contains one element more than the previous row, the number of
+<p>Since each row contains one element more than the previous row, the number of
 elements contained in the first \(k\) rows is given by the \(k\)th triangular
-number \(T_k\), defined by&lt;/p&gt;
+number \(T_k\), defined by</p>
 
 \[T_k = \sum_{i=1}^{n} i = \frac{k(k+1)}{2}.\]
 
-&lt;p&gt;For index systems that are monotonic in \(n\), i.e. most of them,  we can
+<p>For index systems that are monotonic in \(n\), i.e. most of them,  we can
 directly relate the quantum number \(n\) to the index of the smallest triangular
 number larger than \(j\). Fortunately, the index can easily be determined via
-the formula &lt;a class=&quot;citation&quot; href=&quot;#DAurizio2015&quot;&gt; [3]&lt;/a&gt;&lt;/p&gt;
+the formula <a class="citation" href="#DAurizio2015"> [3]</a></p>
 
 \[k = \left\lceil \frac{1+\sqrt{1+8j}}{2} \right\rceil - 1.\]
 
-&lt;p&gt;The remainder \(r=j-T_k+n\) can then be used to determine what column corresponds
+<p>The remainder \(r=j-T_k+n\) can then be used to determine what column corresponds
 to that particular \(j\) value. The various linear schemes use different rules
-to assign a column to the remainder.&lt;/p&gt;
+to assign a column to the remainder.</p>
 
-&lt;h3 id=&quot;noll-indices&quot;&gt;Noll Indices&lt;/h3&gt;
+<h3 id="noll-indices">Noll Indices</h3>
 
-&lt;p&gt;The rules to assign the Noll index is to have it monotonic in \(n\) and then
+<p>The rules to assign the Noll index is to have it monotonic in \(n\) and then
 assign in order of increasing \(|m|\), where odd indices correspond to negative
 values of \(m\) and even indices to positive values of \(m\). The correspondence
 between the Noll indices and the quantum pairs is the subject of OEIS sequence
-A176988 &lt;a class=&quot;citation&quot; href=&quot;#A176988&quot;&gt; [4]&lt;/a&gt;.&lt;/p&gt;
+A176988 <a class="citation" href="#A176988"> [4]</a>.</p>
 
-&lt;p&gt;Since the Noll indices start at 1, the first quantum number can be written
-as one less than the triangular number index, \(n=k-1\).&lt;/p&gt;
+<p>Since the Noll indices start at 1, the first quantum number can be written
+as one less than the triangular number index, \(n=k-1\).</p>
 
-&lt;p&gt;The \(m\) value can be computed from the remainder \(r=j-T_k+n\). The latter can
-serve as an index into the list &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;m = [k  for k in range(-n,n+2,2)]&lt;/code&gt;, as it
+<p>The \(m\) value can be computed from the remainder \(r=j-T_k+n\). The latter can
+serve as an index into the list <code class="language-plaintext highlighter-rouge">m = [k  for k in range(-n,n+2,2)]</code>, as it
 guaranteed to lie in the range \([0,n-1]\). Because of the rules governing the
 assignment of signs, using the remainder directly as an index into this list is
 rather tedious. A simpler way is to create a list that generates all the
 possible values of \(|m|\) and sort them in ascending order. For \(n=3\), that
-list would be &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;[1,1,3,3]&lt;/code&gt;. \(r\) can be used as an index in this list to
+list would be <code class="language-plaintext highlighter-rouge">[1,1,3,3]</code>. \(r\) can be used as an index in this list to
 determine the value of \(|m|\). The sign is then decided by the parity of \(j\)
-directly, as stated by the Noll rules.&lt;/p&gt;
+directly, as stated by the Noll rules.</p>
 
-&lt;p&gt;Here’s the Python code that implements this (a C++ implementation is available
+<p>Here’s the Python code that implements this (a C++ implementation is available
 as part of my
-&lt;a href=&quot;https://github.com/joeydumont/zernike/blob/9eff81ebec7f0ef579ff01bfaabe23ff7ce8291c/src/zernike_indices.cpp#L41&quot;&gt;Zernike&lt;/a&gt;
-library)&lt;/p&gt;
+<a href="https://github.com/joeydumont/zernike/blob/9eff81ebec7f0ef579ff01bfaabe23ff7ce8291c/src/zernike_indices.cpp#L41">Zernike</a>
+library)</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;NollToQuantum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;triangular_numbers_idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ceil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sqrt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;triangular_numbers&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangular_numbers_idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangular_numbers_idx&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;triangular_numbers_idx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="k">def</span> <span class="nf">NollToQuantum</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+    <span class="n">triangular_numbers_idx</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="n">ceil</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">np</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">8</span><span class="o">*</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span><span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">triangular_numbers</span>     <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">(</span><span class="n">triangular_numbers_idx</span><span class="o">*</span><span class="p">(</span><span class="n">triangular_numbers_idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">triangular_numbers_idx</span> <span class="o">-</span> <span class="mi">1</span>
 
-    &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;     &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;triangular_numbers&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;rpn&lt;/span&gt;   &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;
+    <span class="n">r</span>     <span class="o">=</span> <span class="n">j</span> <span class="o">-</span> <span class="n">triangular_numbers</span>
+    <span class="n">rpn</span>   <span class="o">=</span> <span class="n">r</span><span class="o">+</span><span class="n">n</span>
 
-    &lt;span class=&quot;c1&quot;&gt;# -- Have to work value-per-value here.
-&lt;/span&gt;    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;m_vec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;([&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;m_vec&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;abs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;m_vec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rpn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]]&lt;/span&gt;
+    <span class="c1"># -- Have to work value-per-value here.
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">):</span>
+        <span class="n">m_vec</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">([</span><span class="n">j</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
+        <span class="n">m_vec</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="p">.</span><span class="nb">abs</span><span class="p">(</span><span class="n">m_vec</span><span class="p">))</span>
+        <span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">%</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">m_vec</span><span class="p">[</span><span class="n">rpn</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
 
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+    <span class="k">return</span> <span class="n">n</span><span class="p">,</span> <span class="n">m</span></code></pre></figure>
 
-&lt;p&gt;\(m\) could be computed directly via the one-liner&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;r&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;astype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;but in practice I found the code above to be faster, even though
-it generated a larger bytecode than the one-liner version.&lt;/p&gt;
+<p>\(m\) could be computed directly via the one-liner</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">j</span> <span class="o">*</span> <span class="p">((</span><span class="n">n</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="p">.</span><span class="n">array</span><span class="p">((</span><span class="n">r</span> <span class="o">+</span> <span class="p">((</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">%</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">))</span>
+</code></pre></div></div>
+<p>but in practice I found the code above to be faster, even though
+it generated a larger bytecode than the one-liner version.</p>
 
-&lt;p&gt;Let’s work through an example value.
+<p>Let’s work through an example value.
 For instance, suppose that we have \(j=8\), then the formula above \(k=4\) and thus \(n=3\).
 The remainder is \(r=8-10+3=1\). From our list above, we have that \(|m|=1\).
 Since \(j\) is even, \(m\) is positive, and we have \(m=1\).
-And indeed, \((j=8)\mapsto(3,1)\).&lt;/p&gt;
+And indeed, \((j=8)\mapsto(3,1)\).</p>
 
-&lt;h3 id=&quot;phasics-indices&quot;&gt;Phasics Indices&lt;/h3&gt;
+<h3 id="phasics-indices">Phasics Indices</h3>
 
-&lt;p&gt;The Phasics index system is monotonic in \(n\), as Noll’s is, and also monotonic
+<p>The Phasics index system is monotonic in \(n\), as Noll’s is, and also monotonic
 in \(|m|\). However, this system elects to always assign positive values of
 \(m\) to lower linear indices, regardless of parity, as stated in the SID4 6.4
-User Handbook, Chapter 6.&lt;/p&gt;
+User Handbook, Chapter 6.</p>
 
-&lt;p&gt;From these characteristics, we see that Noll and Phasics only differ on rows
+<p>From these characteristics, we see that Noll and Phasics only differ on rows
 where \(T_n\) is even, as  We can thus use the same basic function above, but
-add the single-line&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;triangular_numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;at the end of the loop.&lt;/p&gt;
+add the single-line</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">m</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">triangular_numbers</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">%</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
+<p>at the end of the loop.</p>
 
-&lt;h3 id=&quot;sources&quot;&gt;Sources&lt;/h3&gt;
+<h3 id="sources">Sources</h3>
 
-&lt;ol class=&quot;bibliography&quot;&gt;&lt;li&gt;&lt;span id=&quot;Thibos2000&quot;&gt;L. Thibos, R. A. Applegate, J. T. Schwiegerling, and R. Webb, &quot;Standards for reporting the optical aberrations of eyes,&quot; in &lt;i&gt;Vision Science and Its Applications&lt;/i&gt; (Optical Society of America, 2000), p. SuC1.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;Wyant1992&quot;&gt;J. C. Wyant and K. Creath, &quot;Basic Wavefront Aberration Theory for Optical Metrology,&quot; in &lt;i&gt;Applied Optics and Optical Engineering, Volume XI&lt;/i&gt;, R. R. Shannon and J. C. Wyant, eds. (1992), Vol. XI.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;DAurizio2015&quot;&gt;J. D’Aurizio, &quot;Largest Triangular Number less than a Given Natural Number,&quot; &lt;a href=&quot;https://math.stackexchange.com/q/1417583&quot;&gt;https://math.stackexchange.com/q/1417583&lt;/a&gt;&quot;, accessed Sep. 26th, 2018.&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span id=&quot;A176988&quot;&gt;R. J. Mathar, &quot;A176988: Triangle read by rows which contains Noll’s indices of Zernike polynomials in row n sorted along increasing index of the azimuthal quantum number,&quot; &lt;a href=&quot;https://oeis.org/A176988&quot;&gt;https://oeis.org/A176988&lt;/a&gt;, accessed Sep. 26th, 2018.&lt;/span&gt;&lt;/li&gt;&lt;/ol&gt;
+<ol class="bibliography"><li><span id="Thibos2000">L. Thibos, R. A. Applegate, J. T. Schwiegerling, and R. Webb, "Standards for reporting the optical aberrations of eyes," in <i>Vision Science and Its Applications</i> (Optical Society of America, 2000), p. SuC1.</span></li>
+<li><span id="Wyant1992">J. C. Wyant and K. Creath, "Basic Wavefront Aberration Theory for Optical Metrology," in <i>Applied Optics and Optical Engineering, Volume XI</i>, R. R. Shannon and J. C. Wyant, eds. (1992), Vol. XI.</span></li>
+<li><span id="DAurizio2015">J. D’Aurizio, "Largest Triangular Number less than a Given Natural Number," <a href="https://math.stackexchange.com/q/1417583">https://math.stackexchange.com/q/1417583</a>", accessed Sep. 26th, 2018.</span></li>
+<li><span id="A176988">R. J. Mathar, "A176988: Triangle read by rows which contains Noll’s indices of Zernike polynomials in row n sorted along increasing index of the azimuthal quantum number," <a href="https://oeis.org/A176988">https://oeis.org/A176988</a>, accessed Sep. 26th, 2018.</span></li></ol>
 
-&lt;h3 id=&quot;appendix-table-of-index-values-generated-by-the-algorithm&quot;&gt;Appendix: Table of index values generated by the algorithm&lt;/h3&gt;
+<h3 id="appendix-table-of-index-values-generated-by-the-algorithm">Appendix: Table of index values generated by the algorithm</h3>
 
-&lt;style&gt;
+<style>
 table {
     border-collapse: collapse;
     width: 100%;
@@ -243,353 +451,353 @@ th, td {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 
-&lt;/style&gt;
+</style>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;\(j\)            &lt;/th&gt;
-      &lt;th&gt;Noll&lt;/th&gt;
-      &lt;th&gt;Phasics&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(1\)&lt;/td&gt;
-      &lt;td&gt;\((0,0)\)&lt;/td&gt;
-      &lt;td&gt;\((0,0)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(2\)&lt;/td&gt;
-      &lt;td&gt;\((1,1)\)&lt;/td&gt;
-      &lt;td&gt;\((1,1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(3\)&lt;/td&gt;
-      &lt;td&gt;\((1,-1)\)&lt;/td&gt;
-      &lt;td&gt;\((1,-1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(4\)&lt;/td&gt;
-      &lt;td&gt;\((2,0)\)&lt;/td&gt;
-      &lt;td&gt;\((2,0)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(5\)&lt;/td&gt;
-      &lt;td&gt;\((2,-2)\)&lt;/td&gt;
-      &lt;td&gt;\((2,2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(6\)&lt;/td&gt;
-      &lt;td&gt;\((2,2)\)&lt;/td&gt;
-      &lt;td&gt;\((2,-2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(7\)&lt;/td&gt;
-      &lt;td&gt;\((3,-1)\)&lt;/td&gt;
-      &lt;td&gt;\((3,1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(8\)&lt;/td&gt;
-      &lt;td&gt;\((3,1)\)&lt;/td&gt;
-      &lt;td&gt;\((3,-1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(9\)&lt;/td&gt;
-      &lt;td&gt;\((3,-3)\)&lt;/td&gt;
-      &lt;td&gt;\((3,3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(10\)&lt;/td&gt;
-      &lt;td&gt;\((3,3)\)&lt;/td&gt;
-      &lt;td&gt;\((3,-3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(11\)&lt;/td&gt;
-      &lt;td&gt;\((4,0)\)&lt;/td&gt;
-      &lt;td&gt;\((4,0)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(12\)&lt;/td&gt;
-      &lt;td&gt;\((4,2)\)&lt;/td&gt;
-      &lt;td&gt;\((4,2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(13\)&lt;/td&gt;
-      &lt;td&gt;\((4,-2)\)&lt;/td&gt;
-      &lt;td&gt;\((4,-2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(14\)&lt;/td&gt;
-      &lt;td&gt;\((4,4)\)&lt;/td&gt;
-      &lt;td&gt;\((4,4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(15\)&lt;/td&gt;
-      &lt;td&gt;\((4,-4)\)&lt;/td&gt;
-      &lt;td&gt;\((4,-4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(16\)&lt;/td&gt;
-      &lt;td&gt;\((5,1)\)&lt;/td&gt;
-      &lt;td&gt;\((5,1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(17\)&lt;/td&gt;
-      &lt;td&gt;\((5,-1)\)&lt;/td&gt;
-      &lt;td&gt;\((5,-1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(18\)&lt;/td&gt;
-      &lt;td&gt;\((5,3)\)&lt;/td&gt;
-      &lt;td&gt;\((5,3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(19\)&lt;/td&gt;
-      &lt;td&gt;\((5,-3)\)&lt;/td&gt;
-      &lt;td&gt;\((5,-3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(20\)&lt;/td&gt;
-      &lt;td&gt;\((5,5)\)&lt;/td&gt;
-      &lt;td&gt;\((5,5)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(21\)&lt;/td&gt;
-      &lt;td&gt;\((5,-5)\)&lt;/td&gt;
-      &lt;td&gt;\((5,-5)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(22\)&lt;/td&gt;
-      &lt;td&gt;\((6,0)\)&lt;/td&gt;
-      &lt;td&gt;\((6,0)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(23\)&lt;/td&gt;
-      &lt;td&gt;\((6,-2)\)&lt;/td&gt;
-      &lt;td&gt;\((6,2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(24\)&lt;/td&gt;
-      &lt;td&gt;\((6,2)\)&lt;/td&gt;
-      &lt;td&gt;\((6,-2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(25\)&lt;/td&gt;
-      &lt;td&gt;\((6,-4)\)&lt;/td&gt;
-      &lt;td&gt;\((6,4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(26\)&lt;/td&gt;
-      &lt;td&gt;\((6,4)\)&lt;/td&gt;
-      &lt;td&gt;\((6,-4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(27\)&lt;/td&gt;
-      &lt;td&gt;\((6,-6)\)&lt;/td&gt;
-      &lt;td&gt;\((6,6)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(28\)&lt;/td&gt;
-      &lt;td&gt;\((6,6)\)&lt;/td&gt;
-      &lt;td&gt;\((6,-6)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(29\)&lt;/td&gt;
-      &lt;td&gt;\((7,-1)\)&lt;/td&gt;
-      &lt;td&gt;\((7,1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(30\)&lt;/td&gt;
-      &lt;td&gt;\((7,1)\)&lt;/td&gt;
-      &lt;td&gt;\((7,-1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(31\)&lt;/td&gt;
-      &lt;td&gt;\((7,-3)\)&lt;/td&gt;
-      &lt;td&gt;\((7,3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(32\)&lt;/td&gt;
-      &lt;td&gt;\((7,3)\)&lt;/td&gt;
-      &lt;td&gt;\((7,-3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(33\)&lt;/td&gt;
-      &lt;td&gt;\((7,-5)\)&lt;/td&gt;
-      &lt;td&gt;\((7,5)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(34\)&lt;/td&gt;
-      &lt;td&gt;\((7,5)\)&lt;/td&gt;
-      &lt;td&gt;\((7,-5)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(35\)&lt;/td&gt;
-      &lt;td&gt;\((7,-7)\)&lt;/td&gt;
-      &lt;td&gt;\((7,7)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(36\)&lt;/td&gt;
-      &lt;td&gt;\((7,7)\)&lt;/td&gt;
-      &lt;td&gt;\((7,-7)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(37\)&lt;/td&gt;
-      &lt;td&gt;\((8,0)\)&lt;/td&gt;
-      &lt;td&gt;\((8,0)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(38\)&lt;/td&gt;
-      &lt;td&gt;\((8,2)\)&lt;/td&gt;
-      &lt;td&gt;\((8,2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(39\)&lt;/td&gt;
-      &lt;td&gt;\((8,-2)\)&lt;/td&gt;
-      &lt;td&gt;\((8,-2)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(40\)&lt;/td&gt;
-      &lt;td&gt;\((8,4)\)&lt;/td&gt;
-      &lt;td&gt;\((8,4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(41\)&lt;/td&gt;
-      &lt;td&gt;\((8,-4)\)&lt;/td&gt;
-      &lt;td&gt;\((8,-4)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(42\)&lt;/td&gt;
-      &lt;td&gt;\((8,6)\)&lt;/td&gt;
-      &lt;td&gt;\((8,6)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(43\)&lt;/td&gt;
-      &lt;td&gt;\((8,-6)\)&lt;/td&gt;
-      &lt;td&gt;\((8,-6)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(44\)&lt;/td&gt;
-      &lt;td&gt;\((8,8)\)&lt;/td&gt;
-      &lt;td&gt;\((8,8)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(45\)&lt;/td&gt;
-      &lt;td&gt;\((8,-8)\)&lt;/td&gt;
-      &lt;td&gt;\((8,-8)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(46\)&lt;/td&gt;
-      &lt;td&gt;\((9,1)\)&lt;/td&gt;
-      &lt;td&gt;\((9,1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(47\)&lt;/td&gt;
-      &lt;td&gt;\((9,-1)\)&lt;/td&gt;
-      &lt;td&gt;\((9,-1)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(48\)&lt;/td&gt;
-      &lt;td&gt;\((9,3)\)&lt;/td&gt;
-      &lt;td&gt;\((9,3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(49\)&lt;/td&gt;
-      &lt;td&gt;\((9,-3)\)&lt;/td&gt;
-      &lt;td&gt;\((9,-3)\)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;\(50\)&lt;/td&gt;
-      &lt;td&gt;\((9,5)\)&lt;/td&gt;
-      &lt;td&gt;\((9,5)\)&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="Zernike polynomials" /><category term="indexing conventions" /><category term="Noll" /><category term="Phasics" /><summary type="html">The Zernike polynomials are a very popular basis to describe aberrations in the wavefront of optical beams. They are used in ophthalmology  [4], microscopy, and laser metrology, among others  [4]. Because they are orthogonal on the unit disk, they are most suitable to describe deviations from a flat phase front in a single transverse plane of the beam.</summary></entry><entry><title type="html">Loading complex numbers in the C++ format from text files into NumPy</title><link href="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/" rel="alternate" type="text/html" title="Loading complex numbers in the C++ format from text files into NumPy" /><published>2018-07-24T00:00:00-04:00</published><updated>2018-07-24T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy</id><content type="html" xml:base="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/">&lt;p&gt;In my workflow, I typically use C++ for production code and Python for data
+<table>
+  <thead>
+    <tr>
+      <th>\(j\)            </th>
+      <th>Noll</th>
+      <th>Phasics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\(1\)</td>
+      <td>\((0,0)\)</td>
+      <td>\((0,0)\)</td>
+    </tr>
+    <tr>
+      <td>\(2\)</td>
+      <td>\((1,1)\)</td>
+      <td>\((1,1)\)</td>
+    </tr>
+    <tr>
+      <td>\(3\)</td>
+      <td>\((1,-1)\)</td>
+      <td>\((1,-1)\)</td>
+    </tr>
+    <tr>
+      <td>\(4\)</td>
+      <td>\((2,0)\)</td>
+      <td>\((2,0)\)</td>
+    </tr>
+    <tr>
+      <td>\(5\)</td>
+      <td>\((2,-2)\)</td>
+      <td>\((2,2)\)</td>
+    </tr>
+    <tr>
+      <td>\(6\)</td>
+      <td>\((2,2)\)</td>
+      <td>\((2,-2)\)</td>
+    </tr>
+    <tr>
+      <td>\(7\)</td>
+      <td>\((3,-1)\)</td>
+      <td>\((3,1)\)</td>
+    </tr>
+    <tr>
+      <td>\(8\)</td>
+      <td>\((3,1)\)</td>
+      <td>\((3,-1)\)</td>
+    </tr>
+    <tr>
+      <td>\(9\)</td>
+      <td>\((3,-3)\)</td>
+      <td>\((3,3)\)</td>
+    </tr>
+    <tr>
+      <td>\(10\)</td>
+      <td>\((3,3)\)</td>
+      <td>\((3,-3)\)</td>
+    </tr>
+    <tr>
+      <td>\(11\)</td>
+      <td>\((4,0)\)</td>
+      <td>\((4,0)\)</td>
+    </tr>
+    <tr>
+      <td>\(12\)</td>
+      <td>\((4,2)\)</td>
+      <td>\((4,2)\)</td>
+    </tr>
+    <tr>
+      <td>\(13\)</td>
+      <td>\((4,-2)\)</td>
+      <td>\((4,-2)\)</td>
+    </tr>
+    <tr>
+      <td>\(14\)</td>
+      <td>\((4,4)\)</td>
+      <td>\((4,4)\)</td>
+    </tr>
+    <tr>
+      <td>\(15\)</td>
+      <td>\((4,-4)\)</td>
+      <td>\((4,-4)\)</td>
+    </tr>
+    <tr>
+      <td>\(16\)</td>
+      <td>\((5,1)\)</td>
+      <td>\((5,1)\)</td>
+    </tr>
+    <tr>
+      <td>\(17\)</td>
+      <td>\((5,-1)\)</td>
+      <td>\((5,-1)\)</td>
+    </tr>
+    <tr>
+      <td>\(18\)</td>
+      <td>\((5,3)\)</td>
+      <td>\((5,3)\)</td>
+    </tr>
+    <tr>
+      <td>\(19\)</td>
+      <td>\((5,-3)\)</td>
+      <td>\((5,-3)\)</td>
+    </tr>
+    <tr>
+      <td>\(20\)</td>
+      <td>\((5,5)\)</td>
+      <td>\((5,5)\)</td>
+    </tr>
+    <tr>
+      <td>\(21\)</td>
+      <td>\((5,-5)\)</td>
+      <td>\((5,-5)\)</td>
+    </tr>
+    <tr>
+      <td>\(22\)</td>
+      <td>\((6,0)\)</td>
+      <td>\((6,0)\)</td>
+    </tr>
+    <tr>
+      <td>\(23\)</td>
+      <td>\((6,-2)\)</td>
+      <td>\((6,2)\)</td>
+    </tr>
+    <tr>
+      <td>\(24\)</td>
+      <td>\((6,2)\)</td>
+      <td>\((6,-2)\)</td>
+    </tr>
+    <tr>
+      <td>\(25\)</td>
+      <td>\((6,-4)\)</td>
+      <td>\((6,4)\)</td>
+    </tr>
+    <tr>
+      <td>\(26\)</td>
+      <td>\((6,4)\)</td>
+      <td>\((6,-4)\)</td>
+    </tr>
+    <tr>
+      <td>\(27\)</td>
+      <td>\((6,-6)\)</td>
+      <td>\((6,6)\)</td>
+    </tr>
+    <tr>
+      <td>\(28\)</td>
+      <td>\((6,6)\)</td>
+      <td>\((6,-6)\)</td>
+    </tr>
+    <tr>
+      <td>\(29\)</td>
+      <td>\((7,-1)\)</td>
+      <td>\((7,1)\)</td>
+    </tr>
+    <tr>
+      <td>\(30\)</td>
+      <td>\((7,1)\)</td>
+      <td>\((7,-1)\)</td>
+    </tr>
+    <tr>
+      <td>\(31\)</td>
+      <td>\((7,-3)\)</td>
+      <td>\((7,3)\)</td>
+    </tr>
+    <tr>
+      <td>\(32\)</td>
+      <td>\((7,3)\)</td>
+      <td>\((7,-3)\)</td>
+    </tr>
+    <tr>
+      <td>\(33\)</td>
+      <td>\((7,-5)\)</td>
+      <td>\((7,5)\)</td>
+    </tr>
+    <tr>
+      <td>\(34\)</td>
+      <td>\((7,5)\)</td>
+      <td>\((7,-5)\)</td>
+    </tr>
+    <tr>
+      <td>\(35\)</td>
+      <td>\((7,-7)\)</td>
+      <td>\((7,7)\)</td>
+    </tr>
+    <tr>
+      <td>\(36\)</td>
+      <td>\((7,7)\)</td>
+      <td>\((7,-7)\)</td>
+    </tr>
+    <tr>
+      <td>\(37\)</td>
+      <td>\((8,0)\)</td>
+      <td>\((8,0)\)</td>
+    </tr>
+    <tr>
+      <td>\(38\)</td>
+      <td>\((8,2)\)</td>
+      <td>\((8,2)\)</td>
+    </tr>
+    <tr>
+      <td>\(39\)</td>
+      <td>\((8,-2)\)</td>
+      <td>\((8,-2)\)</td>
+    </tr>
+    <tr>
+      <td>\(40\)</td>
+      <td>\((8,4)\)</td>
+      <td>\((8,4)\)</td>
+    </tr>
+    <tr>
+      <td>\(41\)</td>
+      <td>\((8,-4)\)</td>
+      <td>\((8,-4)\)</td>
+    </tr>
+    <tr>
+      <td>\(42\)</td>
+      <td>\((8,6)\)</td>
+      <td>\((8,6)\)</td>
+    </tr>
+    <tr>
+      <td>\(43\)</td>
+      <td>\((8,-6)\)</td>
+      <td>\((8,-6)\)</td>
+    </tr>
+    <tr>
+      <td>\(44\)</td>
+      <td>\((8,8)\)</td>
+      <td>\((8,8)\)</td>
+    </tr>
+    <tr>
+      <td>\(45\)</td>
+      <td>\((8,-8)\)</td>
+      <td>\((8,-8)\)</td>
+    </tr>
+    <tr>
+      <td>\(46\)</td>
+      <td>\((9,1)\)</td>
+      <td>\((9,1)\)</td>
+    </tr>
+    <tr>
+      <td>\(47\)</td>
+      <td>\((9,-1)\)</td>
+      <td>\((9,-1)\)</td>
+    </tr>
+    <tr>
+      <td>\(48\)</td>
+      <td>\((9,3)\)</td>
+      <td>\((9,3)\)</td>
+    </tr>
+    <tr>
+      <td>\(49\)</td>
+      <td>\((9,-3)\)</td>
+      <td>\((9,-3)\)</td>
+    </tr>
+    <tr>
+      <td>\(50\)</td>
+      <td>\((9,5)\)</td>
+      <td>\((9,5)\)</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="Zernike polynomials" /><category term="indexing conventions" /><category term="Noll" /><category term="Phasics" /><summary type="html"><![CDATA[The Zernike polynomials are a very popular basis to describe aberrations in the wavefront of optical beams. They are used in ophthalmology  [4], microscopy, and laser metrology, among others  [4]. Because they are orthogonal on the unit disk, they are most suitable to describe deviations from a flat phase front in a single transverse plane of the beam.]]></summary></entry><entry><title type="html">Loading complex numbers in the C++ format from text files into NumPy</title><link href="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/" rel="alternate" type="text/html" title="Loading complex numbers in the C++ format from text files into NumPy" /><published>2018-07-24T00:00:00-04:00</published><updated>2018-07-24T00:00:00-04:00</updated><id>https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy</id><content type="html" xml:base="https://blog.joey-dumont.ca/read-c-format-complex-numbers-with-numpy/"><![CDATA[<p>In my workflow, I typically use C++ for production code and Python for data
 post-processing and data analysis. A major annoyance is that NumPy’s
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;genfromtxt&lt;/code&gt; does not recognize the C++ complex number format.&lt;/p&gt;
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> does not recognize the C++ complex number format.</p>
 
-&lt;p&gt;Of course, one could write their own I/O for their C++ production codes, but
+<p>Of course, one could write their own I/O for their C++ production codes, but
 most libraries have built-in I/O functions and it’s just a pain. It’s much
-easier to get Python to read the C++ format!&lt;/p&gt;
+easier to get Python to read the C++ format!</p>
 
-&lt;h3 id=&quot;the-issue&quot;&gt;The Issue&lt;/h3&gt;
+<h3 id="the-issue">The Issue</h3>
 
-&lt;p&gt;C++ represents a given complex number \(z=a+ib\) as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;(a,b)&lt;/code&gt;. When using
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;genfromtxt&lt;/code&gt; to read a file containing an array of complex numbers, the obvious&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genfromtxt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;complex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;yields &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NaN&lt;/code&gt;s for the real part and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;s for the imaginary part. To get Python
+<p>C++ represents a given complex number \(z=a+ib\) as <code class="language-plaintext highlighter-rouge">(a,b)</code>. When using
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">genfromtxt</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</code></pre></div></div>
+<p>yields <code class="language-plaintext highlighter-rouge">NaN</code>s for the real part and <code class="language-plaintext highlighter-rouge">0</code>s for the imaginary part. To get Python
 to understand the format, an easy solution is to first parse the elements of the
 array as strings, then use a lambda function to effectively cast the strings
-as complex numbers. Here’s the code.&lt;/p&gt;
+as complex numbers. Here’s the code.</p>
 
-&lt;h3 id=&quot;the-code&quot;&gt;The Code&lt;/h3&gt;
+<h3 id="the-code">The Code</h3>
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;LoadComplexData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genfromtext_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-    &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
+    <span class="s">"""
     Load complex data in the C++ format in numpy.
-    &quot;&quot;&quot;&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;array_as_strings&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genfromtext&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dtype&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;genfromtext_args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;complex_parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vectorize&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;lambda&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;complex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;eval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)))&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;complex_parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array_as_strings&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    """</span>
+    <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
+    <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">complex</span><span class="p">(</span><span class="o">*</span><span class="nb">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="n">complex_parser</span><span class="p">(</span><span class="n">array_as_strings</span><span class="p">)</span>
+</code></pre></div></div>
 
-&lt;p&gt;First, we load the array of complex numbers as an array of strings in Python.
-Then, we use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;np.vectorize&lt;/code&gt; to define a callable that takes each of the array
-and applies the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;complex(*eval(x))&lt;/code&gt; to it. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eval()&lt;/code&gt; takes the string and evaluates
-it to a tuple of floats. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;*&lt;/code&gt; operator unpacks the tuple such that we are calling
-&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;complex(a,b)&lt;/code&gt; properly. This returns a complex number in Python format.&lt;/p&gt;
+<p>First, we load the array of complex numbers as an array of strings in Python.
+Then, we use <code class="language-plaintext highlighter-rouge">np.vectorize</code> to define a callable that takes each of the array
+and applies the <code class="language-plaintext highlighter-rouge">complex(*eval(x))</code> to it. <code class="language-plaintext highlighter-rouge">eval()</code> takes the string and evaluates
+it to a tuple of floats. The <code class="language-plaintext highlighter-rouge">*</code> operator unpacks the tuple such that we are calling
+<code class="language-plaintext highlighter-rouge">complex(a,b)</code> properly. This returns a complex number in Python format.</p>
 
-&lt;p&gt;A solution based on a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;genfromtxt&lt;/code&gt; converter could be more elegant, but I wasn’t
+<p>A solution based on a <code class="language-plaintext highlighter-rouge">genfromtxt</code> converter could be more elegant, but I wasn’t
 able to find a way to apply a converter to every column of the input file
-instead of a specific column.&lt;/p&gt;
+instead of a specific column.</p>
 
-&lt;p&gt;You can try it for yourself with these
-&lt;a href=&quot;https://blog.joey-dumont.ca/assets/posts/read-c-format-complex-numbers-with-numpy/complex_data_example.tar.gz&quot;&gt;files&lt;/a&gt;. This was tested with Numpy v1.14.5.&lt;/p&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="complex numbers" /><category term="numpy" /><category term="C++" /><category term="genfromtxt" /><summary type="html">In my workflow, I typically use C++ for production code and Python for data post-processing and data analysis. A major annoyance is that NumPy’s genfromtxt does not recognize the C++ complex number format.</summary></entry><entry><title type="html">vnc through SSH: how to control your desktop remotely</title><link href="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/" rel="alternate" type="text/html" title="vnc through SSH: how to control your desktop remotely" /><published>2018-01-17T00:00:00-05:00</published><updated>2018-01-17T00:00:00-05:00</updated><id>https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely</id><content type="html" xml:base="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/">&lt;p&gt;I won’t go into too much detail in this post, as there are &lt;a href=&quot;http://www.cl.cam.ac.uk/research/dtg/attarchive/vnc/sshvnc.html&quot;&gt;multiple&lt;/a&gt; &lt;a href=&quot;https://www.cyberciti.biz/tips/tunneling-vnc-connections-over-ssh-howto.html&quot;&gt;guides&lt;/a&gt;
+<p>You can try it for yourself with these
+<a href="https://blog.joey-dumont.ca/assets/posts/read-c-format-complex-numbers-with-numpy/complex_data_example.tar.gz">files</a>. This was tested with Numpy v1.14.5.</p>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="complex numbers" /><category term="numpy" /><category term="C++" /><category term="genfromtxt" /><summary type="html"><![CDATA[In my workflow, I typically use C++ for production code and Python for data post-processing and data analysis. A major annoyance is that NumPy’s genfromtxt does not recognize the C++ complex number format.]]></summary></entry><entry><title type="html">vnc through SSH: how to control your desktop remotely</title><link href="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/" rel="alternate" type="text/html" title="vnc through SSH: how to control your desktop remotely" /><published>2018-01-17T00:00:00-05:00</published><updated>2018-01-17T00:00:00-05:00</updated><id>https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely</id><content type="html" xml:base="https://blog.joey-dumont.ca/vnc-through-ssh-how-to-control-your-desktop-remotely/"><![CDATA[<p>I won’t go into too much detail in this post, as there are <a href="http://www.cl.cam.ac.uk/research/dtg/attarchive/vnc/sshvnc.html">multiple</a> <a href="https://www.cyberciti.biz/tips/tunneling-vnc-connections-over-ssh-howto.html">guides</a>
 that go above and beyond in explaining the behind-the-scenes of tunnelling
-VNC connections through SSH. Note that this solution uses TigerVNC’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x0vncserver&lt;/code&gt;
-to control the remote X server. Simply use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vncserver&lt;/code&gt; if you want to control
-a different X server.&lt;/p&gt;
+VNC connections through SSH. Note that this solution uses TigerVNC’s <code class="language-plaintext highlighter-rouge">x0vncserver</code>
+to control the remote X server. Simply use <code class="language-plaintext highlighter-rouge">vncserver</code> if you want to control
+a different X server.</p>
 
-&lt;p&gt;The setup is quite simple, but requires two terminal windows. In the first terminal,
-SSH into your remote machine with&lt;/p&gt;
+<p>The setup is quite simple, but requires two terminal windows. In the first terminal,
+SSH into your remote machine with</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;b&gt;user@local-machine &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;/b&gt;ssh -Y &amp;lt;remote.machine.com&amp;gt; -L 5900:localhost:5900
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L 5900:localhost:5900
+</code></pre></div>
 
-&lt;p&gt;and then,&lt;/p&gt;
+<p>and then,</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;b&gt;remoteuser@remote-machine &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;/b&gt; x0vncserver -display :0 -passwordfile ~/.vnc/passwd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -display :0 -passwordfile ~/.vnc/passwd
+</code></pre></div>
 
-&lt;p&gt;Now, in the second terminal on your local machine, you can simply type&lt;/p&gt;
+<p>Now, in the second terminal on your local machine, you can simply type</p>
 
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;b&gt;user@local-machine &lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;/b&gt; vncviewer localhost:5900
-&lt;/code&gt;&lt;/pre&gt;
+<pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:5900
+</code></pre>
 
-&lt;p&gt;&lt;/p&gt;
+<p></p>
 
-&lt;p&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-L&lt;/code&gt; flag in the SSH connection sets up port forwarding from the local machine
+<p>The <code class="language-plaintext highlighter-rouge">-L</code> flag in the SSH connection sets up port forwarding from the local machine
 to the remote machine. In short, all unbound traffic that goes through the specified
 port on the local machine is forward to the other port on the remote machine. Here we
-choose port 5900 on both machines as it is the default port for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x0vncserver&lt;/code&gt;,
-but both can be changed freely.&lt;/p&gt;
+choose port 5900 on both machines as it is the default port for <code class="language-plaintext highlighter-rouge">x0vncserver</code>,
+but both can be changed freely.</p>
 
-&lt;p&gt;Make sure to generate a password file for VNC by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;vncpasswd&lt;/code&gt; and pass
-it to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;x0vncserver&lt;/code&gt; on the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passwordfile&lt;/code&gt; flag. Here we choose the default.&lt;/p&gt;
+<p>Make sure to generate a password file for VNC by using <code class="language-plaintext highlighter-rouge">vncpasswd</code> and pass
+it to <code class="language-plaintext highlighter-rouge">x0vncserver</code> on the <code class="language-plaintext highlighter-rouge">passwordfile</code> flag. Here we choose the default.</p>
 
-&lt;p&gt;The same method with generic ports would read&lt;/p&gt;
+<p>The same method with generic ports would read</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;b&gt;user@local-machine &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;/b&gt;ssh -Y &amp;lt;remote.machine.com&amp;gt; -L &amp;lt;xxxx&amp;gt;:localhost:&amp;lt;yyyy&amp;gt;
-&lt;b&gt;remoteuser@remote-machine &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;/b&gt; x0vncserver -rfbport &amp;lt;yyyy&amp;gt; -display :0 \
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$ </span></b>ssh -Y &lt;remote.machine.com&gt; -L &lt;xxxx&gt;:localhost:&lt;yyyy&gt;
+<b>remoteuser@remote-machine <span class="nv">$ </span></b> x0vncserver -rfbport &lt;yyyy&gt; -display :0 \
                                          -passwordfile ~/.vnc/passwd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre></div>
 
-&lt;div style=&quot;text-indent: 0&quot;&gt;and&lt;/div&gt;
+<div style="text-indent: 0">and</div>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;b&gt;user@local-machine &lt;span class=&quot;nv&quot;&gt;$&lt;/span&gt;&lt;/b&gt; vncviewer localhost:&amp;lt;xxxx&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><b>user@local-machine <span class="nv">$</span></b> vncviewer localhost:&lt;xxxx&gt;
+</code></pre></div>
 
-&lt;p&gt;Until next time, cheers!&lt;/p&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="vnc" /><category term="ssh" /><category term="remote desktop" /><category term="linux" /><summary type="html">I won’t go into too much detail in this post, as there are multiple guides that go above and beyond in explaining the behind-the-scenes of tunnelling VNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserver to control the remote X server. Simply use vncserver if you want to control a different X server.</summary></entry><entry><title type="html">Have yaourt save compiled packages to /var/cache/pacman/pkg</title><link href="https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/" rel="alternate" type="text/html" title="Have yaourt save compiled packages to /var/cache/pacman/pkg" /><published>2015-04-14T16:46:00-04:00</published><updated>2015-04-14T16:46:00-04:00</updated><id>https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to</id><content type="html" xml:base="https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, &lt;i&gt;yaourt&lt;/i&gt; does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it  imperative that you be able to roll back to older packages, this is not useful default behaviour. &lt;br /&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line  &lt;br /&gt;&lt;blockquote&gt;#EXPORT=0&lt;/blockquote&gt;to   &lt;br /&gt;&lt;blockquote&gt;EXPORT=2&lt;/blockquote&gt;That is all. Have a nice day!  &lt;/div&gt;&lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="command-line" /><category term="yaourt" /><category term="linux" /><category term="arch-linux" /><summary type="html">&amp;nbsp;&amp;nbsp;&amp;nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, yaourt does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it imperative that you be able to roll back to older packages, this is not useful default behaviour. &amp;nbsp;&amp;nbsp;&amp;nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line #EXPORT=0to EXPORT=2That is all. Have a nice day!</summary></entry><entry><title type="html">Google Calendar Material Design</title><link href="https://blog.joey-dumont.ca/google-calendar-material-design/" rel="alternate" type="text/html" title="Google Calendar Material Design" /><published>2014-11-11T15:55:00-05:00</published><updated>2014-11-11T15:55:00-05:00</updated><id>https://blog.joey-dumont.ca/google-calendar-material-design</id><content type="html" xml:base="https://blog.joey-dumont.ca/google-calendar-material-design/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;My Nexus 4 prompted me last night for permission to update Gmail and &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.google.android.calendar&amp;amp;hl=en&quot;&gt;Google Calendar&lt;/a&gt;. I must say, while Gmail looks slightly better than it did, GCal has received a much needed revamp, especially the widget. I do not have a screenshot of the previous version, but the colour scheme was terrible and the layout was such that it was hard to determine the division between days. It was also very difficult to quickly glance at a calendar to get some information.&lt;br /&gt;&lt;br /&gt;&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;https://2.bp.blogspot.com/-0-HLzdJuoyE/VGJ3BDRi4iI/AAAAAAAAEAE/akFfFqq0RcM/s1600/Screenshot_2014-11-11-15-36-33.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;320&quot; src=&quot;https://2.bp.blogspot.com/-0-HLzdJuoyE/VGJ3BDRi4iI/AAAAAAAAEAE/akFfFqq0RcM/s320/Screenshot_2014-11-11-15-36-33.png&quot; width=&quot;192&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;A screenshot of the new GCal widget&lt;br /&gt;on my Nexus 4.&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;The new version, released yesterday, has received the &quot;Material Design&quot; treatment; the colours are a little more tame, and the division between events and dates is much clearer. Worth the (free) update.&lt;br /&gt;&lt;br /&gt;I guess I'm saying I like the new designs of Google.&lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="google calendar" /><category term="nexus" /><summary type="html">&amp;nbsp;&amp;nbsp;&amp;nbsp;My Nexus 4 prompted me last night for permission to update Gmail and Google Calendar. I must say, while Gmail looks slightly better than it did, GCal has received a much needed revamp, especially the widget. I do not have a screenshot of the previous version, but the colour scheme was terrible and the layout was such that it was hard to determine the division between days. It was also very difficult to quickly glance at a calendar to get some information.A screenshot of the new GCal widgeton my Nexus 4.&amp;nbsp;&amp;nbsp;&amp;nbsp;The new version, released yesterday, has received the &quot;Material Design&quot; treatment; the colours are a little more tame, and the division between events and dates is much clearer. Worth the (free) update.I guess I'm saying I like the new designs of Google.</summary></entry><entry><title type="html">Dual basis and its applications</title><link href="https://blog.joey-dumont.ca/dual-basis-and-its-applications/" rel="alternate" type="text/html" title="Dual basis and its applications" /><published>2013-04-21T13:55:00-04:00</published><updated>2013-04-21T13:55:00-04:00</updated><id>https://blog.joey-dumont.ca/dual-basis-and-its-applications</id><content type="html" xml:base="https://blog.joey-dumont.ca/dual-basis-and-its-applications/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align:  justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.  &lt;/div&gt; &lt;div dir=&quot;ltr&quot;, style=&quot;text-align: justify;&quot; trbidy=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That's a problem. Let's look for a solution.  &lt;/div&gt; &lt;div dir=&quot;ltr&quot;, style=&quot;text-align: justify;&quot; trbidy=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that  $$ \langle f^i|e_j\rangle = \delta^i_j.$$ To see how we can compute those vectors, consider the original eigenvalue problem  $$ \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle .$$ We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation  $$ \sum_i |e_i\rangle\langle f^i| = 1.$$ Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get  $$ \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|.$$ Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get  $$ \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. $$ The Dirac delta makes the sum disappear as usual and we have  $$ \langle f^j| A = \lambda_j \langle f^j|. $$ In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$! &lt;/div&gt; &lt;div dir=&quot;ltr&quot;, style=&quot;text-align: justify;&quot; trbidy=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;So we find that these new &quot;contravariant&quot; vectors are actually the &lt;i&gt;left eigenvectors&lt;/i&gt; of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by  $$ |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle .$$ &lt;/div&gt; &lt;div dir=&quot;ltr&quot;, style=&quot;text-align: justify;&quot; trbidy=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions...  &lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><summary type="html">&amp;nbsp;&amp;nbsp;&amp;nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions. &amp;nbsp;&amp;nbsp;&amp;nbsp;This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That's a problem. Let's look for a solution. &amp;nbsp;&amp;nbsp;&amp;nbsp;Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that $$ \langle f^i|e_j\rangle = \delta^i_j.$$ To see how we can compute those vectors, consider the original eigenvalue problem $$ \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle .$$ We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation $$ \sum_i |e_i\rangle\langle f^i| = 1.$$ Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get $$ \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|.$$ Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get $$ \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. $$ The Dirac delta makes the sum disappear as usual and we have $$ \langle f^j| A = \lambda_j \langle f^j|. $$ In other words, the $\langle f^j|$ are the row eigenvectors of $A$ and have the same eigenvalues as the set $|e_i\rangle$! &amp;nbsp;&amp;nbsp;&amp;nbsp;So we find that these new &quot;contravariant&quot; vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by $$ |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle .$$ &amp;nbsp;&amp;nbsp;&amp;nbsp;This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions...</summary></entry><entry><title type="html">Interfacing Armadillo and FFTW</title><link href="https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw/" rel="alternate" type="text/html" title="Interfacing Armadillo and FFTW" /><published>2013-03-10T23:31:00-04:00</published><updated>2013-03-10T23:31:00-04:00</updated><id>https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw</id><content type="html" xml:base="https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;FFTW, or the &lt;i&gt;&lt;a href=&quot;http://fftw.org/&quot;&gt;Fastest Fourier Transform in the West&lt;/a&gt;&lt;/i&gt;, is an awesome C library used to, well, perform FFTs. &lt;a href=&quot;http://arma.sourceforce.net/&quot;&gt;Armadillo&lt;/a&gt;, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  &lt;/div&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using &lt;span style=&quot;font-family: Courier New, Courier, monospace;&quot;&gt;fftw_complex*&lt;/span&gt; arrays which memory are allocated using &lt;span style=&quot;font-family: Courier New, Courier, monospace;&quot;&gt;fftw_malloc&lt;/span&gt;. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using &lt;span style=&quot;font-family: Courier New, Courier, monospace;&quot;&gt;fftw_malloc&lt;/span&gt;). Then, your C++ code should be something like &lt;script src=&quot;https://gist.github.com/valandil/cc98f474360f027240f8.js&quot;&gt;&lt;/script&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &lt;/div&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Please feel free to point out any factual errors.  &lt;/div&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&lt;b&gt;Update:&lt;/b&gt; Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the &lt;span style=&quot;font-family: Courier New, Courier, monospace;&quot;&gt;samples&lt;/span&gt;matrix before creating the plan, your columns will be overwritten. Pay attention! &lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="c++" /><category term="programming" /><category term="fftw" /><category term="armadillo" /><summary type="html">&amp;nbsp;&amp;nbsp;&amp;nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use. &amp;nbsp;&amp;nbsp;&amp;nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &amp;nbsp;&amp;nbsp;&amp;nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &amp;nbsp;&amp;nbsp;&amp;nbsp;Please feel free to point out any factual errors. Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention!</summary></entry><entry><title type="html">Arrow in the Knee: the Genesis</title><link href="https://blog.joey-dumont.ca/arrow-in-knee-genesis/" rel="alternate" type="text/html" title="Arrow in the Knee: the Genesis" /><published>2013-01-24T01:06:00-05:00</published><updated>2013-01-24T01:06:00-05:00</updated><id>https://blog.joey-dumont.ca/arrow-in-knee-genesis</id><content type="html" xml:base="https://blog.joey-dumont.ca/arrow-in-knee-genesis/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; So my wife was re-reading the epic fantasy pentalogy &lt;i&gt;The Belgariad &lt;/i&gt;by David Eddings [1]. It's a fantastic coming-of-age, prophecy-fulfilling, magic-filled story. Every character is fully developed and they are all thoroughly likable.  &lt;br /&gt;&lt;br /&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp; But now to the important part. In the &lt;i&gt;Queen of Sorcery&lt;/i&gt; book [2,p.222], originally published in 1982, it is revealed that Count Reldegen, an Asturian, is limping. This sparks the following conversation: &lt;br /&gt;&lt;blockquote&gt;&quot;What happened to your leg?&quot; Wolf asked him. &lt;br /&gt;&quot;An arrow in the knee.&quot; The count shrugged.&lt;/blockquote&gt;Yes, that's right, an &lt;i&gt;arrow in the knee&lt;/i&gt;!   &lt;/div&gt;&lt;br /&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: justify;&quot; trbidi=&quot;on&quot;&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;Now go read &lt;i&gt;The Belgariad&lt;/i&gt; so you know why it matters that Reldegen is an Asturian.  &lt;/div&gt;&lt;br /&gt;&lt;div id=&quot;#ft1&quot;&gt;[1] Amateurish introductory line, I know.&lt;/div&gt;&lt;div id=&quot;#ft2&quot;&gt;[2] D. Eddings. &lt;i&gt;Queen of Sorcery&lt;/i&gt; in &lt;i&gt;The Belgariad&lt;/i&gt;. 2002. New York: Ballantine.&lt;/div&gt;&lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><summary type="html">&amp;nbsp;&amp;nbsp;&amp;nbsp; So my wife was re-reading the epic fantasy pentalogy The Belgariad by David Eddings [1]. It's a fantastic coming-of-age, prophecy-fulfilling, magic-filled story. Every character is fully developed and they are all thoroughly likable. &amp;nbsp;&amp;nbsp;&amp;nbsp; But now to the important part. In the Queen of Sorcery book [2,p.222], originally published in 1982, it is revealed that Count Reldegen, an Asturian, is limping. This sparks the following conversation: &quot;What happened to your leg?&quot; Wolf asked him. &quot;An arrow in the knee.&quot; The count shrugged.Yes, that's right, an arrow in the knee! &amp;nbsp;&amp;nbsp;&amp;nbsp;Now go read The Belgariad so you know why it matters that Reldegen is an Asturian. [1] Amateurish introductory line, I know.[2] D. Eddings. Queen of Sorcery in The Belgariad. 2002. New York: Ballantine.</summary></entry><entry><title type="html">(Literary) Ramblings about the Universe</title><link href="https://blog.joey-dumont.ca/literary-ramblings-about-universe/" rel="alternate" type="text/html" title="(Literary) Ramblings about the Universe" /><published>2012-09-08T00:19:00-04:00</published><updated>2012-09-08T00:19:00-04:00</updated><id>https://blog.joey-dumont.ca/literary-ramblings-about-universe</id><content type="html" xml:base="https://blog.joey-dumont.ca/literary-ramblings-about-universe/">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp; &amp;nbsp;While sipping away at my alcoholic drink, I had, as men usually have, philosophical matters spring to my mind. Wrought body and soul in the shadow of the night, my first instinct was to share my thoughts with the world.&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp; &amp;nbsp;In &lt;a href=&quot;http://www.amazon.ca/gp/product/0553208845/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&amp;amp;camp=15121&amp;amp;creative=330641&amp;amp;creativeASIN=0553208845&amp;amp;linkCode=as2&amp;amp;tag=blogjoeydumon-20&quot; target=&quot;_blank&quot;&gt;Siddhartha&lt;/a&gt;, by Hermann Hesse, a young prodigy of his tribe leaves his home and undertakes a long journey to gain spiritual enlightenment. In the process of knowing himself and the world, he loses himself. He goes against all the teachings of the elders of his tribe and everything he has always known. However, in the end, while not returning to his home, he returns in a state resembling his old state, but with hard-gained knowledge and wisdom.&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp; &amp;nbsp;This very idea of movie through space and time but coming back to a similar place, the notion of the cycles in life, of the cycles in Nature, is interesting to me. For a reason I can't explain, this is appealing to me. The idea that, through human history, through the succession of generations, I get to live forever. &quot;At the still point of the turning world&quot;, through the center that must hold, where everyone is one and nothing, where the lonely streams become a river, the river of life, I can identify with everything. My &quot;soul is the whole world&quot;.&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp;This is indeed very hard to explain. Even T.S. Eliot had problems expressing this idea:&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;blockquote class=&quot;tr_bq&quot;&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;That was a way of putting it - not very satisfactory:&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;A periphrastic study in a worn-out poetical fashion,&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;Leaving one still with the intolerable wrestle&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;With words and meanings. The poetry does not matter.&lt;/div&gt;&lt;/blockquote&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;although the idea is, verily, quite simple. In a place, where there exists no time and no space, we are one. But not really.&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;This still point, being defined by the Universe, must be &lt;i&gt;of&lt;/i&gt;&amp;nbsp;the Universe. Imagine a rolling wheel. Its center does not move, being the center, but it must rotate as to accompany the wheel. We do not see it turning, but it must. We can relate this analogy to the conclusion of Siddhartha. &lt;i&gt;Carpe Diem&lt;/i&gt;. Everything that is the world is beautiful; it must be appreciated and loved and such. Everything has sin and virtue in it.&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&amp;nbsp; &amp;nbsp;But this isn't true. It is true only at the still point. What shall we do? Locally, then, an ethics system must be enforced. This ethical system, built by the people inhabiting the region of space and time by the means of logic and reason, must fulfill the requirements and principles of the people.&amp;nbsp;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;br /&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp;Globally, this is my interpretation of this. Although I do not think the world completely deterministic, I believe that the entirety of possibilities is contained in the world. At the still point, then, the singularity of the Big Bang, every possible outcome exists and is as one; the future of the Universe is written as the wavefunction fo the Universe. At that time, the river breaks into a million pieces.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp;What did I just say? I am confused.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp;The poetry does not matter, but its equivocacy a way to expose without explaining, a way to confuse and inform.&amp;nbsp;&lt;/span&gt;&lt;br /&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&lt;br /&gt;&lt;/span&gt;&lt;span style=&quot;text-align: left;&quot;&gt;&amp;nbsp; &amp;nbsp;This is it for now, but I shall return.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="still_point" /><category term="philosophy" /><summary type="html">&amp;nbsp; &amp;nbsp;While sipping away at my alcoholic drink, I had, as men usually have, philosophical matters spring to my mind. Wrought body and soul in the shadow of the night, my first instinct was to share my thoughts with the world.&amp;nbsp; &amp;nbsp;In Siddhartha, by Hermann Hesse, a young prodigy of his tribe leaves his home and undertakes a long journey to gain spiritual enlightenment. In the process of knowing himself and the world, he loses himself. He goes against all the teachings of the elders of his tribe and everything he has always known. However, in the end, while not returning to his home, he returns in a state resembling his old state, but with hard-gained knowledge and wisdom.&amp;nbsp;&amp;nbsp; &amp;nbsp;This very idea of movie through space and time but coming back to a similar place, the notion of the cycles in life, of the cycles in Nature, is interesting to me. For a reason I can't explain, this is appealing to me. The idea that, through human history, through the succession of generations, I get to live forever. &quot;At the still point of the turning world&quot;, through the center that must hold, where everyone is one and nothing, where the lonely streams become a river, the river of life, I can identify with everything. My &quot;soul is the whole world&quot;.&amp;nbsp;&amp;nbsp; &amp;nbsp;This is indeed very hard to explain. Even T.S. Eliot had problems expressing this idea:&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp; &amp;nbsp;That was a way of putting it - not very satisfactory:A periphrastic study in a worn-out poetical fashion,Leaving one still with the intolerable wrestleWith words and meanings. The poetry does not matter.although the idea is, verily, quite simple. In a place, where there exists no time and no space, we are one. But not really.&amp;nbsp;&amp;nbsp; &amp;nbsp;This still point, being defined by the Universe, must be of&amp;nbsp;the Universe. Imagine a rolling wheel. Its center does not move, being the center, but it must rotate as to accompany the wheel. We do not see it turning, but it must. We can relate this analogy to the conclusion of Siddhartha. Carpe Diem. Everything that is the world is beautiful; it must be appreciated and loved and such. Everything has sin and virtue in it.&amp;nbsp; &amp;nbsp;But this isn't true. It is true only at the still point. What shall we do? Locally, then, an ethics system must be enforced. This ethical system, built by the people inhabiting the region of space and time by the means of logic and reason, must fulfill the requirements and principles of the people.&amp;nbsp;&amp;nbsp; &amp;nbsp;Globally, this is my interpretation of this. Although I do not think the world completely deterministic, I believe that the entirety of possibilities is contained in the world. At the still point, then, the singularity of the Big Bang, every possible outcome exists and is as one; the future of the Universe is written as the wavefunction fo the Universe. At that time, the river breaks into a million pieces.&amp;nbsp; &amp;nbsp;What did I just say? I am confused.&amp;nbsp;&amp;nbsp;The poetry does not matter, but its equivocacy a way to expose without explaining, a way to confuse and inform.&amp;nbsp;&amp;nbsp; &amp;nbsp;This is it for now, but I shall return.&amp;nbsp;</summary></entry></feed>
+<p>Until next time, cheers!</p>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="vnc" /><category term="ssh" /><category term="remote desktop" /><category term="linux" /><summary type="html"><![CDATA[I won’t go into too much detail in this post, as there are multiple guides that go above and beyond in explaining the behind-the-scenes of tunnelling VNC connections through SSH. Note that this solution uses TigerVNC’s x0vncserver to control the remote X server. Simply use vncserver if you want to control a different X server.]]></summary></entry><entry><title type="html">Have yaourt save compiled packages to /var/cache/pacman/pkg</title><link href="https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/" rel="alternate" type="text/html" title="Have yaourt save compiled packages to /var/cache/pacman/pkg" /><published>2015-04-14T16:46:00-04:00</published><updated>2015-04-14T16:46:00-04:00</updated><id>https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to</id><content type="html" xml:base="https://blog.joey-dumont.ca/have-yaourt-save-compiled-packages-to/"><![CDATA[<div dir="ltr" style="text-align: left;" trbidi="on">&nbsp;&nbsp;&nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, <i>yaourt</i> does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it  imperative that you be able to roll back to older packages, this is not useful default behaviour. <br /><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line  <br /><blockquote>#EXPORT=0</blockquote>to   <br /><blockquote>EXPORT=2</blockquote>That is all. Have a nice day!  </div></div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="command-line" /><category term="yaourt" /><category term="linux" /><category term="arch-linux" /><summary type="html"><![CDATA[&nbsp;&nbsp;&nbsp;The title of this post might not mean much to most of you, but for those few lucky enough to use Arch Linux on a daily basis, this could be of use to you. By default, yaourt does not keep the package files it produces, it deletes them after installation. Since the AUR deals mostly with unsupported packages, making it imperative that you be able to roll back to older packages, this is not useful default behaviour. &nbsp;&nbsp;&nbsp;To have yaourt export your compiled packages to the standard location, /var/cache/pacman/pkg/, edit /etc/yaourtrc and change the line #EXPORT=0to EXPORT=2That is all. Have a nice day!]]></summary></entry><entry><title type="html">Google Calendar Material Design</title><link href="https://blog.joey-dumont.ca/google-calendar-material-design/" rel="alternate" type="text/html" title="Google Calendar Material Design" /><published>2014-11-11T15:55:00-05:00</published><updated>2014-11-11T15:55:00-05:00</updated><id>https://blog.joey-dumont.ca/google-calendar-material-design</id><content type="html" xml:base="https://blog.joey-dumont.ca/google-calendar-material-design/"><![CDATA[<div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;My Nexus 4 prompted me last night for permission to update Gmail and <a href="https://play.google.com/store/apps/details?id=com.google.android.calendar&amp;hl=en">Google Calendar</a>. I must say, while Gmail looks slightly better than it did, GCal has received a much needed revamp, especially the widget. I do not have a screenshot of the previous version, but the colour scheme was terrible and the layout was such that it was hard to determine the division between days. It was also very difficult to quickly glance at a calendar to get some information.<br /><br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><a href="https://2.bp.blogspot.com/-0-HLzdJuoyE/VGJ3BDRi4iI/AAAAAAAAEAE/akFfFqq0RcM/s1600/Screenshot_2014-11-11-15-36-33.png" imageanchor="1" style="margin-left: auto; margin-right: auto; text-align: center;"><img border="0" height="320" src="https://2.bp.blogspot.com/-0-HLzdJuoyE/VGJ3BDRi4iI/AAAAAAAAEAE/akFfFqq0RcM/s320/Screenshot_2014-11-11-15-36-33.png" width="192" /></a></td></tr><tr><td class="tr-caption" style="text-align: center;">A screenshot of the new GCal widget<br />on my Nexus 4.</td></tr></tbody></table>&nbsp;&nbsp;&nbsp;The new version, released yesterday, has received the "Material Design" treatment; the colours are a little more tame, and the division between events and dates is much clearer. Worth the (free) update.<br /><br />I guess I'm saying I like the new designs of Google.</div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="google calendar" /><category term="nexus" /><summary type="html"><![CDATA[&nbsp;&nbsp;&nbsp;My Nexus 4 prompted me last night for permission to update Gmail and Google Calendar. I must say, while Gmail looks slightly better than it did, GCal has received a much needed revamp, especially the widget. I do not have a screenshot of the previous version, but the colour scheme was terrible and the layout was such that it was hard to determine the division between days. It was also very difficult to quickly glance at a calendar to get some information.A screenshot of the new GCal widgeton my Nexus 4.&nbsp;&nbsp;&nbsp;The new version, released yesterday, has received the "Material Design" treatment; the colours are a little more tame, and the division between events and dates is much clearer. Worth the (free) update.I guess I'm saying I like the new designs of Google.]]></summary></entry><entry><title type="html">Dual basis and its applications</title><link href="https://blog.joey-dumont.ca/dual-basis-and-its-applications/" rel="alternate" type="text/html" title="Dual basis and its applications" /><published>2013-04-21T13:55:00-04:00</published><updated>2013-04-21T13:55:00-04:00</updated><id>https://blog.joey-dumont.ca/dual-basis-and-its-applications</id><content type="html" xml:base="https://blog.joey-dumont.ca/dual-basis-and-its-applications/"><![CDATA[<div dir="ltr" style="text-align:  justify;" trbidi="on">&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions.  </div> <div dir="ltr", style="text-align: justify;" trbidy="on">&nbsp;&nbsp;&nbsp;This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That's a problem. Let's look for a solution.  </div> <div dir="ltr", style="text-align: justify;" trbidy="on">&nbsp;&nbsp;&nbsp;Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that  $$ \langle f^i|e_j\rangle = \delta^i_j.$$ To see how we can compute those vectors, consider the original eigenvalue problem  $$ \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle .$$ We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation  $$ \sum_i |e_i\rangle\langle f^i| = 1.$$ Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get  $$ \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|.$$ Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get  $$ \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. $$ The Dirac delta makes the sum disappear as usual and we have  $$ \langle f^j| A = \lambda_j \langle f^j|. $$ In other words, the $\langle f^j|$ are the row eigenvectors of  $A$ and have the same eigenvalues as the set $|e_i\rangle$! </div> <div dir="ltr", style="text-align: justify;" trbidy="on">&nbsp;&nbsp;&nbsp;So we find that these new "contravariant" vectors are actually the <i>left eigenvectors</i> of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by  $$ |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle .$$ </div> <div dir="ltr", style="text-align: justify;" trbidy="on">&nbsp;&nbsp;&nbsp;This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions...  </div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><summary type="html"><![CDATA[&nbsp;&nbsp;&nbsp;In the physical sciences, the scientist mostly tries to put the problem in a form that is easily solvable. One such form is the eigenvector expansion where one solves a simpler problem and assumes that the more difficult problem can be decomposed in a sum of the simpler solutions. &nbsp;&nbsp;&nbsp;This kind of problem generally involves solving the eigenvalue problem of a particular matrix. Assuming that you know how to do that, this is all fine and well. However, it is also common to use orthogonality relations to simplify the solution. For a general matrix $A$, the resulting eigenvectors need not be orthogonal. That's a problem. Let's look for a solution. &nbsp;&nbsp;&nbsp;Adopting the braket notation and denoting an eigenvector by $|e_i\rangle$, we seek new vectors such that $$ \langle f^i|e_j\rangle = \delta^i_j.$$ To see how we can compute those vectors, consider the original eigenvalue problem $$ \label{eq:eigenvalue}A|e_i\rangle = \lambda_i|e_i\rangle .$$ We will use the fact that both sets of eigenvectors are complete so that there exists a closure relation $$ \sum_i |e_i\rangle\langle f^i| = 1.$$ Now, pre-multipling \eqref{eq:eigenvalue} by $\langle f^j|$ and post-multiplying by $\langle f^i|$ and summing over the index $i$, we get $$ \sum_i \langle f^j|A|e_i\rangle\langle f^i| = \sum_i \lambda_i \langle f^j|e_i\rangle\langle f^i|.$$ Using our orthogonality relations on the right-hand side of this last equation and the closure relation on the left-hand side, we get $$ \langle f^j| A = \sum_i \lambda_i \langle f^i| \delta^j_i. $$ The Dirac delta makes the sum disappear as usual and we have $$ \langle f^j| A = \lambda_j \langle f^j|. $$ In other words, the $\langle f^j|$ are the row eigenvectors of $A$ and have the same eigenvalues as the set $|e_i\rangle$! &nbsp;&nbsp;&nbsp;So we find that these new "contravariant" vectors are actually the left eigenvectors of the matrix $A$. Moreover, the decomposition of any vector in the original set of covariant vectors is given by the dot product with the vectors in the dual basis. Say we have a vector $|v\rangle$, its decomposition is given by $$ |v\rangle = \sum_i \langle f^i|v\rangle|e_i\rangle .$$ &nbsp;&nbsp;&nbsp;This eigendecomposition is incredibly useful in solving differential equations, smoothing numerically unstable solutions...]]></summary></entry><entry><title type="html">Interfacing Armadillo and FFTW</title><link href="https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw/" rel="alternate" type="text/html" title="Interfacing Armadillo and FFTW" /><published>2013-03-10T23:31:00-04:00</published><updated>2013-03-10T23:31:00-04:00</updated><id>https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw</id><content type="html" xml:base="https://blog.joey-dumont.ca/interfacing-armadillo-and-fftw/"><![CDATA[<div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;FFTW, or the <i><a href="http://fftw.org/">Fastest Fourier Transform in the West</a></i>, is an awesome C library used to, well, perform FFTs. <a href="http://arma.sourceforce.net/">Armadillo</a>, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use.  </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using <span style="font-family: Courier New, Courier, monospace;">fftw_complex*</span> arrays which memory are allocated using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using <span style="font-family: Courier New, Courier, monospace;">fftw_malloc</span>). Then, your C++ code should be something like <script src="https://gist.github.com/valandil/cc98f474360f027240f8.js"></script></div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. </div><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors.  </div><div dir="ltr" style="text-align: justify;" trbidi="on"><b>Update:</b> Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the <span style="font-family: Courier New, Courier, monospace;">samples</span>matrix before creating the plan, your columns will be overwritten. Pay attention! </div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><category term="c++" /><category term="programming" /><category term="fftw" /><category term="armadillo" /><summary type="html"><![CDATA[&nbsp;&nbsp;&nbsp;FFTW, or the Fastest Fourier Transform in the West, is an awesome C library used to, well, perform FFTs. Armadillo, on the other hand, is an awesome C++ library that implements linear algebra operations. Both are renowned for their amazing speed and, especially the latter, ease of use. &nbsp;&nbsp;&nbsp;Now suppose you want to use Armadillo in concert with FFTW. By default, FFTW assumes that you are using fftw_complex* arrays which memory are allocated using fftw_malloc. Now, assuming that you want to transform elements of an Armadillo vector or matrix, copying the data from the matrix to a newly allocated array may not be desirable (or it might be, depending on the performance hit incurred by not using fftw_malloc). Then, your C++ code should be something like &nbsp;&nbsp;&nbsp;I'm by no means an expert, but this snippet works beautifully in my own code. &nbsp;&nbsp;&nbsp;Please feel free to point out any factual errors. Update: Note that the operations in the Gist do not commute, i.e. the order in which they are done is important. If you put data in the samplesmatrix before creating the plan, your columns will be overwritten. Pay attention!]]></summary></entry><entry><title type="html">Arrow in the Knee: the Genesis</title><link href="https://blog.joey-dumont.ca/arrow-in-knee-genesis/" rel="alternate" type="text/html" title="Arrow in the Knee: the Genesis" /><published>2013-01-24T01:06:00-05:00</published><updated>2013-01-24T01:06:00-05:00</updated><id>https://blog.joey-dumont.ca/arrow-in-knee-genesis</id><content type="html" xml:base="https://blog.joey-dumont.ca/arrow-in-knee-genesis/"><![CDATA[<div dir="ltr" style="text-align: left;" trbidi="on">&nbsp;&nbsp;&nbsp; So my wife was re-reading the epic fantasy pentalogy <i>The Belgariad </i>by David Eddings [1]. It's a fantastic coming-of-age, prophecy-fulfilling, magic-filled story. Every character is fully developed and they are all thoroughly likable.  <br /><br /><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp; But now to the important part. In the <i>Queen of Sorcery</i> book [2,p.222], originally published in 1982, it is revealed that Count Reldegen, an Asturian, is limping. This sparks the following conversation: <br /><blockquote>"What happened to your leg?" Wolf asked him. <br />"An arrow in the knee." The count shrugged.</blockquote>Yes, that's right, an <i>arrow in the knee</i>!   </div><br /><div dir="ltr" style="text-align: justify;" trbidi="on">&nbsp;&nbsp;&nbsp;Now go read <i>The Belgariad</i> so you know why it matters that Reldegen is an Asturian.  </div><br /><div id="#ft1">[1] Amateurish introductory line, I know.</div><div id="#ft2">[2] D. Eddings. <i>Queen of Sorcery</i> in <i>The Belgariad</i>. 2002. New York: Ballantine.</div></div>]]></content><author><name>Joey Dumont</name><email>me@joey-dumont.ca</email></author><summary type="html"><![CDATA[&nbsp;&nbsp;&nbsp; So my wife was re-reading the epic fantasy pentalogy The Belgariad by David Eddings [1]. It's a fantastic coming-of-age, prophecy-fulfilling, magic-filled story. Every character is fully developed and they are all thoroughly likable. &nbsp;&nbsp;&nbsp; But now to the important part. In the Queen of Sorcery book [2,p.222], originally published in 1982, it is revealed that Count Reldegen, an Asturian, is limping. This sparks the following conversation: "What happened to your leg?" Wolf asked him. "An arrow in the knee." The count shrugged.Yes, that's right, an arrow in the knee! &nbsp;&nbsp;&nbsp;Now go read The Belgariad so you know why it matters that Reldegen is an Asturian. [1] Amateurish introductory line, I know.[2] D. Eddings. Queen of Sorcery in The Belgariad. 2002. New York: Ballantine.]]></summary></entry></feed>

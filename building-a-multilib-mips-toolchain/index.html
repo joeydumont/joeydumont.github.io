@@ -202,7 +202,7 @@ fragments</a></em>.</p>
 <p>In short, target Makefile fragments are the <code class="language-plaintext highlighter-rouge">gcc/config/&lt;target&gt;/t*</code> files in
 gcc’s source tree. When you specify a target at the <code class="language-plaintext highlighter-rouge">configure</code> step, it looks
 for those in order to generate the Makefile that will actually build the gcc
-libraries <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup>. For a <code class="language-plaintext highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
+libraries <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup>. For a <code class="language-plaintext highlighter-rouge">mips64-elf</code> target, the file that is of interest to us is
 the <code class="language-plaintext highlighter-rouge">gcc/config/mips/t-elf</code> file. By default, it sets three Makefile variables</p>
 
 <div class="language-make highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">MULTILIB_OPTIONS</span> <span class="o">=</span> msoft-float EL/EB
@@ -241,7 +241,7 @@ soft-float/el<span class="p">;</span>@msoft-float@EL
 <p><code class="language-plaintext highlighter-rouge">MULTILIB_DIRNAMES</code> controls the name of the folder in which the libraries
 reside. Note that this corresponds to the information before the semi-colon in
 the <code class="language-plaintext highlighter-rouge">-print-multilib-output</code>, while the string after describes the build
-options, preppended with <code class="language-plaintext highlighter-rouge">@</code>. and <code class="language-plaintext highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
+options, prepended with <code class="language-plaintext highlighter-rouge">@</code>. and <code class="language-plaintext highlighter-rouge">MULTILIB_MATCHES</code> provides the synonyms of
 some build options.</p>
 
 <p>There are other options than those discussed here. Feel free to read the
@@ -292,6 +292,8 @@ n64-ultra branch).</p>
         <a href="https://blog.joey-dumont.ca/zernike-polynomials-coefficients/" class="btn" title="Converting between different Zernike polynomial index systems">Previous</a>
       
       
+        <a href="https://blog.joey-dumont.ca/2021-in-music/" class="btn" title="2021 in Music">Next</a>
+      
     </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
@@ -300,7 +302,7 @@ n64-ultra branch).</p>
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2021 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2022 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
 	
