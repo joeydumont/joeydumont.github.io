@@ -55,12 +55,11 @@ owner:
   tumblr: #username
   pinterest: #username
   weibo: #userid
-  google:
-    plus: #username
-    analytics: UA-15417184-4
-    verify:
-    ad-client:
-    ad-slot:
+#  google:
+#    plus: #username
+#    verify:
+#    ad-client:
+#    ad-slot:
   bing-verify:
 
 # Bibliographic data
