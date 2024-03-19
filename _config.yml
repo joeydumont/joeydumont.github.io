@@ -8,6 +8,7 @@ description: >
 logo: site-logo.png
 search: true
 url: https://blog.joey-dumont.ca
+theme: jekyll-theme-so-simple
 
 # Jekyll configuration
 
