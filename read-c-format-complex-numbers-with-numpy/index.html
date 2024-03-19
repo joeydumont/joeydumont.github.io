@@ -160,7 +160,7 @@ easier to get Python to read the C++ format!</p>
 <p>C++ represents a given complex number \(z=a+ib\) as <code class="language-plaintext highlighter-rouge">(a,b)</code>. When using
 <code class="language-plaintext highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">genfromtxt</span><span class="p">(</span><span class="s">"file"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">genfromtxt</span><span class="p">(</span><span class="sh">"</span><span class="s">file</span><span class="sh">"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
 </code></pre></div></div>
 <p>yields <code class="language-plaintext highlighter-rouge">NaN</code>s for the real part and <code class="language-plaintext highlighter-rouge">0</code>s for the imaginary part. To get Python
 to understand the format, an easy solution is to first parse the elements of the
@@ -170,9 +170,9 @@ as complex numbers. Here’s the code.</p>
 <h3 id="the-code">The Code</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
-    <span class="s">"""
+    <span class="sh">"""</span><span class="s">
     Load complex data in the C++ format in numpy.
-    """</span>
+    </span><span class="sh">"""</span>
     <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
     <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nf">complex</span><span class="p">(</span><span class="o">*</span><span class="nf">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
     <span class="k">return</span> <span class="nf">complex_parser</span><span class="p">(</span><span class="n">array_as_strings</span><span class="p">)</span>
@@ -234,7 +234,7 @@ instead of a specific column.</p>
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2023 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2024 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
 	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
 	
