@@ -1,13 +1,10 @@
 # Site navigation links
 
-- title: About
-  url: /about/
+- title: Blog
+  url: /blog/
 
 - title: Academic Publications
   url: /articles/
 
-- title: Blog
-  url: /blog/
-
-- title: Travel
-  url: /travel/
+- title: About
+  url: /about/
