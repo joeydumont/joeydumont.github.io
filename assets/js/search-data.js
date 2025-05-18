@@ -168,4 +168,9 @@ var store = [{
         "excerpt":"I mentioned in my last post1 that I was eagerly waiting for the next Alkaloid album, and that To Where the Light Retreats was a good way to pass the time, but I am no longer waiting. Numen came out in September 2023, and while it is not everything I...","categories": ["music"],
         "tags": ["music","alkaloid","numen","review","prog metal"],
         "url": "https://blog.joey-dumont.ca/music/numen-review/"
+      },{
+        "title": "Zotero+Obsidian: a workflow to process articles, books, and other media",
+        "excerpt":"I consume textual media from various sources: RSS feeds, Reddit, friends sharing links, etc. In conversations, I would often find myself saying “I read that somewhere, I can’t remember where”, and then try to turn to Google to find the article again, never to find it. I also struggled to...","categories": ["writing"],
+        "tags": ["note-taking","zotero","obsidian"],
+        "url": "https://blog.joey-dumont.ca/writing/note-taking-zotero-obsidian/"
       }]

@@ -15,7 +15,7 @@
 <!-- Twitter Cards -->
 <meta name="twitter:title" content="Fortran, C++ and qmake">
 <meta name="twitter:description" content="Qt Creator Logo&nbsp; &nbsp;Call me a noob, but I love using Qt Creator even when I'm not programming a GUI. The UI greatly facilitates code writing: the syntax highlighting is very customizable, it shows you the methods of a class when you use the . or -&gt; operators, it makes the build process faster and easier to configure (sometimes), etc.&nbsp; &nbsp;Now, I didn't want to make this a post about Qt Creator, so here comes the meat. I've been trying to add Fortran code to my numerical library, something I think is pretty common in scientific circles. Of course, that's been done before, but my research has yielded one link for Fortran and Qt.&nbsp;&nbsp; &nbsp;I'm using D.E. Amos'&nbsp;Fortran code to compute Bessel and Hankel functions of complex arguments and all (real) orders (we use identities to convert the negative order computations to positive order ones). Complex orders are not supported. Work by Temme&nbsp;could be used for this, but maybe a later time.&nbsp;&nbsp; &nbsp;I have two Fortran source files that must be incorporated into a C++ numerical library. Using qmake, this is child's play.&nbsp;First, add the Fortran source files as sources in your .pro file.&nbsp;SOURCES += machine.for zbesh.forThose are the names of the Fortran sources files used by Amos.&nbsp;&nbsp;Second, create a C++ header file that links to the Fortran subroutines inside the source files.&nbsp; A couple things about this linkage. Notice that I appended a _ to the Fortran subroutine names. The extern keyword tells the compiler that a separately compiled object will be used. By default, g++  will append _ to Fortran subroutines when creating an object file. This means that if you change this compiler setting, be sure to remember to change your function declarations in your C++ header file.Also, the functions take pointers to variables. In Fortran, all functions take their arguments by reference. It is thus necessary to use pointers when using Fortran subroutines in C++.&nbsp;You're done! You can now use your Fortran subroutines in your C++ program! Just don't forget to add the -lgfortranwhen compiling either the program you are writing or a program that uses a library that uses Fortran subroutines.  Wow, that last sentence was terrible.&nbsp; &nbsp;Anyway, have fun programming!">
-<meta name="twitter:site" content="@jayd_phys">
+
 <meta name="twitter:creator" content="@jayd_phys">
 
 <meta name="twitter:card" content="summary">
@@ -90,16 +90,13 @@
       <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
       
 		    
-		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
 		  
 		    
 		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
 		  
 		    
-		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
-		  
-		    
-		    <li><a href="https://blog.joey-dumont.ca/travel/" >Travel</a></li>
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
 		  
 	    </ul>
 	</nav>
@@ -182,9 +179,9 @@
   <footer role="contentinfo" class="entry-wrapper">
     
 
-<span>&copy; 2024 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<span>&copy; 2025 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
 <div class="social-icons">
-	<a href="https://twitter.com/jayd_phys" title="Joey Dumont on Twitter" target="_blank"><i class="fab fa-twitter-square fa-2x"></i></a>
+	
 	
 	
 	<a href="https://linkedin.com/in/joeydumont" title="Joey Dumont on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
