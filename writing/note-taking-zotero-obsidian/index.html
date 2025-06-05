@@ -192,7 +192,7 @@
 
 <p>The Zotero integration plugin allows you to import items from your Zotero collections following a user-defined template. The Zotero item is imported as Markdown file with arbitrary metadata. The templating system is based on Mozilla’s <a href="https://mozilla.github.io/nunjucks/templating.html">Nunjucks</a> system. It is a decent templating system, but so far it does feel as powerful as Jinja.</p>
 
-<p>One of the goals of importing my notes from Zotero was <em>idempotency</em>. I wanted to be able to modify  items in Zotero, and have the changes reflected back in Obsidian. (This is a one-way street, I do not and cannot modify Zotero items from Obsidian). To do so, I use the Zotero unique item id (shown as <code class="language-plaintext highlighter-rouge">key</code> in the image below) as the imported file name.</p>
+<p>One of the goals of importing my notes from Zotero was <em>idempotency</em> and <a href="https://github.com/mgmeyers/obsidian-zotero-integration/issues/341"><em>bulk imports</em></a>. I wanted to be able to modify  items in Zotero, and have the changes reflected back in Obsidian. (This is a one-way street, I do not and cannot modify Zotero items from Obsidian). To do so, I use the Zotero unique item id (shown as <code class="language-plaintext highlighter-rouge">key</code> in the image below) as the imported file name.</p>
 
 <p style="text-align:center;"><img src="https://blog.joey-dumont.ca/assets/posts/zotero-obsidian/zotero-plugin-settings.png" width="750" />
 <strong>Figure 2</strong>: Settings used to allow for <em>idempotency</em> for bulk imports and re-imports from Zotero to Obsidian.</p>
