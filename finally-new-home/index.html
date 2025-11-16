@@ -44,9 +44,11 @@
 <!-- For all browsers -->
 <link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
 <!-- Webfonts -->
-<script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script>
+<!-- <script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script> -->
+<script src="https://kit.fontawesome.com/fbecd416cb.js" crossorigin="anonymous"></script>
 <!-- Academicons -->
 <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 
@@ -63,7 +65,8 @@
 
 
 <!-- MathJax -->
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+<!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
 <!-- Icons -->
@@ -80,6 +83,7 @@
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
 
+<meta name="fediverse:creator" content="@Joey@mast.hpc.social">
 </head>
 
 <body id="post">
@@ -130,36 +134,32 @@
         <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
         <span class="entry-date date published"><time datetime="2010-08-31T15:54:00-04:00"><i class="far fa-calendar"></i> August 31, 2010</time></span>
         
-        <span class="entry-comments"><i class="far fa-comment"></i> <a href="#disqus_thread">Comment</a></span>
+        
         
         
       </footer>
       <div class="entry-content">
         &nbsp;Good news! The blog has a now a new URL: <a href="http://blog.joey-dumont.ca/">blog.joey-dumont.ca</a>. I have consolidated my other projects (such as Groupe de Travail, for physics students) and my writing projects to my main site.<br /><div><br /></div><div>I will shortly have a portal that summarizes all my projects in one page. It will live on <a href="http://joey-dumont.ca/">joey-dumont.ca</a>. That'll give my name a bigger visibility on the Net!&nbsp;</div><div><br /></div><div>Until then, see you!</div>
         
-          <div id="disqus_thread"></div><!-- /#disqus_thread -->
+        
+          <div id="giscus_thread"></div>
           
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'studyofnature'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'https://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'https://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+<script src="https://giscus.app/client.js"
+        data-repo="joeydumont/joeydumont.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMTQwNzI5NjU="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOBsydhc4Cx2l0"
+        data-mapping="og:title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
 </script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
         
       </div><!-- /.entry-content -->
@@ -189,8 +189,9 @@
 	
 	
 	<a href="https://github.com/joeydumont" title="Joey Dumont on Github" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+	<a rel="me" href="https://mast.hpc.social/@Joey" title="Joey Dumont on Mastodon" target="_blank"><i class="fa-brands fa-mastodon fa-2xl"></i></a>
 	
-  
+    
 	
   <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
 </div><!-- /.social-icons -->

@@ -1,0 +1,212 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+
+<meta charset="utf-8">
+<title>Perhaps there is a stale lock file? &#8211; Study of Nature</title>
+<meta name="description" content="&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:Cannot link ... to /etc/mtabPerhaps there is a stale lock file?(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.&nbsp;I immediatly Googled the issue[*] and eventually found a solution:sudo rm /etc/mtab~This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;[*]&nbsp;On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;">
+<meta name="keywords" content="sleep, transmission, linux, bittorent, mtab, stale lock file">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Perhaps there is a stale lock file?">
+<meta name="twitter:description" content="&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:Cannot link ... to /etc/mtabPerhaps there is a stale lock file?(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.&nbsp;I immediatly Googled the issue[*] and eventually found a solution:sudo rm /etc/mtab~This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;[*]&nbsp;On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;">
+
+<meta name="twitter:creator" content="@jayd_phys">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.joey-dumont.ca/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Perhaps there is a stale lock file?">
+<meta property="og:description" content="&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:Cannot link ... to /etc/mtabPerhaps there is a stale lock file?(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.&nbsp;I immediatly Googled the issue[*] and eventually found a solution:sudo rm /etc/mtab~This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;[*]&nbsp;On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;">
+<meta property="og:url" content="https://blog.joey-dumont.ca/technology/perhaps-there-is-stale-lock-file/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://blog.joey-dumont.ca/technology/perhaps-there-is-stale-lock-file/">
+<link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script> -->
+<script src="https://kit.fontawesome.com/fbecd416cb.js" crossorigin="anonymous"></script>
+<!-- Academicons -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://blog.joey-dumont.ca/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+<!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://blog.joey-dumont.ca/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://blog.joey-dumont.ca/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://blog.joey-dumont.ca/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
+
+<meta name="fediverse:creator" content="@Joey@mast.hpc.social">
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Perhaps there is a stale lock file?</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://blog.joey-dumont.ca/tags/#sleep" title="Pages tagged sleep">sleep</a></li><li><a href="https://blog.joey-dumont.ca/tags/#transmission" title="Pages tagged transmission">transmission</a></li><li><a href="https://blog.joey-dumont.ca/tags/#linux" title="Pages tagged linux">linux</a></li><li><a href="https://blog.joey-dumont.ca/tags/#bittorent" title="Pages tagged bittorent">bittorent</a></li><li><a href="https://blog.joey-dumont.ca/tags/#mtab" title="Pages tagged mtab">mtab</a></li><li><a href="https://blog.joey-dumont.ca/tags/#stale lock file" title="Pages tagged stale lock file">stale lock file</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
+        <span class="entry-date date published"><time datetime="2010-11-02T19:47:00-04:00"><i class="far fa-calendar"></i> November 02, 2010</time></span>
+        
+        
+        
+        
+      </footer>
+      <div class="entry-content">
+        <div style="text-align: justify;"><div class="separator" style="clear: both; text-align: center;"><a href="http://i245.photobucket.com/albums/gg47/ubunterror/linux-penguin.jpg" imageanchor="1" style="clear: left; float: left; margin-bottom: 1em; margin-right: 1em;"><img border="0" height="200" src="http://i245.photobucket.com/albums/gg47/ubunterror/linux-penguin.jpg" width="181" /></a></div>&nbsp;&nbsp;I recently ran into a seemingly severe problem with my computer. Since approximately 2003, I've been using Linux as my primary desktop. I have enjoyed the learning that inevitably came out of it, and have also joined the great community of Linux users.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp; Anyhow, when I booted my computer yesterday, the boot screen said that it couldn't not mount the local file systems, saying something along these lines:<br /><br /></div><blockquote><div style="text-align: justify;">Cannot link ... to /etc/mtab</div><div style="text-align: justify;">Perhaps there is a stale lock file?</div></blockquote><div style="text-align: justify;"><br />(I don't remember the exact error statement.) So, I did not have access to my /boot, /home, /var and other partitions on my hard drive. No X either. In short, my computer was unusable, as I did not have the necesarry files.<br />&nbsp;I immediatly Googled the issue<sup>[*]</sup> and eventually found a solution:<br /><br /></div><blockquote><div style="text-align: justify;">sudo rm /etc/mtab~</div></blockquote><div style="text-align: justify;"><br />This seemed to correct the issue without any consequence to the rest of the system. Of course, don't delete the /etc/mtab file proper, but the temporary file marked by the tilde.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">&nbsp;I later found out that this problem originated from Transmission BitTorrent Client. An option in the software allows it to keep your computer to go to sleep, probably creating that /etc/mtab~ file in the process. I did some testing and it seems that it is well behaved about it, i.e. if you let it close properly, it will remove the lock file and allow your computer to sleep or shut down.&nbsp;</div><div style="text-align: justify;"><br /></div><div style="text-align: justify;">Anyhow, in the hope that that helps someone. Oh, by the way, I'm using Arch Linux 64-bit.&nbsp;</div><div style="text-align: justify;"><br /></div><div class="footnote"><div style="text-align: justify;"><br /></div><div style="text-align: justify;"><sup>[*]&nbsp;</sup>On my iPod Touch because I still do not know how to connect to a WPA-protected access point with the command line.&nbsp;</div></div>
+        
+        
+          <div id="giscus_thread"></div>
+          
+<script src="https://giscus.app/client.js"
+        data-repo="joeydumont/joeydumont.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMTQwNzI5NjU="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOBsydhc4Cx2l0"
+        data-mapping="og:title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://blog.joey-dumont.ca/gcal-push-notifications-on-your-ipod/" class="btn" title="GCal push notifications on your iPod">Previous</a>
+      
+      
+        <a href="https://blog.joey-dumont.ca/technology/equations-in-blogger/" class="btn" title="Equations in Blogger">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2025 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	<a href="https://linkedin.com/in/joeydumont" title="Joey Dumont on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+	<a href="https://stackexchange.com/users/1514592/joey-dumont" title="Joey Dumont on StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-2x"></i></a>
+	
+	
+	<a href="https://github.com/joeydumont" title="Joey Dumont on Github" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+	<a rel="me" href="https://mast.hpc.social/@Joey" title="Joey Dumont on Mastodon" target="_blank"><i class="fa-brands fa-mastodon fa-2xl"></i></a>
+	
+    
+	
+  <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://blog.joey-dumont.ca';
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-3.7.1.min.js"><\/script>')</script>
+<script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+
+<meta charset="utf-8">
+<title>GTD: a tickler file in Obsidian and DataviewJS &#8211; Study of Nature</title>
+<meta name="description" content="
+">
+<meta name="keywords" content="gtd, productivity">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="GTD: a tickler file in Obsidian and DataviewJS">
+<meta name="twitter:description" content="
+">
+
+<meta name="twitter:creator" content="@jayd_phys">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.joey-dumont.ca/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GTD: a tickler file in Obsidian and DataviewJS">
+<meta property="og:description" content="
+">
+<meta property="og:url" content="https://blog.joey-dumont.ca/writing/gtd-tickler-file/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://blog.joey-dumont.ca/writing/gtd-tickler-file/">
+<link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script> -->
+<script src="https://kit.fontawesome.com/fbecd416cb.js" crossorigin="anonymous"></script>
+<!-- Academicons -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://blog.joey-dumont.ca/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+<!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://blog.joey-dumont.ca/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://blog.joey-dumont.ca/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://blog.joey-dumont.ca/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
+
+<meta name="fediverse:creator" content="@Joey@mast.hpc.social">
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">GTD: a tickler file in Obsidian and DataviewJS</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://blog.joey-dumont.ca/tags/#gtd" title="Pages tagged gtd">gtd</a></li><li><a href="https://blog.joey-dumont.ca/tags/#productivity" title="Pages tagged productivity">productivity</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
+        <span class="entry-date date published"><time datetime="2025-11-16T00:00:00-05:00"><i class="far fa-calendar"></i> November 16, 2025</time></span>
+        
+        
+        
+        
+      </footer>
+      <div class="entry-content">
+        <!-- Should be a short article talking about GTD, and how the tickler file is meant to remind you of things at specific dates. -->
+
+<p>I’ve recently read David Allen’s <a href="https://openlibrary.org/works/OL271504W/Getting_Things_Done?edition=ia:gettingthingsdon0000alle_g8s9">Getting Things Done</a> <a class="citation" href="#allenGettingThingsDone2015"> [1]</a>, more commonly known as GTD. I’ve taken to the approach, especially the concept of the next action list and the six level model for categorizing work. I’ve even <a href="https://forum.obsidian.md/t/gtd-with-obsidian-a-ready-to-go-gtd-system-with-task-sequencing-quick-add-template-waiting-on-someday-maybe-and-more/65502">integrated</a> <a class="citation" href="#alangGTDObsidianReadytogo2023"> [2]</a> my next action list into Obsidian, after years of avoiding the latter for task tracking.</p>
+
+<p>One other tool that Allen swears by in GTD is the tickler file, or suspense file <a class="citation" href="#corydoctorowKeepingSuspenseFile2024"> [3]</a>. It is a technique for ensuring that you are reminded of tasks/projects/notes at a particular time. You could implement this with physical files and folders (see Fig. 1 below for the GTD version), a To-do app that supports reminders, post-it notes, etc. I spend the majority of my time working in front of my computer, and a lot of in in Obsidian, so having my suspense file right there is valuable.</p>
+
+<p>I’ve written a short DataviewJS implementation of a tickler file that I use in my <em>Daily Note</em> template. Below, I go over the additional metadata that I put in the frontmatter of my notes, show the JS implementation, and show how it gets used in my templates. You can skip ahead to the <a href="https://gist.github.com/joeydumont/04fad2ccee08c02f750a82e93ee0867e">Gist</a> with the implementation if you’d like!</p>
+
+<p><br /></p>
+
+<figure style="text-align:center;">
+    <img src="https://blog.joey-dumont.ca/assets/posts/tickler-file/physical-tickler.png" width="600" />
+    <figcaption><b>Figure 1</b>: Physical tickler file. Reproduced from <a class="citation" href="#allenGettingThingsDone2015"> [1]</a>.</figcaption>
+</figure>
+
+<p><br /></p>
+
+<h2 id="implementation">Implementation</h2>
+
+<p>I wanted to be able to easily “move” the tickler file ahead in time, as well as do something you cannot do with a physical suspense: put it in multiple folders at the same time. The easiest way to achieve this is to add <code class="language-plaintext highlighter-rouge">tickler</code> and a <code class="language-plaintext highlighter-rouge">tickled</code> arrays in my frontmatter. The first is used to indicate in which folder the file (or note in this case) should be, and the latter to mark the note as reviewed at a particular date. This allows me to have mutliple reminders in the future.</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">---</span>
+<span class="na">tickler</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">2025-09-11</span><span class="pi">,</span> <span class="nv">2026-03-01</span><span class="pi">]</span>
+<span class="na">tickled</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">2025-09-11</span><span class="pi">]</span>
+<span class="nn">---</span>
+</code></pre></div></div>
+<p>In the example above, I set a reminder for September 11th, and I have marked it as reviewed (through the <code class="language-plaintext highlighter-rouge">tickled</code> field) on the same date. I would then expect this note to only appear in my March 1st, 2026 daily note. If <code class="language-plaintext highlighter-rouge">tickled</code> had been empty, I would expect the note to appear in my daily note template starting from September 11th onwards (i.e. before March 1st, 2026).</p>
+
+<p>My initial, simpler, query did not produce the expected behaviour:</p>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">TABLE</span> <span class="n">aliases</span> <span class="k">as</span> <span class="n">Title</span><span class="p">,</span> <span class="n">file</span><span class="p">.</span><span class="n">etags</span> <span class="k">as</span> <span class="n">Tags</span><span class="p">,</span> <span class="n">tickler</span> <span class="k">as</span> <span class="nb">Date</span>
+<span class="k">WHERE</span> <span class="n">tickler</span> <span class="k">AND</span> <span class="k">max</span><span class="p">(</span><span class="n">tickler</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">date</span><span class="p">(</span><span class="mi">2025</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">04</span><span class="p">)</span> <span class="k">AND</span> <span class="k">max</span><span class="p">(</span><span class="n">tickled</span><span class="p">)</span> <span class="o">&lt;</span> <span class="k">max</span><span class="p">(</span><span class="n">tickler</span><span class="p">)</span>
+</code></pre></div></div>
+<p>The use of <code class="language-plaintext highlighter-rouge">max</code> broke the ability to mark notes to be tickled at multiple future dates, as this query would only show the later date. I had to switch to a simple DataviewJS implementation that allowed more complex logic around matching time periods. Here is the script in its entirety below and in this <a href="https://gist.github.com/joeydumont/04fad2ccee08c02f750a82e93ee0867e">Gist</a>.</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Match up time periods for the tickler file and show items that haven't been tickled yet.</span>
+<span class="c1">// Match up time periods for the tickler file and show items that haven't been tickled yet.</span>
+<span class="c1">//</span>
+<span class="c1">// My tickler notes have two properties set up:</span>
+<span class="c1">//   - tickler: [YYYY-MM-DD, YYYY-MM-DD,...]</span>
+<span class="c1">//   - tickled: [YYYY-MM-DD, ...]</span>
+<span class="c1">//</span>
+<span class="c1">// I want a note to appear in my tickler file whenever the current date is larger than the largest element</span>
+<span class="c1">// in tickler smaller than the largest element in tickled. That will allow me to have multiple tickler</span>
+<span class="c1">// dates in the future.</span>
+<span class="c1">// @param { dv.page }           page - page fed through a dv.page query.</span>
+<span class="c1">// @param { dv.luxon.DateTime } date - date passed as as luxon.DateTime object,</span>
+<span class="c1">//                                     the same as the DataView dates. Makes it easier to do</span>
+<span class="c1">//                                     date comparisons.</span>
+<span class="kd">function</span> <span class="nf">tickler_file</span><span class="p">(</span><span class="nx">page</span><span class="p">,</span> <span class="nx">date</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Helper function for comparing Date objects.</span>
+    <span class="kd">function</span> <span class="nf">isSameOrBeforeDay</span><span class="p">(</span><span class="nx">d1</span><span class="p">,</span> <span class="nx">d2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">d1</span><span class="p">.</span><span class="nf">hasSame</span><span class="p">(</span><span class="nx">d2</span><span class="p">,</span> <span class="dl">"</span><span class="s2">day</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="nx">d1</span> <span class="o">&lt;</span> <span class="nx">d2</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">debugger</span><span class="p">;</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">date</span><span class="p">.</span><span class="nx">isLuxonDateTime</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nc">Error</span><span class="p">(</span><span class="s2">`You passed an invalid date into the query.
+            Make sure to wrap the date in dv.luxon.DateTime.fromISO('YYYY-MM-DD')`</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickler</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// No tickler field, probably a bad query. Simply return false.</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kd">const</span> <span class="nx">tickler_dates</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">isArray</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickler</span><span class="p">)</span>
+        <span class="p">?</span> <span class="nx">page</span><span class="p">.</span><span class="nx">tickler</span>
+        <span class="p">:</span> <span class="p">[</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickler</span><span class="p">];</span>
+
+    <span class="c1">// If it hasn't been tickled yet, find the minimum date in the tickler array.</span>
+    <span class="k">if </span><span class="p">(</span><span class="o">!</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickled</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Find the min</span>
+        <span class="kd">const</span> <span class="nx">min_tickler_date</span> <span class="o">=</span> <span class="nx">tickler_dates</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">latest</span><span class="p">,</span> <span class="nx">current</span><span class="p">)</span> <span class="o">=&gt;</span>
+            <span class="nx">latest</span> <span class="o">&lt;</span> <span class="nx">current</span> <span class="p">?</span> <span class="nx">latest</span> <span class="p">:</span> <span class="nx">current</span><span class="p">,</span>
+        <span class="p">);</span>
+        <span class="k">return</span> <span class="nf">isSameOrBeforeDay</span><span class="p">(</span><span class="nx">min_tickler_date</span><span class="p">,</span> <span class="nx">date</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="c1">// If it has been tickled in the past, check whether the next tickler date is the same or before</span>
+    <span class="c1">// the current date.</span>
+    <span class="kd">const</span> <span class="nx">tickled_dates</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nf">isArray</span><span class="p">(</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickled</span><span class="p">)</span>
+        <span class="p">?</span> <span class="nx">page</span><span class="p">.</span><span class="nx">tickled</span>
+        <span class="p">:</span> <span class="p">[</span><span class="nx">page</span><span class="p">.</span><span class="nx">tickled</span><span class="p">];</span>
+    <span class="kd">const</span> <span class="nx">latest_tickled</span> <span class="o">=</span> <span class="nx">tickled_dates</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">b</span> <span class="o">&gt;</span> <span class="nx">a</span> <span class="p">?</span> <span class="nx">b</span> <span class="p">:</span> <span class="nx">a</span><span class="p">));</span>
+    <span class="kd">const</span> <span class="nx">remaining_ticklers</span> <span class="o">=</span> <span class="nx">tickler_dates</span><span class="p">.</span><span class="nf">filter</span><span class="p">((</span><span class="nx">d</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">d</span> <span class="o">&gt;</span> <span class="nx">latest_tickled</span><span class="p">);</span>
+
+    <span class="c1">// If there are no remaining ticklers, we are done.</span>
+    <span class="k">if </span><span class="p">(</span><span class="nx">remaining_ticklers</span><span class="p">.</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+
+    <span class="kd">const</span> <span class="nx">next_tickler</span> <span class="o">=</span> <span class="nx">remaining_ticklers</span><span class="p">.</span><span class="nf">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="nx">a</span> <span class="o">&lt;=</span> <span class="nx">b</span> <span class="p">?</span> <span class="nx">a</span> <span class="p">:</span> <span class="nx">b</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="nf">isSameOrBeforeDay</span><span class="p">(</span><span class="nx">next_tickler</span><span class="p">,</span> <span class="nx">date</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">exports</span><span class="p">.</span><span class="nx">tickler_file</span> <span class="o">=</span> <span class="nx">tickler_file</span><span class="p">;</span>
+</code></pre></div></div>
+<p>If <code class="language-plaintext highlighter-rouge">tickled</code> is not set, we just need to check the minimal value of <code class="language-plaintext highlighter-rouge">tickler</code> against the current date.  If both fields are populated, we find the the latest date in <code class="language-plaintext highlighter-rouge">tickled</code>, and check whether there are any fields in <code class="language-plaintext highlighter-rouge">tickler</code> that are later than that. If there are, we check that against the current date. And that’s about the size of it.</p>
+
+<p>Note that we reuse the Luxon library to compare dates here. It is already used by DataView to parse the fields of the <code class="language-plaintext highlighter-rouge">tickler</code> and <code class="language-plaintext highlighter-rouge">tickled</code> array.  It is easier to do this on query side, because this function is being loaded in its own sandbox, and doesn’t have access to the same environment DataView does. The script checks whether the date passed it is a <code class="language-plaintext highlighter-rouge">Luxon.DateTime</code> object.</p>
+
+<p>This function gets called in my <em>Daily note</em> template as:</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">utils</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">dv</span><span class="p">.</span><span class="nx">io</span><span class="p">.</span><span class="nf">load</span><span class="p">(</span><span class="dl">"</span><span class="s2">/Utils/dataviewjs_utils.js</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">text</span><span class="dl">"</span><span class="p">);</span>
+<span class="nf">eval</span><span class="p">(</span><span class="nx">utils</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">pages</span> <span class="o">=</span> <span class="nx">dv</span><span class="p">.</span><span class="nf">pages</span><span class="p">()</span>
+	<span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">p</span><span class="p">.</span><span class="nx">tickler</span><span class="p">)</span>
+	<span class="p">.</span><span class="nf">where</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="nx">exports</span><span class="p">.</span><span class="nf">tickler_file</span><span class="p">(</span>
+		<span class="nx">p</span><span class="p">,</span>
+		<span class="nx">dv</span><span class="p">.</span><span class="nx">luxon</span><span class="p">.</span><span class="nx">DateTime</span><span class="p">.</span><span class="nf">fromISO</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;% tp.date.now(</span><span class="dl">"</span><span class="nx">YYYY</span><span class="o">-</span><span class="nx">MM</span><span class="o">-</span><span class="nx">DD</span><span class="dl">"</span><span class="s2">, 0, tp.file.title, </span><span class="dl">"</span><span class="nx">YYYY</span><span class="o">-</span><span class="nx">MM</span><span class="o">-</span><span class="nx">DD</span><span class="o">-</span><span class="nx">dddd</span><span class="dl">"</span><span class="s2">) %&gt;</span><span class="dl">"</span><span class="p">))</span>
+	<span class="p">);</span>
+<span class="nx">dv</span><span class="p">.</span><span class="nf">table</span><span class="p">(</span>
+	<span class="p">[</span><span class="dl">"</span><span class="s2">File</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Tags</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Date</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">Date tickled</span><span class="dl">"</span><span class="p">],</span>
+	<span class="nx">pages</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="nx">p</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">p</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">link</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">file</span><span class="p">.</span><span class="nx">etags</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">tickler</span><span class="p">,</span> <span class="nx">p</span><span class="p">.</span><span class="nx">tickled</span><span class="p">])</span>
+<span class="p">);</span>
+</code></pre></div></div>
+<p>I am using <a href="https://silentvoid13.github.io/Templater/">Templater</a> to name my daily notes as “YYYY-MM-DD-dddd”, and so the <code class="language-plaintext highlighter-rouge">tp.date.now</code> call above just parses out the date from the file name.</p>
+
+<div class="callout">
+    <div class="callout-title">
+    Note
+    </div>
+    <div class="callout-content">
+        <p><code class="language-plaintext highlighter-rouge">dv.io.load()</code> is used to ensure that the query works on mobile as well as desktop. My previous approach used <code class="language-plaintext highlighter-rouge">app.vault.adapter.basePath</code>, but that isn't available on mobile. Let me know if you have a better solution!</p>
+    </div>
+</div>
+
+<p><br /></p>
+
+<p>Fig. 2 shows a rendered query in my Obsidian Vault. Once that blog post is published I can finally close that project and mark the file as reviewed in my suspense file!</p>
+
+<figure style="text-align:center;">
+    <img src="https://blog.joey-dumont.ca/assets/posts/tickler-file/rendered-suspense-file.png" width="700" />
+    <figcaption><b>Figure 2</b>: Rendered suspense file in my Obsidian Vault.</figcaption>
+</figure>
+
+<!-- Add examples of files in the tickler area in a rendered daily note. -->
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Hopefully you’ve found the post useful, especially with the link to the Gist at the top. This post basically like reads like a recipe blog, except I didn’t refer to <a href="https://www.experimental-history.com/i/162370468/">9/11</a>.</p>
+
+<p>If you’d like to see my other posts, the easiest way to consume this site is through <a href="/feed.xml">RSS</a>. There are even feed categories for selected viewing: <a href="/feed/music.xml">music</a>,
+<a href="/feed/writing.xml">writing</a>,
+<a href="/feed/technology.xml">technology</a>.
+I love RSS, and I think you <a href="https://pluralistic.net/2024/10/16/keep-it-really-simple-stupid/">should</a> <a class="citation" href="#corydoctorowYouShouldBe2024"> [4]</a> too!</p>
+
+<h2 id="resources">Resources</h2>
+
+<ol class="bibliography"><li><span id="allenGettingThingsDone2015">D. Allen, <i>Getting Things Done: The Art of Stress-Free Productivity</i>, Revised edition (Penguin Books, 2015).</span></li>
+<li><span id="alangGTDObsidianReadytogo2023">AlanG, <a href="https://forum.obsidian.md/t/gtd-with-obsidian-a-ready-to-go-gtd-system-with-task-sequencing-quick-add-template-waiting-on-someday-maybe-and-more/65502">“GTD with Obsidian: A Ready-to-Go GTD System with Task Sequencing, Quick-add Template, Waiting-on, Someday/Maybe, and More”</a>. Published on August 21, 2023. Accessed on September 16, 2025.</span></li>
+<li><span id="corydoctorowKeepingSuspenseFile2024">Cory Doctorow, <a href="https://pluralistic.net/2024/10/26/one-weird-trick/">“Keeping a Suspense File Gives You Superpowers”</a>. Published on October 26, 2024. Accessed on April 21, 2025.</span></li>
+<li><span id="corydoctorowYouShouldBe2024">Cory Doctorow, <a href="https://pluralistic.net/2024/10/16/keep-it-really-simple-stupid/">“You Should Be Using an RSS Reader”</a>. Published on October 16, 2024. Accessed on April 21, 2025.</span></li></ol>
+
+        
+        
+          <div id="giscus_thread"></div>
+          
+<script src="https://giscus.app/client.js"
+        data-repo="joeydumont/joeydumont.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMTQwNzI5NjU="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOBsydhc4Cx2l0"
+        data-mapping="og:title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://blog.joey-dumont.ca/writing/note-taking-zotero-obsidian/" class="btn" title="Zotero+Obsidian: a workflow to process articles, books, and other media">Previous</a>
+      
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2025 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	<a href="https://linkedin.com/in/joeydumont" title="Joey Dumont on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+	<a href="https://stackexchange.com/users/1514592/joey-dumont" title="Joey Dumont on StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-2x"></i></a>
+	
+	
+	<a href="https://github.com/joeydumont" title="Joey Dumont on Github" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+	<a rel="me" href="https://mast.hpc.social/@Joey" title="Joey Dumont on Mastodon" target="_blank"><i class="fa-brands fa-mastodon fa-2xl"></i></a>
+	
+    
+	
+  <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://blog.joey-dumont.ca';
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-3.7.1.min.js"><\/script>')</script>
+<script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
+
+
+</body>
+</html>

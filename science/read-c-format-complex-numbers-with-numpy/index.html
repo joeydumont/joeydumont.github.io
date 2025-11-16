@@ -1,0 +1,264 @@
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<head>
+
+
+<meta charset="utf-8">
+<title>Loading complex numbers in the C++ format from text files into NumPy &#8211; Study of Nature</title>
+<meta name="description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
+">
+<meta name="keywords" content="complex numbers, numpy, C++, genfromtxt">
+
+
+<!-- Twitter Cards -->
+<meta name="twitter:title" content="Loading complex numbers in the C++ format from text files into NumPy">
+<meta name="twitter:description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
+">
+
+<meta name="twitter:creator" content="@jayd_phys">
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.joey-dumont.ca/images/site-logo.png">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_CA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Loading complex numbers in the C++ format from text files into NumPy">
+<meta property="og:description" content="In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+genfromtxt does not recognize the C++ complex number format.
+">
+<meta property="og:url" content="https://blog.joey-dumont.ca/science/read-c-format-complex-numbers-with-numpy/">
+<meta property="og:site_name" content="Study of Nature">
+
+
+
+
+
+<link rel="canonical" href="https://blog.joey-dumont.ca/science/read-c-format-complex-numbers-with-numpy/">
+<link href="https://blog.joey-dumont.ca/feed.xml" type="application/atom+xml" rel="alternate" title="Study of Nature Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://blog.joey-dumont.ca/assets/css/main.css">
+<!-- Webfonts -->
+<!-- <script src="https://use.edgefonts.net/source-sans-pro:n2,i2,n3,i3,n4,i4,n6,i6,n7,i7,n9,i9;source-code-pro:n4,n7;volkhov.js"></script> -->
+<script src="https://kit.fontawesome.com/fbecd416cb.js" crossorigin="anonymous"></script>
+<!-- Academicons -->
+<link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<meta http-equiv="cleartype" content="on">
+
+<!-- HTML5 Shiv and Media Query Support -->
+<!--[if lt IE 9]>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/html5shiv.min.js"></script>
+  <script src="https://blog.joey-dumont.ca/assets/js/vendor/respond.min.js"></script>
+<![endif]-->
+
+<!-- Modernizr -->
+<script src="https://blog.joey-dumont.ca/assets/js/vendor/modernizr-2.7.1.custom.min.js"></script>
+
+
+<!-- MathJax -->
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+<!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="https://blog.joey-dumont.ca/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="https://blog.joey-dumont.ca/images/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://blog.joey-dumont.ca/images/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://blog.joey-dumont.ca/images/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://blog.joey-dumont.ca/images/apple-touch-icon-144x144-precomposed.png">
+
+<meta name="fediverse:creator" content="@Joey@mast.hpc.social">
+</head>
+
+<body id="post">
+
+<div class="navigation-wrapper">
+	<nav role="navigation" id="site-nav" class="animated drop">
+	    <ul>
+      <li><a href="https://blog.joey-dumont.ca/" rel="home" title="Study of Nature"><img src="https://blog.joey-dumont.ca/images/site-logo.png" width="25" height="25" alt="Study of Nature logo" class="animated fadeInDown"></a>
+      
+		    
+		    <li><a href="https://blog.joey-dumont.ca/blog/" >Blog</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/articles/" >Academic Publications</a></li>
+		  
+		    
+		    <li><a href="https://blog.joey-dumont.ca/about/" >About</a></li>
+		  
+	    </ul>
+	</nav>
+</div><!-- /.navigation-wrapper -->
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+
+
+
+
+<div class="js-menu-screen menu-screen"></div>
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    
+    <div class="entry-wrapper">
+      <header class="entry-header">
+        
+          <h1 class="entry-title">Loading complex numbers in the C++ format from text files into NumPy</h1>
+        
+        <ul class="entry-tags">
+          <li><a href="https://blog.joey-dumont.ca/tags/#complex numbers" title="Pages tagged complex numbers">complex numbers</a></li><li><a href="https://blog.joey-dumont.ca/tags/#numpy" title="Pages tagged numpy">numpy</a></li><li><a href="https://blog.joey-dumont.ca/tags/#C++" title="Pages tagged C++">C++</a></li><li><a href="https://blog.joey-dumont.ca/tags/#genfromtxt" title="Pages tagged genfromtxt">genfromtxt</a></li>
+        </ul>
+      </header>
+      <footer class="entry-meta">
+        
+        
+          <img src="https://blog.joey-dumont.ca/images/jayd_photo.JPG" class="bio-photo" alt="Joey Dumont bio photo"/>
+        
+        <span class="author vcard">By <span class="fn">Joey Dumont</span></span>
+        <span class="entry-date date published"><time datetime="2018-07-24T00:00:00-04:00"><i class="far fa-calendar"></i> July 24, 2018</time></span>
+        
+        
+        
+        
+      </footer>
+      <div class="entry-content">
+        <p>In my workflow, I typically use C++ for production code and Python for data
+post-processing and data analysis. A major annoyance is that NumPy’s
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> does not recognize the C++ complex number format.</p>
+
+<p>Of course, one could write their own I/O for their C++ production codes, but
+most libraries have built-in I/O functions and it’s just a pain. It’s much
+easier to get Python to read the C++ format!</p>
+
+<h3 id="the-issue">The Issue</h3>
+
+<p>C++ represents a given complex number \(z=a+ib\) as <code class="language-plaintext highlighter-rouge">(a,b)</code>. When using
+<code class="language-plaintext highlighter-rouge">genfromtxt</code> to read a file containing an array of complex numbers, the obvious</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">numpy</span> <span class="k">as</span> <span class="n">np</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">genfromtxt</span><span class="p">(</span><span class="sh">"</span><span class="s">file</span><span class="sh">"</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+</code></pre></div></div>
+<p>yields <code class="language-plaintext highlighter-rouge">NaN</code>s for the real part and <code class="language-plaintext highlighter-rouge">0</code>s for the imaginary part. To get Python
+to understand the format, an easy solution is to first parse the elements of the
+array as strings, then use a lambda function to effectively cast the strings
+as complex numbers. Here’s the code.</p>
+
+<h3 id="the-code">The Code</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">LoadComplexData</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">):</span>
+    <span class="sh">"""</span><span class="s">
+    Load complex data in the C++ format in numpy.
+    </span><span class="sh">"""</span>
+    <span class="n">array_as_strings</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">genfromtext</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span><span class="o">**</span><span class="n">genfromtext_args</span><span class="p">)</span>
+    <span class="n">complex_parser</span> <span class="o">=</span> <span class="n">np</span><span class="p">.</span><span class="nf">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nf">complex</span><span class="p">(</span><span class="o">*</span><span class="nf">eval</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+    <span class="k">return</span> <span class="nf">complex_parser</span><span class="p">(</span><span class="n">array_as_strings</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>First, we load the array of complex numbers as an array of strings in Python.
+Then, we use <code class="language-plaintext highlighter-rouge">np.vectorize</code> to define a callable that takes each of the array
+and applies the <code class="language-plaintext highlighter-rouge">complex(*eval(x))</code> to it. <code class="language-plaintext highlighter-rouge">eval()</code> takes the string and evaluates
+it to a tuple of floats. The <code class="language-plaintext highlighter-rouge">*</code> operator unpacks the tuple such that we are calling
+<code class="language-plaintext highlighter-rouge">complex(a,b)</code> properly. This returns a complex number in Python format.</p>
+
+<p>A solution based on a <code class="language-plaintext highlighter-rouge">genfromtxt</code> converter could be more elegant, but I wasn’t
+able to find a way to apply a converter to every column of the input file
+instead of a specific column.</p>
+
+<p>You can try it for yourself with these
+<a href="https://blog.joey-dumont.ca/assets/posts/read-c-format-complex-numbers-with-numpy/complex_data_example.tar.gz">files</a>. This was tested with Numpy v1.14.5.</p>
+
+        
+        
+          <div id="giscus_thread"></div>
+          
+<script src="https://giscus.app/client.js"
+        data-repo="joeydumont/joeydumont.github.io"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMTQwNzI5NjU="
+        data-category="Blog comments"
+        data-category-id="DIC_kwDOBsydhc4Cx2l0"
+        data-mapping="og:title"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+
+        
+      </div><!-- /.entry-content -->
+    </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="https://blog.joey-dumont.ca/technology/vnc-through-ssh-how-to-control-your-desktop-remotely/" class="btn" title="vnc through SSH: how to control your desktop remotely">Previous</a>
+      
+      
+        <a href="https://blog.joey-dumont.ca/science/zernike-polynomials-coefficients/" class="btn" title="Converting between different Zernike polynomial index systems">Next</a>
+      
+    </nav><!-- /.pagination -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo" class="entry-wrapper">
+    
+
+<span>&copy; 2025 Joey Dumont. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> using a <a href="https://github.com/valandil/" rel="nofollow">fork</a> of the <a href="https://mademistakes.com/work/so-simple-jekyll-theme/" rel="nofollow">So Simple Theme</a>.</span>
+<div class="social-icons">
+	
+	
+	
+	<a href="https://linkedin.com/in/joeydumont" title="Joey Dumont on LinkedIn" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+	<a href="https://stackexchange.com/users/1514592/joey-dumont" title="Joey Dumont on StackExchange" target="_blank"><i class="fab fa-stack-exchange fa-2x"></i></a>
+	
+	
+	<a href="https://github.com/joeydumont" title="Joey Dumont on Github" target="_blank"><i class="fab fa-github-square fa-2x"></i></a>
+	<a rel="me" href="https://mast.hpc.social/@Joey" title="Joey Dumont on Mastodon" target="_blank"><i class="fa-brands fa-mastodon fa-2xl"></i></a>
+	
+    
+	
+  <a href="https://blog.joey-dumont.ca/feed.xml" title="Atom/RSS feed"><i class="fa fa-rss-square fa-2x"></i></a>
+</div><!-- /.social-icons -->
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+<script type="text/javascript">
+  var BASE_URL = 'https://blog.joey-dumont.ca';
+</script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://blog.joey-dumont.ca/assets/js/vendor/jquery-3.7.1.min.js"><\/script>')</script>
+<script src="https://blog.joey-dumont.ca/assets/js/scripts.min.js"></script>
+
+
+</body>
+</html>
