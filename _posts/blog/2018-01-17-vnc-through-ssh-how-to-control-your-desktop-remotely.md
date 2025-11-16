@@ -8,6 +8,8 @@ tags:
  - remote desktop
  - linux
 share: true
+categories:
+  - technology
 ---
 
 I won't go into too much detail in this post, as there are [multiple][1] [guides][2]

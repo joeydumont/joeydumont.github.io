@@ -7,6 +7,8 @@ tags:
  - indexing conventions
  - Noll
  - Phasics
+categories:
+  - science
 ---
 
 The Zernike polynomials are a very popular basis to describe aberrations in the

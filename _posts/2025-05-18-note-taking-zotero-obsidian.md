@@ -16,7 +16,7 @@ date: 2025-05-18 13:00 -0400
 
 I consume textual media from various sources:  RSS feeds, Reddit, friends sharing links, etc. In conversations, I would often find myself saying "I read that somewhere, I can't remember where", and then try to turn to Google to find the article again, never to find it.
 
-I also struggled to internalize the ideas, concepts, and conclusions from the media I consumed.  
+I also struggled to internalize the ideas, concepts, and conclusions from the media I consumed.
 
 To try to fix this, I added some structure into how I read and process articles, blog posts, papers, and even podcasts, so that I could make better sense of them, and hopefully gain some deeper understanding of the subjects I was reading about.
 
@@ -30,9 +30,9 @@ This process aims to:
   - integrate with my existing Obsidian vault.
 
 
-> [Obsidian](https://obsidian.md/) is a very popular Markdown editor, and I have been using it daily as a way to write down pretty much anything: journal entries, daily todoes, longer form notes about subjects I'm starting to learn, how to properly file my taxes... It has a rich plugin ecosystem that can change it from an editor to a full dashboard for your life. 
+> [Obsidian](https://obsidian.md/) is a very popular Markdown editor, and I have been using it daily as a way to write down pretty much anything: journal entries, daily todoes, longer form notes about subjects I'm starting to learn, how to properly file my taxes... It has a rich plugin ecosystem that can change it from an editor to a full dashboard for your life.
 
-## Zotero 
+## Zotero
 
 [Zotero](https://www.zotero.org/) is the *de facto* tool for collecting and annotating academic articles.  It can automatically add items based on ISBN, arXiv ID, DOI, and other well-known identifiers.  The Zotero browser extension, called the [Zotero Connector](https://www.zotero.org/download/connectors), also acts as a power web clipper so you can ingest blog posts and articles from the web. With version 7.0, Zotero introduced the ability to highlight and annotate locally saved web snapshots—an essential feature in my workflow."
 
@@ -54,7 +54,7 @@ This structure acts both as a way to remove the friction of deciding which colle
 
 I considered and tried other options for tracking articles, like adding a `read-on-date` key in the Extra field in Zotero,  or as a tag, but I always ended up either forgetting, or simply dropping an `#inbox` tag and then never looking at the article again. Moving the data collection at ingestion time made me  do it more consistently. Let me know if you have a better solution!
 
-## Obsidian 
+## Obsidian
 
 On its own,  Zotero offers a  functional setup.  You can easily access and search through a day or a month's worth of articles, and the literature notes associated with them. Still, I wanted to explore the possibility of integrating this data into Obsidian, as it is where I draft most of my long-form notes and articles, and the idea of having all of my notes searchable from one location was pretty appealing.
 
@@ -78,7 +78,7 @@ One of the goals of importing my notes from Zotero was *idempotency* and [*bulk 
 
 This seems like it would limit search, but you can fix it by adding aliases in the import, e.g. the title of the item. That is a good segue to talk about the Nunjucks template that I use.
 
-The Nunjucks templating system is very flexible. It allows for looping constructs and some conditional logic. My own import template is pretty long, with approximately 90 lines, so I'll break it down here. You can see the full template [here](https://gist.github.com/joeydumont/048ef76487b6e9a2b83380c896a0095e). 
+The Nunjucks templating system is very flexible. It allows for looping constructs and some conditional logic. My own import template is pretty long, with approximately 90 lines, so I'll break it down here. You can see the full template [here](https://gist.github.com/joeydumont/048ef76487b6e9a2b83380c896a0095e).
 
 Let's start by looking at the YAML frontmatter.  There's a lot in there, but for me the most important fields are `title`, `year`,  `aliases`, and `collections`.  Both the `title` and `aliases` are indexed by Obsidian search (and Omnisearch), so when you want to link to a Zotero import, starting to type `[[]]` will give you suggestions based on the title or `citekey`, so you can easily search by author or title. I use the collections field for a specific DataviewJS query that allows me to see what articles I've read on a particular day in my daily note, but this is a topic for another day.
 
@@ -92,7 +92,7 @@ citekey: "@{{citekey}}"
 itemType: {{itemType}}
 {% endif -%}
 {% if itemType == "journalArticle" -%}
-journal: {{publicationTitle}} 
+journal: {{publicationTitle}}
 {% endif -%}
 {% if itemType == "podcast" -%}
 podcastSeries: "{{seriesTitle | lower}}"
@@ -101,7 +101,7 @@ podcastSeries: "{{seriesTitle | lower}}"
 volume: {{volume}}
 {% endif -%}
 {% if issue -%}
-issue: {{issue}} 
+issue: {{issue}}
 {% endif -%}
 {% if itemType == "bookSection" -%}
 book: {{bookTitle}}
@@ -116,10 +116,10 @@ location: {{place}}
 pages**: {{pages}}
 {% endif -%}
 {% if DOI -%}
-doi: {{DOI}} 
+doi: {{DOI}}
 {% endif -%}
 {% if ISBN -%}
-isbn: {{ISBN}} 
+isbn: {{ISBN}}
 {% endif -%}
 aliases:
   - "{{citekey}}"
@@ -152,11 +152,11 @@ Let's go through the content block by block. There are a lot of brackets, and es
 {% if hashTags -%}
 {{hashTags | replace(",", " ")}}
 {% endif %}
-### Attachments 
+### Attachments
 
 {% if attachments %}
 {% for attachment in attachments | filterby("path", "endswith", ".pdf") -%}
-  - [{{attachment.title}}]({{attachment.desktopURI}})  
+  - [{{attachment.title}}]({{attachment.desktopURI}})
 {% endfor -%}
 {%- endif %}
 {% endraw -%}
@@ -166,7 +166,7 @@ The first heading is a link that will open up Zotero at the particular item.  Th
 ```
 [Never Split the Difference: Negotiating As If Your Life Depended on It](zotero://select/library/items/2QI3X6TM)
 ```
-a type of link you're used to seeing if you use the Zutilo plugin. 
+a type of link you're used to seeing if you use the Zutilo plugin.
 
 The two next blocks import the tags, and ensure that they are formatted in a way that Obsidian understands (not comma separated, but space separated).
 
@@ -192,7 +192,7 @@ The Reference block only shows the rendered citation based on your citation styl
 {%- raw -%}
 ## Notes
 
-{% for note in notes -%} 
+{% for note in notes -%}
 ### [Note {{loop.index}}]({{note.desktopURI}})
 
 {{note.note}}

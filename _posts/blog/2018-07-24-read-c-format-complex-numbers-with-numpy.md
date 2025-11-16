@@ -7,6 +7,8 @@ tags:
  - numpy
  - C++
  - genfromtxt
+categories:
+  - science
 ---
 
 In my workflow, I typically use C++ for production code and Python for data

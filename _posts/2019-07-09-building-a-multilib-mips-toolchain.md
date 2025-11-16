@@ -10,6 +10,8 @@ tags:
  - mips64
  - mips
  - toolchains
+categories:
+  - technology
 ---
 
 This article assumes that you know to compile a cross-compiler from scratch. If
