@@ -249,6 +249,15 @@ span + .entry-title {
 ol.bibliography {
     padding-left: (.5 * $gutter);
     list-style-type: squared-numbers;
+
+   	/* nice link underlines */
+	li a {
+	    border-bottom: 1px dotted lighten($link-color, 50);
+
+		&:hover {
+			border-bottom-style: solid;
+		}
+	}
 }
 
 /*

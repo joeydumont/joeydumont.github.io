@@ -230,3 +230,17 @@ pre {
 b, i, strong, em, blockquote, p, q, span, figure, img, h1, h2, header, input, a, .highlight {
 	@include transition(all 0.2s ease);
 }
+
+// Add some customizations for code blocks outside of the
+// syntax highlighting in _syntax.scss, which is managed by
+// rougify.
+.highlight {
+    @include font-size(14);
+    font-weight: 500;
+    border-radius: 15px;
+}
+
+.highlight pre {
+    padding: 10px 10px 10px 10px;
+    overflow: auto;
+}

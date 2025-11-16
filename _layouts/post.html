@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 {% include head.html %}
+<meta name="fediverse:creator" content="@Joey@mast.hpc.social">
 </head>
 
 <body id="post">
@@ -46,6 +47,10 @@
         {% if site.owner.disqus-shortname and page.comments or site.comments %}
           <div id="disqus_thread"></div><!-- /#disqus_thread -->
           {% include disqus-comments.html %}
+        {% endif %}
+        {% if site.comments and site.giscus %}
+          <div id="giscus_thread"></div>
+          {% include giscus-comments.html %}
         {% endif %}
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
