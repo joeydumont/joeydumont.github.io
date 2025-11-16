@@ -60,6 +60,20 @@
       </else>
     </choose>
   </macro>
+  <macro name="access-date">
+    <choose>
+      <if variable="accessed">
+        <date variable="accessed">
+          <date-part name="month" form="long" suffix=" "/>
+          <date-part name="day" suffix=", "/>
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" form="short"/>
+      </else>
+    </choose>
+  </macro>
   <macro name="publisher">
     <group prefix="(" suffix=")" delimiter=", ">
       <text variable="publisher"/>
@@ -206,6 +220,13 @@
           <text variable="title" prefix="&quot;" suffix=",&quot; "/>
           <text variable="URL" suffix=", "/>
           <text variable="note"/>
+        </else-if>
+        <else-if type="online">
+          <text variable="URL" prefix="&lt;a href=&quot;" suffix="&quot;&gt;"/>
+          <text variable="title" quotes="true" suffix="&lt;/a&gt;. "/>
+          <text variable="note"/>
+          <text macro="day-date" prefix="Published on " suffix=". "/>
+          <text macro="access-date" prefix="Accessed on "/>
         </else-if>
         <else-if type="personal_communication">
           <text macro="personal-communication"/>
